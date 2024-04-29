@@ -75,45 +75,45 @@
 ?>
 
 <?php
-$serveur = "vitalab-new-gen.mysql.database.azure.com";
-$dbname = "vitalab-new-gen";
-$user = "albinrvi";
-$pass = "Ari69.008";
+// $serveur = "vitalab-new-gen.mysql.database.azure.com";
+// $dbname = "vitalab-new-gen";
+// $user = "albinrvi";
+// $pass = "Ari69.008";
 
-$dbco = new PDO("mysql:host=$serveur;dbname=$dbname", $user, $pass);
-$dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// $dbco = new PDO("mysql:host=$serveur;dbname=$dbname", $user, $pass);
+// $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupère les données du formulaire
-    $login = $_POST["login"];
-    $password = $_POST["password"];
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     // Récupère les données du formulaire
+//     $login = $_POST["login"];
+//     $password = $_POST["password"];
 
-    try {
-        //On vérifie si le login existe déjà et si le mot de passe correspond
-        $sth = $dbco->prepare("SELECT * FROM utilisateur WHERE Nom_utilisateur = :login AND MDP = :password");
-        $sth->bindParam('login', $login);
-        $sth->bindParam('password', $password);
-        $sth->execute();
-        $count = $sth->rowCount();
-        $role = $sth->fetchColumn(4);
-        if ($count == 1 and $role == '1') {
-            header("Location:admin.html");
-            exit;
-        } else if ($count == 1 and $role == '2') {
-            header("Location:comptable.html");
-            exit;
-        } else if ($count == 1 and $role == '3') {
-            header("Location:commercial.html");
-            exit;
-        } else {
-            // Rediriger vers la page de connexion avec un message d'erreur
-            header("Location:testh.html");
-            exit;
-        }
-    } catch (PDOException $e) {
-        echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
-    }
-}
+//     try {
+//         //On vérifie si le login existe déjà et si le mot de passe correspond
+//         $sth = $dbco->prepare("SELECT * FROM utilisateur WHERE Nom_utilisateur = :login AND MDP = :password");
+//         $sth->bindParam('login', $login);
+//         $sth->bindParam('password', $password);
+//         $sth->execute();
+//         $count = $sth->rowCount();
+//         $role = $sth->fetchColumn(4);
+//         if ($count == 1 and $role == '1') {
+//             header("Location:admin.html");
+//             exit;
+//         } else if ($count == 1 and $role == '2') {
+//             header("Location:comptable.html");
+//             exit;
+//         } else if ($count == 1 and $role == '3') {
+//             header("Location:commercial.html");
+//             exit;
+//         } else {
+//             // Rediriger vers la page de connexion avec un message d'erreur
+//             header("Location:testh.html");
+//             exit;
+//         }
+//     } catch (PDOException $e) {
+//         echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
+//     }
+// }
 ?>
 
 <!DOCTYPE html>
