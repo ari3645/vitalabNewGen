@@ -120,6 +120,8 @@ $dbname = "vitalab-new-gen";
 $user = "albinrvi";
 $pass = "Ari69.008";
 
+echo "test";
+
 $dbco = new PDO("mysql:host=$serveur;dbname=$dbname", $user, $pass);
 $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
