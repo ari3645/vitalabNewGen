@@ -1,50 +1,48 @@
-<!-- <?php
-// echo "test";
-// $serveur = "vitalab-new-gen.mysql.database.azure.com";
-// $dbname = "vitalab-new-gen";
-// $user = "albinrvi";
-// $pass = "Ari69.008";
+<?php
+echo "test";
+$serveur = "vitalab-new-gen.mysql.database.azure.com";
+$dbname = "vitalab-new-gen";
+$user = "albinrvi";
+$pass = "Ari69.008";
 
-// $dbco = new PDO("mysql:host=$serveur;dbname=$dbname",$user,$pass);
-// $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$dbco = new PDO("mysql:host=$serveur;dbname=$dbname",$user,$pass);
+$dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     // Récupère les données du formulaire
-//     $login = $_POST["id"];
-//     $password = $_POST["password"];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Récupère les données du formulaire
+    $login = $_POST["id"];
+    $password = $_POST["password"];
 
-//     try{
+    try{
 
-//         //On vérifie si le login existe déjà et si le mot de passe correspond
-//         $sth = $dbco->prepare("SELECT * FROM utilisateur WHERE Nom_utilisateur = :login AND MDP = :password");
-//         $sth->bindParam('login',$login);
-//         $sth->bindParam('password',$password);
-//         $sth->execute();
-//         $count = $sth->rowCount();
-//         $role = $sth->fetchColumn(4);
-//         if($count == 1 and $role == '1'){
-//             echo 'Connexion réussie admin';
-//            header("Location:admin.html");
-//         }else if ($count == 1 and $role == '2'){
-//             echo 'Connexion réussie comptable';
-//             header("Location:comptable.html");
-//         }else if ($count == 1 and $role == '3'){
-//             echo 'Connexion réussie commercial';
-//            header("Location:commercial.html");
-//         }else{
-//             echo 'Mauvais identifiants';
-//             // Faire en sorte qu'on revienne sur la page HTML avec un message d'erreur   
-//             header("Location:testh.html"); 
-//         }
+        //On vérifie si le login existe déjà et si le mot de passe correspond
+        $sth = $dbco->prepare("SELECT * FROM utilisateur WHERE Nom_utilisateur = :login AND MDP = :password");
+        $sth->bindParam('login',$login);
+        $sth->bindParam('password',$password);
+        $sth->execute();
+        $count = $sth->rowCount();
+        $role = $sth->fetchColumn(4);
+        if($count == 1 and $role == '1'){
+            echo 'Connexion réussie admin';
+           header("Location:admin.html");
+        }else if ($count == 1 and $role == '2'){
+            echo 'Connexion réussie comptable';
+            header("Location:comptable.html");
+        }else if ($count == 1 and $role == '3'){
+            echo 'Connexion réussie commercial';
+           header("Location:commercial.html");
+        }else{
+            echo 'Mauvais identifiants';
+            // Faire en sorte qu'on revienne sur la page HTML avec un message d'erreur   
+            header("Location:testh.html"); 
+        }
          
-//         }
-//         catch(PDOException $e){
-//             echo 'Impossible de traiter les données. Erreur : '.$e->getMessage();
-//         }
-    
-
-
-?> -->
+        }
+        catch(PDOException $e){
+            echo 'Impossible de traiter les données. Erreur : '.$e->getMessage();
+        }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
