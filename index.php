@@ -1,5 +1,4 @@
 <?php
-echo "test";
 $serveur = "vitalab-new-gen.mysql.database.azure.com";
 $dbname = "vitalab-new-gen";
 $user = "albinrvi";
