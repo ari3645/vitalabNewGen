@@ -1,4 +1,6 @@
 <?php
+
+echo "Hello World !";
 // Paramètres de connexion à la base de données
 $serveur = "adresse_du_serveur_mysql_azure";
 $utilisateur = "votre_nom_utilisateur";
