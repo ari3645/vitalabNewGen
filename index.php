@@ -9,18 +9,15 @@ $base_de_donnees = "nom_de_votre_base_de_donnees";
 
 echo "Tentative de connexion.";
 // Tentative de connexion à la base de données
-$connexion = mysqli_connect($serveur, $utilisateur, $mot_de_passe, $base_de_donnees);
 
-
-echo "Tentative de connexion à la base de données...";
-// Vérifier la connexion
-if (!$connexion) {
-    // Afficher un message d'erreur si la connexion échoue
-    echo "Erreur de connexion à la base de données : " . mysqli_connect_error();
-    // Arrêter l'exécution du script ou ajouter d'autres instructions pour gérer l'erreur
+try {
+    $pdo = new PDO('mysql:host=adresse_du_serveur_mysql_azure;dbname=nom_de_votre_base_de_donnees', 'votre_nom_utilisateur', 'votre_mot_de_passe');
+    echo "Connexion réussie.";
+    
+    // Configuration supplémentaire, si nécessaire
+} catch (PDOException $e) {
+    echo "Erreur de connexion : " . $e->getMessage();
     exit();
-} else {
-    // Connexion réussie, vous pouvez exécuter des requêtes SQL ou d'autres opérations ici
-    echo "Connexion réussie à la base de données !";
 }
+// Connexion réussie, vous pouvez exécuter des requêtes SQL ou d'autres opérations ici
 ?>
