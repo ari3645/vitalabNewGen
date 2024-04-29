@@ -1,4 +1,4 @@
-<?php
+<!-- <?php 
 // echo "test";
 // $serveur = "vitalab-new-gen.mysql.database.azure.com";
 // $dbname = "vitalab-new-gen";
@@ -42,9 +42,9 @@
 //             echo 'Impossible de traiter les données. Erreur : '.$e->getMessage();
 //         }
 // }
-?>
+//
 
-<!-- // <!DOCTYPE html>
+// <!DOCTYPE html>
 // <html lang="fr">
 // <head>
 //     <meta charset="UTF-8">
@@ -58,7 +58,7 @@
     
 //     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
     
-<!-- //     <div class="card">
+ //     <div class="card">
 
 //         <center><img src="images/logo.png" class="img-com-so" style="width: 18rem;"></center>
 //         <p>&nbsp;</p>
@@ -72,6 +72,7 @@
 //     </div>
 // </body>
 // </html> --> -->
+?>
 
 <?php
 $serveur = "vitalab-new-gen.mysql.database.azure.com";
