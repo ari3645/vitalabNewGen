@@ -32,10 +32,10 @@
 // echo "test";
 
 
-// $serveur = "localhost";
-// $dbname = "compta_frais";
-// $user = "root";
-// $pass = "";
+// $serveur = "vitalab-new-gen.mysql.database.azure.com";
+// $dbname = "vitalab-new-gen";
+// $user = "albinrvi";
+// $pass = "Ari69.008";
 
 // if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //     // Récupère les données du formulaire
