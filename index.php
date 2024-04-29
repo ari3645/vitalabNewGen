@@ -76,7 +76,7 @@
 
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -95,69 +95,88 @@
         crossorigin="anonymous"></script>
 
         
-    <?php echo '<div class="card">
-        <center><img src="images/logo.png" class="img-com-so" style="width: 18rem;"></center>
-        <form method="post" action=""> <!-- Ajout de la balise form -->
-            <p>&nbsp;</p>
-            <p>Identifiant</p>
-            <input type="text" name="login"> <!-- Ajout de l\'attribut name -->
-            <p>Mot de passe</p>
-            <input type="password" name="password"> <!-- Ajout de l\'attribut name -->
-            <center><button type="submit" class="bn1">Connexion</button></center> <!-- Remplacement du lien a par un bouton de type submit -->
-        </form>
-    </div>'; ?>
+    <?php 
+    // echo '<div class="card">
+    //     <center><img src="images/logo.png" class="img-com-so" style="width: 18rem;"></center>
+    //     <form method="post" action=""> <!-- Ajout de la balise form -->
+    //         <p>&nbsp;</p>
+    //         <p>Identifiant</p>
+    //         <input type="text" name="login"> <!-- Ajout de l\'attribut name -->
+    //         <p>Mot de passe</p>
+    //         <input type="password" name="password"> <!-- Ajout de l\'attribut name -->
+    //         <center><button type="submit" class="bn1">Connexion</button></center> <!-- Remplacement du lien a par un bouton de type submit -->
+    //     </form>
+    // </div>'; 
+    ?>
 
 
 
 
 </body>
 
-</html>
+</html> -->
 
 <?php
-$serveur = "vitalab-new-gen.mysql.database.azure.com";
-$dbname = "vitalab-new-gen";
-$user = "albinrvi";
-$pass = "Ari69.008";
+// $serveur = "vitalab-new-gen.mysql.database.azure.com";
+// $dbname = "vitalab-new-gen";
+// $user = "albinrvi";
+// $pass = "Ari69.008";
 
-echo "test";
+// echo "test";
 
-$dbco = new PDO("mysql:host=$serveur;dbname=$dbname", $user, $pass);
-$dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// $dbco = new PDO("mysql:host=$serveur;dbname=$dbname", $user, $pass);
+// $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-echo ($_SERVER["REQUEST_METHOD"] == "POST");
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupère les données du formulaire
-    $login = $_POST["login"];
-    $password = $_POST["password"];
+// echo ($_SERVER["REQUEST_METHOD"] == "POST");
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     // Récupère les données du formulaire
+//     $login = $_POST["login"];
+//     $password = $_POST["password"];
 
-    echo $login;
-    echo $password;
+//     echo $login;
+//     echo $password;
 
-    try {
-        //On vérifie si le login existe déjà et si le mot de passe correspond
-        $sth = $dbco->prepare("SELECT * FROM utilisateur WHERE Nom_utilisateur = :login AND MDP = :password");
-        $sth->bindParam('login', $login);
-        $sth->bindParam('password', $password);
-        $sth->execute();
-        $count = $sth->rowCount();
-        $role = $sth->fetchColumn(4);
-        if ($count == 1 and $role == '1') {
-            header("Location:admin.html");
-            exit;
-        } else if ($count == 1 and $role == '2') {
-            header("Location:comptable.html");
-            exit;
-        } else if ($count == 1 and $role == '3') {
-            header("Location:commercial.html");
-            exit;
-        } else {
-            // Rediriger vers la page de connexion avec un message d'erreur
-            header("Location:testh.html");
-            exit;
-        }
-    } catch (PDOException $e) {
-        echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
-    }
-}
+//     try {
+//         //On vérifie si le login existe déjà et si le mot de passe correspond
+//         $sth = $dbco->prepare("SELECT * FROM utilisateur WHERE Nom_utilisateur = :login AND MDP = :password");
+//         $sth->bindParam('login', $login);
+//         $sth->bindParam('password', $password);
+//         $sth->execute();
+//         $count = $sth->rowCount();
+//         $role = $sth->fetchColumn(4);
+//         if ($count == 1 and $role == '1') {
+//             header("Location:admin.html");
+//             exit;
+//         } else if ($count == 1 and $role == '2') {
+//             header("Location:comptable.html");
+//             exit;
+//         } else if ($count == 1 and $role == '3') {
+//             header("Location:commercial.html");
+//             exit;
+//         } else {
+//             // Rediriger vers la page de connexion avec un message d'erreur
+//             header("Location:testh.html");
+//             exit;
+//         }
+//     } catch (PDOException $e) {
+//         echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
+//     }
+// }
 ?>
+
+<?php
+// Informations de connexion à la base de données
+$serveur = "vitalab-new-gen.mysql.database.azure.com";
+$utilisateur = "albinrvi";
+$mot_de_passe = "Ari69.008";
+$base_de_donnees = "vitalabNewGen";
+
+// Connexion à la base de données
+$connexion = new mysqli($serveur, $utilisateur, $mot_de_passe, $base_de_donnees);
+
+// Vérifier la connexion
+if ($connexion->connect_error) {
+    die("La connexion a échoué : " . $connexion->connect_error);
+}
+
+echo "Connexion réussie !";
