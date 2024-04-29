@@ -7,9 +7,12 @@ $utilisateur = "votre_nom_utilisateur";
 $mot_de_passe = "votre_mot_de_passe";
 $base_de_donnees = "nom_de_votre_base_de_donnees";
 
+echo "Tentative de connexion.";
 // Tentative de connexion à la base de données
 $connexion = mysqli_connect($serveur, $utilisateur, $mot_de_passe, $base_de_donnees);
 
+
+echo "Tentative de connexion à la base de données...";
 // Vérifier la connexion
 if (!$connexion) {
     // Afficher un message d'erreur si la connexion échoue
