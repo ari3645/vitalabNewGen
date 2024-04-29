@@ -125,6 +125,7 @@ echo "test";
 $dbco = new PDO("mysql:host=$serveur;dbname=$dbname", $user, $pass);
 $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+echo ($_SERVER["REQUEST_METHOD"] == "POST");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupère les données du formulaire
     $login = $_POST["login"];
