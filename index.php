@@ -169,7 +169,7 @@
 $serveur = "vitalab-new-gen.mysql.database.azure.com";
 $utilisateur = "albinrvi";
 $mot_de_passe = "Ari69.008";
-$base_de_donnees = "vitalabNewGen";
+$base_de_donnees = "vitalab-new-gen";
 
 // Connexion à la base de données
 $connexion = new mysqli($serveur, $utilisateur, $mot_de_passe, $base_de_donnees);
