@@ -2,16 +2,16 @@
 
 echo "Hello World !";
 // Paramètres de connexion à la base de données
-$serveur = "adresse_du_serveur_mysql_azure";
-$utilisateur = "votre_nom_utilisateur";
-$mot_de_passe = "votre_mot_de_passe";
-$base_de_donnees = "nom_de_votre_base_de_donnees";
+$serveur = "vitalab-new-gen.mysql.database.azure.com";
+$utilisateur = "albinrvi";
+$mdp = "Ari69.008";
+$dbname = "vitalab-new-gen";
 
 echo "Tentative de connexion.";
 // Tentative de connexion à la base de données
 
 try {
-    $pdo = new PDO('mysql:host=adresse_du_serveur_mysql_azure;dbname=nom_de_votre_base_de_donnees', 'votre_nom_utilisateur', 'votre_mot_de_passe');
+    $pdo = new PDO('mysql:host=$serveur;dbname=$dbname', $utilisateur, $mdp);
     echo "Connexion réussie.";
     
     // Configuration supplémentaire, si nécessaire
