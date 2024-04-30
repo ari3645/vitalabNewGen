@@ -11,9 +11,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Récupérer les données du formulaire
     $intitule = $_POST["intitule"];
-    $date_facture = $_POST["date_facture"];
-    $montant_facture = intval($_POST["montant_facture"]);
-    $lieu_facture = $_POST["lieu_facture"];
+    $date_facture = $_POST["date"];
+    $montant_facture = $_POST["montant"];
+    $lieu_facture = $_POST["lieu"];
     $type_frais = $_POST["id_frais"];
     $id_utilisateur = $_POST["id_utilisateur"];
     $statut = "En attente"; // Statut par défaut
