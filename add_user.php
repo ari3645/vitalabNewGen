@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
         $pdo = new PDO($dsn, $user, $pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+        echo "hello";
 
         $sql_check_existing = "SELECT COUNT(*) AS count FROM utilisateur WHERE nom_utilisateur = :nom_utilisateur OR mail = :mail";
         $stmt_check_existing = $pdo->prepare($sql_check_existing);
