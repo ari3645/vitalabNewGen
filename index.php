@@ -24,8 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sth->bindParam('password', $password);
         $sth->execute();
         $count = $sth->rowCount();
-        $role = $sth->fetchColumn(4);
         $id_utilisateur = $sth->fetchColumn(1);
+        $role = $sth->fetchColumn(4);
+
 
         if ($count == 1 and $role == '1') {
             // echo "Connexion admin réussie";
@@ -41,8 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         } else if ($count == 1 and $role == '3') {
             // echo "Connexion commercial réussie";
-            echo $sth->fetchColumn(4);
-            echo $sth->fetchColumn(0);
+            echo $count;
+            echo $role;
             echo $id_utilisateur;
             $_SESSION['id_utilisateur'] =  $id_utilisateur;
             // echo $_SESSION['id_utilisateur'];
