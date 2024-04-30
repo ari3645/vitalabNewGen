@@ -5,7 +5,6 @@ $dbname = "vitalab-new-gen";
 $user = "albinrvi";
 $pass = "Ari69.008";
 
-echo $_SERVER["REQUEST_METHOD"];
 // Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupérer les données du formulaire
@@ -13,9 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $mot_de_passe = $_POST["mdp"];
     $role_id = $_POST["role"]; // Supposons que vous avez un champ pour le rôle de l'utilisateur
-
-    echo $nom_utilisateur;
-    echo $email;
 
     try {
         // Connexion à la base de données (assurez-vous de remplacer les valeurs par les vôtres)
@@ -27,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Préparer la requête SQL d'insertion
-        $sql = "INSERT INTO utilisateur (nom_utilisateur, email, mot_de_passe, role_id) VALUES (:nom_utilisateur, :email, :mot_de_passe, :role_id)";
+        $sql = "INSERT INTO utilisateur (nom_utilisateur, mail, mot_de_passe, id_role) VALUES (:nom_utilisateur, :email, :mot_de_passe, :role_id)";
         $stmt = $pdo->prepare($sql);
 
         // Liaison des paramètres
@@ -43,10 +39,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
     }
-    echo "hi";
+
 
     // Fermer la connexion à la base de données
     $pdo = null;
 }
-echo "hello";
+
 ?>
