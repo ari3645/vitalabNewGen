@@ -50,6 +50,7 @@
                     session_start();
                     $id_utilisateur_connecte = $_SESSION['id_utilisateur'];
                     echo $id_utilisateur_connecte;
+          
 
                     // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
                     $sql = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut
@@ -73,7 +74,7 @@
                       $liste_notes_html .= "</div>";
                   }
 
-                  echo $liste_notes_html;
+                  // echo $liste_notes_html;
 
                 } catch (PDOException $e) {
                     echo "Erreur : " . $e->getMessage();
