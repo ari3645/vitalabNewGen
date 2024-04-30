@@ -24,12 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $role = $sth->fetchColumn(4);
 
         session_start();
-        echo $row['$id_utilisateur'];
-        echo $row[$login];
+
 
         if ($count == 1 and $role == '1') {
             // echo "Connexion admin réussie";
-            $_SESSION['id_utilisateur'] = $row['id_utilisateur'];
+            $_SESSION['id_utilisateur'] = $row[$login];
             header("Location:admin.php");
 
             exit;
