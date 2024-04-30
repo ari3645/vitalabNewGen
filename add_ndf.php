@@ -26,20 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         $sql=$pdo->query("INSERT INTO note_de_frais (intitule, date_facture, montant_facture, lieu_facture,image_facture, id_frais, id_utilisateur, statut) VALUES ('$intitule','$date_facture', $montant_facture, '$lieu_facture','image', $type_frais,$id_utilisateur '$statut')");
-        // // Préparer la requête SQL d'insertion
-        // $sql = $pdo->prepare("INSERT INTO note_de_frais (date_facture, montant_facture, lieu_facture, id_frais, id_utilisateur, statut) VALUES (:date_facture, :montant_facture, :lieu_facture, :id_frais, :statut)");
-
-        // // Liaison des paramètres
-        // $sql->bindParam(':id_utilisateur', $id_utilisateur);
-
-        // $sql->bindParam(':date_facture', $date_facture);
-        // $sql->bindParam(':montant_facture', $montant_facture);
-        // $sql->bindParam(':lieu_facture', $lieu_facture);
-        // $sql->bindParam(':id_frais', $type_frais);
-        // $sql->bindParam(':statut', $statut);
-
-        // Exécution de la requête SQL
-        // $sql->execute();
 
         echo "La note de frais a été ajoutée avec succès.";
 
