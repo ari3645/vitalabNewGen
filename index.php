@@ -27,9 +27,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $id_utilisateur = $sth->fetchColumn(0);
         $role = $sth->fetchColumn(4);
 
-        echo $count;
+
         echo $id_utilisateur;
         echo $role;
+        echo $count;
         
         // if ($count == 1 and $role == '1') {
         //     // echo "Connexion admin réussie";
