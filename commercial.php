@@ -85,7 +85,7 @@
         </div>
 
         <div class="top-left" style="height: 50%; width: 50%;">
-          <form method="POST" action="add_user.php" class="top-left" style="height: 50%; width: 50%;"> 
+          <form method="POST" action="add_ndf.php" class="top-left" style="height: 50%; width: 50%;"> 
           <h3><center>Ajouter note de frais</center></h3>
           <p>Intitulé : </p><input type="text" name="intitule">
           <p>Date : </p><input type="text" name="date">
