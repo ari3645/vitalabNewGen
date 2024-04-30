@@ -21,16 +21,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $count = $sth->rowCount();
         $role = $sth->fetchColumn(4);
         if ($count == 1 and $role == '1') {
-            echo "Connexion admin réussie";
-            // header("Location:admin.html");
+            // echo "Connexion admin réussie";
+            header("Location:admin.html");
             exit;
         } else if ($count == 1 and $role == '2') {
-            echo "Connexion comptable réussie";
-            // header("Location:comptable.html");
+            // echo "Connexion comptable réussie";
+            header("Location:comptable.html");
             exit;
         } else if ($count == 1 and $role == '3') {
-            echo "Connexion commercial réussie";
-            // header("Location:commercial.html");
+            // echo "Connexion commercial réussie";
+            header("Location:commercial.html");
             exit;
         } else {
             // Rediriger vers la page de connexion avec un message d'erreur
