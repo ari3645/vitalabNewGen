@@ -79,6 +79,7 @@ session_start();
                 $pdo = null;
               ?>
         </div>
+        
 
         <!-- <div>
           <form method="POST" action="add_user.php" class="top-left" style="height: 50%; width: 50%;"> 
@@ -98,6 +99,9 @@ session_start();
             <center><button class="bn1" type="submit">Supprimer</button></center>
           </form>
         </div>
+
+
+
 
 
         <div>

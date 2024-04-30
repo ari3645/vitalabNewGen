@@ -10,7 +10,7 @@ $pass = "Ari69.008";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Récupérer les données du formulaire
-    $id_utilisateur = $_POST["nom_user"];
+    $nom_utilisateur = $_POST["nom_user"];
 
     try {
         // Se connecter à la base de données
@@ -19,10 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Préparer la requête SQL d'insertion
-        $sql = $pdo->prepare("DELETE FROM utilisateur WHERE id_utilisateur = :id_utilisateur");
+        $sql = $pdo->prepare("DELETE FROM utilisateur WHERE nom_utilisateur = :nom_utilisateur");
 
         // Liaison des paramètres
-        $sql->bindParam(':id_utilisateur', $id_utilisateur);
+        $sql->bindParam(':nom_utilisateur', $nom_utilisateur);
 
         // Exécution de la requête SQL
         $sql->execute();
