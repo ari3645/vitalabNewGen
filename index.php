@@ -26,11 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         } else if ($count == 1 and $role == '2') {
             // echo "Connexion comptable réussie";
-            header("Location:comptable.html");
+            header("Location:comptable.php");
             exit;
         } else if ($count == 1 and $role == '3') {
             // echo "Connexion commercial réussie";
-            header("Location:commercial.html");
+            header("Location:commercial.php");
             exit;
         } else {
             // Rediriger vers la page de connexion avec un message d'erreur
