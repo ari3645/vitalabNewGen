@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
         $sql_check_existing = "SELECT COUNT(*) AS count FROM utilisateur WHERE nom_utilisateur = :nom_utilisateur OR mail = :mail";
         $stmt_check_existing = $pdo->prepare($sql_check_existing);
         $stmt_check_existing->bindParam(':nom_utilisateur', $nom_utilisateur);
-        $stmt_check_existing->bindParam(':email', $email);
+        $stmt_check_existing->bindParam(':email', $mail);
         $stmt_check_existing->execute();
         $result_check_existing = $stmt_check_existing->fetch(PDO::FETCH_ASSOC);
 
