@@ -21,25 +21,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
         $pdo = new PDO($dsn, $user, $pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // Préparer la requête SQL d'insertion
-        $sql = $pdo->prepare("INSERT INTO utilisateur (nom_utilisateur, mail, mot_de_passe, id_role) VALUES (:nom_utilisateur, :email, :mot_de_passe, :role_id)");
 
-        // Liaison des paramètres
-        $sql->bindParam(':nom_utilisateur', $nom_utilisateur);
-        $sql->bindParam(':email', $email);
-        $sql->bindParam(':mot_de_passe', $mot_de_passe);
-        $sql->bindParam(':role_id', $role_id);
+        $sql_check_existing = "SELECT COUNT(*) AS count FROM utilisateur WHERE nom_utilisateur = :nom_utilisateur OR email = :email";
+        $stmt_check_existing = $pdo->prepare($sql_check_existing);
+        $stmt_check_existing->bindParam(':nom_utilisateur', $nom_utilisateur);
+        $stmt_check_existing->bindParam(':email', $email);
+        $stmt_check_existing->execute();
+        $result_check_existing = $stmt_check_existing->fetch(PDO::FETCH_ASSOC);
 
-        // Exécution de la requête SQL
-        $sql->execute();
+        if ($result_check_existing['count'] > 0) {
+            session_start();
+            $_SESSION['success_message'] = "L'utilisateur existe déjà.";
 
-        // Définir un message de réussite dans la session
-        session_start();
-        $_SESSION['success_message'] = "L'utilisateur a été ajouté avec succès.";
+            // Rediriger vers une autre page
+            header("Location: admin.php");
+            exit();
+        }else {}
 
-        // Rediriger vers une autre page
-        header("Location: admin.php");
-        exit();
+            // Préparer la requête SQL d'insertion
+            $sql = $pdo->prepare("INSERT INTO utilisateur (nom_utilisateur, mail, mot_de_passe, id_role) VALUES (:nom_utilisateur, :email, :mot_de_passe, :role_id)");
+
+            // Liaison des paramètres
+            $sql->bindParam(':nom_utilisateur', $nom_utilisateur);
+            $sql->bindParam(':email', $email);
+            $sql->bindParam(':mot_de_passe', $mot_de_passe);
+            $sql->bindParam(':role_id', $role_id);
+
+            // Exécution de la requête SQL
+            $sql->execute();
+
+            // Définir un message de réussite dans la session
+            session_start();
+            $_SESSION['success_message'] = "L'utilisateur a été ajouté avec succès.";
+
+            // Rediriger vers une autre page
+            header("Location: admin.php");
+            exit();
 
     //Gestion des erreurs
     } catch (PDOException $e) {
