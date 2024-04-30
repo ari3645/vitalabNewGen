@@ -34,14 +34,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         } else if ($count == 1 and $role == '2') {
             // echo "Connexion comptable réussie";
+
             $_SESSION['id_utilisateur'] =  $sth->fetchColumn(0);
-            header("Location:comptable.php");
+            // header("Location:comptable.php");
             exit;
         } else if ($count == 1 and $role == '3') {
             // echo "Connexion commercial réussie";
+            echo $sth->fetchColumn(0);
             $_SESSION['id_utilisateur'] =  $sth->fetchColumn(0);
             // echo $_SESSION['id_utilisateur'];
-            header("Location:commercial.php");
+            // header("Location:commercial.php");
             exit;
         } else {
             // Rediriger vers la page de connexion avec un message d'erreur
