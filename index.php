@@ -39,17 +39,47 @@ $utilisateur = "albinrvi";
 $mdp = "Ari69.008";
 $dbname = "vitalab-new-gen";
 
+$pdo = new PDO("mysql:host=$serveur;dbname=$dbname", $utilisateur, $mdp);
+$dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Récupère les données du formulaire
+    $login = $_POST["login"];
+    $password = $_POST["password"];
+
+
 // echo "Tentative de connexion.";
 // Tentative de connexion à la base de données
 
-try {
-    $pdo = new PDO("mysql:host=$serveur;dbname=$dbname", $utilisateur, $mdp);
-    // echo "Connexion réussie.";
-    
-    // Configuration supplémentaire, si nécessaire
-} catch (PDOException $e) {
-    echo "Erreur de connexion : " . $e->getMessage();
-    exit();
+    try {
+        $sth = $dbco->prepare("SELECT * FROM utilisateur WHERE Nom_utilisateur = :login AND mot_de_passe = :password");
+        $sth->bindParam('login', $login);
+        $sth->bindParam('password', $password);
+        $sth->execute();
+        $count = $sth->rowCount();
+        $role = $sth->fetchColumn(4);
+        if ($count == 1 and $role == '1') {
+            // echo "Connexion admin réussie";
+            header("Location:admin.html");
+            exit;
+        } else if ($count == 1 and $role == '2') {
+            // echo "Connexion comptable réussie";
+            header("Location:comptable.html");
+            exit;
+        } else if ($count == 1 and $role == '3') {
+            // echo "Connexion commercial réussie";
+            header("Location:commercial.html");
+            exit;
+        } else {
+            // Rediriger vers la page de connexion avec un message d'erreur
+            header("Location:testh.html");
+            exit;
+        }
+
+    } catch (PDOException $e) {
+        echo "Erreur de connexion : " . $e->getMessage();
+        exit();
+    }
 }
 // Connexion réussie, vous pouvez exécuter des requêtes SQL ou d'autres opérations ici
 ?>
