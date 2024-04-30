@@ -60,13 +60,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <?php echo '<div class="card">
         <center><img src="images/logo.png" class="img-com-so" style="width: 18rem;"></center>
-        <form method="post" action=""> <!-- Ajout de la balise form -->
+        <form method="post" action=""> 
             <p>&nbsp;</p>
             <p>Identifiant</p>
-            <input type="text" name="login"> <!-- Ajout de l\'attribut name -->
+            <input type="text" name="login">
             <p>Mot de passe</p>
-            <input type="password" name="password"> <!-- Ajout de l\'attribut name -->
-            <center><button type="submit" class="bn1">Connexion</button></center> <!-- Remplacement du lien a par un bouton de type submit -->
+            <input type="password" name="password"> 
+            <center><button type="submit" class="bn1">Connexion</button></center> 
         </form>
     </div>'; ?>
 
