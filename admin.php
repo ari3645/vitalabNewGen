@@ -40,17 +40,46 @@ session_start();
         <div class="right" >
           <h3><center>Liste notes de frais</center></h3>
           <div class="note">
-            <div class="row">
-                <div class="col-md-4">
-                    <h4>Nom</h4>
-                </div>
-                <div class="col-md-4">
-                    <h4>Intitulé</h4>
-                </div>
-                <div class="col-md-4">
-                    <h4>Frais</h4>
-                </div>
-            </div>
+            <ul>
+              <?php
+                // Informations d'identification
+                $serveur = "vitalab-new-gen.mysql.database.azure.com";
+                $dbname = "vitalab-new-gen";
+                $user = "albinrvi";
+                $pass = "Ari69.008";
+
+                // Déclaration d'une variable pour stocker la liste des notes de frais
+                $liste_notes_html = '';
+
+                try {
+                    // Connexion à la base de données
+                    $dsn = "mysql:host=$serveur;dbname=$dbname";
+                    $pdo = new PDO($dsn, $user, $pass);
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                    // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
+                    $sql = "SELECT u.nom_utilisateur, nf.intitule, tf.type_frais 
+                            FROM note_de_frais nf 
+                            INNER JOIN utilisateur u ON nf.id_utilisateur = u.id 
+                            INNER JOIN type_de_frais tf ON nf.id_type_frais = tf.id_type_frais";
+                    $stmt = $pdo->query($sql);
+
+                    // Construire le code HTML pour la liste des notes de frais
+                    $liste_notes_html .= "<h2>Liste des notes de frais</h2>";
+                    $liste_notes_html .= "<ul>";
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        $liste_notes_html .= "<li>" . $row['nom_utilisateur'] . " - Intitulé: " . $row['intitule'] . " - Type de frais: " . $row['type_frais'] . "</li>";
+                    }
+                    $liste_notes_html .= "</ul>";
+
+                } catch (PDOException $e) {
+                    echo "Erreur : " . $e->getMessage();
+                }
+
+                // Fermer la connexion à la base de données
+                $pdo = null;
+              ?>
+            </ul>
           </div>
         </div>
 
