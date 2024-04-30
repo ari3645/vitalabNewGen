@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($row) {
             // Récupère l'ID de l'utilisateur et le rôle depuis la ligne récupérée
             $id_utilisateur = $row['id_utilisateur'];
-            $role = $row['role'];
+            $role = $row['id_role'];
             echo $id_utilisateur;
             echo $role;
             echo $count;
