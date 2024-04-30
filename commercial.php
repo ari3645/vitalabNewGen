@@ -47,11 +47,19 @@
                     $pdo = new PDO($dsn, $user, $pass);
                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+                    session_start();
+                    $id_utilisateur_connecte = $_SESSION['id_utilisateur_connecte'];
+
                     // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
                     $sql = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut
                     FROM note_de_frais n 
-                    INNER JOIN type_de_frais f ON n.id_frais = f.id_frais";
+                    INNER JOIN type_de_frais f ON n.id_frais = f.id_frais
+                    WHERE n.id_utilisateur = :id_utilisateur";
                     $stmt = $pdo->query($sql);
+
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->bindParam(':id_utilisateur', $id_utilisateur_connecte);
+                    $stmt->execute();
 
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                       $liste_notes_html .= "<div class='card'>";
@@ -76,13 +84,25 @@
               ?>
           
         </div>
+
+        <div>
+          <form method="POST" action="add_user.php" class="top-left" style="height: 50%; width: 50%;"> 
+            <h3><center>Ajouter un utilisateur</center></h3>
+            <p>Identifiant : </p> <input type="text" name="id">
+            <p> Email : </p> <input type="text" name="email"> 
+            <p>Mot de passe : </p><input type="password" name="mdp">
+            <p>Statut : </p> <input type="text" name="role">
+            <center><button class="bn1" type="submit">Ajouter</button></center>
+          </form>
+        </div>
         <div class="top-left" style="height: 50%; width: 50%;">
+        
           <h3><center>Ajouter note de frais</center></h3>
           <p>Intitulé</p>
-          <input type="text">
+          <input type="text" name="intitule">
           
           <p>Frais</p>
-          <input type="text">
+          <input type="text" name="">
           <center><a href="" class="bn1">Ajouter</a></center>
         </div>
         <div class="bottom-left" style="height: 50%; width: 50%;">
