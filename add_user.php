@@ -22,12 +22,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-        $sql_check_existing = "SELECT COUNT(*) AS count FROM utilisateur WHERE nom_utilisateur = :nom_utilisateur OR mail = :email";
+        $sql_check_existing = "SELECT COUNT(*) AS count FROM utilisateur WHERE nom_utilisateur = :nom_utilisateur OR mail = :mail";
         $stmt_check_existing = $pdo->prepare($sql_check_existing);
         $stmt_check_existing->bindParam(':nom_utilisateur', $nom_utilisateur);
-        $stmt_check_existing->bindParam(':email', $mail);
+        $stmt_check_existing->bindParam(':mail', $mail);
         $stmt_check_existing->execute();
         $result_check_existing = $stmt_check_existing->fetch(PDO::FETCH_ASSOC);
+
+        echo $result_check_existing['count'];
 
         if ($result_check_existing['count'] > 0) {
             session_start();
