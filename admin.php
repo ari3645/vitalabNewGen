@@ -64,13 +64,9 @@ session_start();
                             INNER JOIN type_de_frais tf ON nf.id_frais = tf.id_frais";
                     $stmt = $pdo->query($sql);
 
-                    // Construire le code HTML pour la liste des notes de frais
-                    $liste_notes_html .= "<h2>Liste des notes de frais</h2>";
-                    $liste_notes_html .= "<ul>";
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        $liste_notes_html .= "<li>" . $row['nom_utilisateur'] . " - Intitulé: " . $row['intitule'] . " - Type de frais: " . $row['type_frais'] . "</li>";
+                      echo "<li>" . $row['nom_utilisateur'] . " - Intitulé: " . $row['intitule'] . " - Type de frais: " . $row['type_frais'] . "</li>";
                     }
-                    $liste_notes_html .= "</ul>";
 
                 } catch (PDOException $e) {
                     echo "Erreur : " . $e->getMessage();
