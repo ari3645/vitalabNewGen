@@ -48,7 +48,7 @@
                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                     session_start();
-                    $id_utilisateur_connecte = $_SESSION['id_utilisateur_connecte'];
+                    $id_utilisateur_connecte = $_SESSION['id_utilisateur'];
 
                     // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
                     $sql = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut
