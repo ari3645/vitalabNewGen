@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $montant_facture = $_POST["montant_facture"];
     $lieu_facture = $_POST["lieu_facture"];
     $type_frais = $_POST["id_frais"];
+    $id_utilisateur = $_POST["id_utilisateur"];
     $statut = "En attente"; // Statut par défaut
 
     try {
@@ -24,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-        $sql=$pdo->query("INSERT INTO note_de_frais (intitule, date_facture, montant_facture, lieu_facture, id_frais, statut) VALUES ('$intitule','$date_facture', $montant_facture, '$lieu_facture', $type_frais, '$statut')");
+        $sql=$pdo->query("INSERT INTO note_de_frais (intitule, date_facture, montant_facture, lieu_facture, id_frais, id_utilisateur, statut) VALUES ('$intitule','$date_facture', $montant_facture, '$lieu_facture', $type_frais,$id_utilisateur '$statut')");
         // // Préparer la requête SQL d'insertion
         // $sql = $pdo->prepare("INSERT INTO note_de_frais (date_facture, montant_facture, lieu_facture, id_frais, id_utilisateur, statut) VALUES (:date_facture, :montant_facture, :lieu_facture, :id_frais, :statut)");
 
