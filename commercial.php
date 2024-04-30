@@ -49,6 +49,7 @@
 
                     session_start();
                     $id_utilisateur_connecte = $_SESSION['id_utilisateur'];
+                    echo "hello";
                     echo $id_utilisateur_connecte;
           
 
