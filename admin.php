@@ -40,7 +40,6 @@ session_start();
         <div class="right" >
           <h3><center>Liste notes de frais</center></h3>
           <div class="note">
-            <ul>
               <?php
                 // Informations d'identification
                 $serveur = "vitalab-new-gen.mysql.database.azure.com";
@@ -62,8 +61,17 @@ session_start();
                     $stmt = $pdo->query($sql);
 
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                      echo "<div class='card'><div class='card-body'><h5 class='card-title'>Date: {$row['date_facture']}</h5><p class='card-text'>Montant: {$row['montant_facture']}</p><p class='card-text'>Lieu: {$row['lieu_facture']}</p></div></div>";
-                    }
+                      $liste_notes_html .= "<div class='card'>";
+                      $liste_notes_html .= "<div class='card-body'>";
+                      $liste_notes_html .= "<h5 class='card-title'>Date de facture: " . $row['date_facture'] . "</h5>";
+                      $liste_notes_html .= "<p class='card-text'>Montant: " . $row['montant_facture'] . "</p>";
+                      $liste_notes_html .= "<p class='card-text'>Lieu: " . $row['lieu_facture'] . "</p>";
+                      $liste_notes_html .= "<p class='card-text'>Type de frais: " . $row['type_frais'] . "</p>";
+                      $liste_notes_html .= "</div>";
+                      $liste_notes_html .= "</div>";
+                  }
+
+                  echo $liste_notes_html;
 
                 } catch (PDOException $e) {
                     echo "Erreur : " . $e->getMessage();
@@ -72,7 +80,6 @@ session_start();
                 // Fermer la connexion à la base de données
                 $pdo = null;
               ?>
-            </ul>
           </div>
         </div>
 
@@ -102,7 +109,6 @@ session_start();
         <div class="bottom-left" style="height: 50%; width: 50%;">
           <h3><center>Liste des utilisateurs</center></h3>
           <div class="note">
-            <ul>
                 <?php
                 // Informations d'identification
                 $serveur = "vitalab-new-gen.mysql.database.azure.com";
@@ -133,8 +139,9 @@ session_start();
                       $liste_utilisateurs_html .= "<p class='card-text'>Role: " . $row['nom_role'] . "</p>";
                       $liste_utilisateurs_html .= "</div>";
                       $liste_utilisateurs_html .= "</div>";
-                      echo $liste_utilisateurs_html;
+                      
                   }
+                  echo $liste_utilisateurs_html;
 
                 } catch (PDOException $e) {
                     echo "Erreur : " . $e->getMessage();
@@ -143,7 +150,6 @@ session_start();
                 // Fermer la connexion à la base de données
                 $pdo = null;
                 ?>
-            </ul>
           </div>
         </div>
     </nav>
