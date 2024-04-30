@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         //On vérifie si le login existe déjà et si le mot de passe correspond
-        $sth = $dbco->prepare("SELECT * FROM utilisateur WHERE Nom_utilisateur = :login AND MDP = :password");
+        $sth = $dbco->prepare("SELECT * FROM utilisateur WHERE Nom_utilisateur = :login AND mot_de_passe = :password");
         $sth->bindParam('login', $login);
         $sth->bindParam('password', $password);
         $sth->execute();
