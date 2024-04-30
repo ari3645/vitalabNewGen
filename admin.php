@@ -2,6 +2,7 @@
 session_start();
 ?>
 
+
 <!DOCTYPE html>
 <html lang="FR">
 <head>
@@ -79,17 +80,37 @@ session_start();
         <div class="bottom-left" style="height: 50%; width: 50%;">
           <h3><center>Liste des utilisateurs</center></h3>
           <div class="note">
-            <div class="row">
-                <div class="col-md-4">
-                    <img src="images/user.png" style="height: 100px; width: auto;">
-                </div>
-                <div class="col-md-4">
-                    <h3>Nom</h3>
-                </div>
-                <div class="col-md-4">
-                    <h3>Rôle</h3>
-                </div>
-            </div>
+            <ul>
+                <?php
+                // Informations d'identification
+                $serveur = "vitalab-new-gen.mysql.database.azure.com";
+                $dbname = "vitalab-new-gen";
+                $user = "albinrvi";
+                $pass = "Ari69.008";
+
+                try {
+                    // Connexion à la base de données
+                    $dsn = "mysql:host=$serveur;dbname=$dbname";
+                    $pdo = new PDO($dsn, $user, $pass);
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                    // Exécuter la requête SQL pour récupérer le nom de l'utilisateur et son rôle
+                    $sql = "SELECT nom_utilisateur, id_role FROM utilisateur";
+                    $stmt = $pdo->query($sql);
+
+                    // Afficher les résultats
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<li>" . $row['nom_utilisateur'] . " - Role: " . $row['id_role'] . "</li>";
+                    }
+
+                } catch (PDOException $e) {
+                    echo "Erreur : " . $e->getMessage();
+                }
+
+                // Fermer la connexion à la base de données
+                $pdo = null;
+                ?>
+            </ul>
           </div>
         </div>
     </nav>
