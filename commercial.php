@@ -39,18 +39,19 @@
                 $serveur = "vitalab-new-gen.mysql.database.azure.com";
                 $dbname = "vitalab-new-gen";
                 $user = "albinrvi";
-                $pass = "Ari69.008";
-
+                $pass = "Ari69.008";                    
+                
+                session_start();
+                $id_utilisateur_connecte = $_SESSION['id_utilisateur'];
+                echo $id_utilisateur_connecte;
+      
                 try {
                     // Connexion à la base de données
                     $dsn = "mysql:host=$serveur;dbname=$dbname";
                     $pdo = new PDO($dsn, $user, $pass);
                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                    session_start();
-                    $id_utilisateur_connecte = $_SESSION['id_utilisateur'];
-                    echo $id_utilisateur_connecte;
-          
+
 
                     // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
                     $sql = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut
