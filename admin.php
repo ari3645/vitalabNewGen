@@ -102,7 +102,7 @@ session_start();
 
                     // Afficher les résultats
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        echo "<li>" . $row['nom_utilisateur'] . " - Role: " . $row['id_role'] . "</li>";
+                        echo "<li>" . $row['nom_utilisateur'] . " - Role: " . $row['nom_role'] . "</li>";
                     }
 
                 } catch (PDOException $e) {
