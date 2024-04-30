@@ -27,18 +27,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($count == 1 and $role == '1') {
             // echo "Connexion admin réussie";
-            $_SESSION['id_utilisateur'] = $login;
+            $_SESSION['id_utilisateur'] = $row['id_utilisateur'];
             header("Location:admin.php");
 
             exit;
         } else if ($count == 1 and $role == '2') {
             // echo "Connexion comptable réussie";
-            $_SESSION['id_utilisateur'] = $login;
+            $_SESSION['id_utilisateur'] =  $row['id_utilisateur'];
             header("Location:comptable.php");
             exit;
         } else if ($count == 1 and $role == '3') {
             // echo "Connexion commercial réussie";
-            $_SESSION['id_utilisateur'] = $login;
+            $_SESSION['id_utilisateur'] =  $row['id_utilisateur'];
             // echo $_SESSION['id_utilisateur'];
             header("Location:commercial.php");
             exit;
