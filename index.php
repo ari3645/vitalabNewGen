@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         } else if ($count == 1 and $role == '3') {
             // echo "Connexion commercial réussie";
+            $_SESSION['id_utilisateur'] = $login;
             header("Location:commercial.php");
             exit;
         } else {
