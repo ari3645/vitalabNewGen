@@ -43,7 +43,7 @@
                 
                 session_start();
                 $id_utilisateur_connecte = $_SESSION['id_utilisateur'];
-                echo $id_utilisateur_connecte;
+                echo "<h2>$id_utilisateur_connecte</h2>";
       
                 try {
                     // Connexion à la base de données
