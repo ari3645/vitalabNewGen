@@ -147,7 +147,11 @@ session_start();
                       $liste_utilisateurs_html .= "<div class='card-body'>";
                       $liste_utilisateurs_html .= "<h5 class='card-title'>" . $row['nom_utilisateur'] . "</h5>";
                       $liste_utilisateurs_html .= "<p class='card-text'>Role: " . $row['nom_role'] . "</p>";
-                      $liste_utilisateurs_html .= "<a href='delete_user.php?nom_user=" . $row['nom_utilisateur'] . "' class='btn btn-danger'>Supprimer</a>";
+
+                      $liste_utilisateurs_html .= "<form method='post' action='supprimer_utilisateur.php'>";
+                      $liste_utilisateurs_html .= "<input type='hidden' name='nom_utilisateur' value='" . $row['nom_utilisateur'] . "' />";
+                      $liste_utilisateurs_html .= "<button type='submit' class='btn btn-danger'>Supprimer</button>";
+                      
                       $liste_utilisateurs_html .= "</div>";
                       $liste_utilisateurs_html .= "</div>";
                       
