@@ -147,6 +147,7 @@ session_start();
                       $liste_utilisateurs_html .= "<div class='card-body'>";
                       $liste_utilisateurs_html .= "<h5 class='card-title'>" . $row['nom_utilisateur'] . "</h5>";
                       $liste_utilisateurs_html .= "<p class='card-text'>Role: " . $row['nom_role'] . "</p>";
+                      $liste_utilisateurs_html .= "<a href='delete_user.php?nom_user=" . $row['nom_utilisateur'] . "' class='btn btn-danger'>Supprimer</a>";
                       $liste_utilisateurs_html .= "</div>";
                       $liste_utilisateurs_html .= "</div>";
                       
