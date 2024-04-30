@@ -1,5 +1,6 @@
 <?php
 
+// Informations d'identification
 $serveur = "vitalab-new-gen.mysql.database.azure.com";
 $dbname = "vitalab-new-gen";
 $user = "albinrvi";
@@ -7,42 +8,44 @@ $pass = "Ari69.008";
 
 // Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     // Récupérer les données du formulaire
     $nom_utilisateur = $_POST["id"];
     $email = $_POST["email"];
     $mot_de_passe = $_POST["mdp"];
-    $role_id = $_POST["role"]; // Supposons que vous avez un champ pour le rôle de l'utilisateur
+    $role_id = $_POST["role"];
 
     try {
-        // Connexion à la base de données (assurez-vous de remplacer les valeurs par les vôtres)
+        // Se connecter à la base de données
         $dsn = "mysql:host=$serveur;dbname=$dbname";
-
-        echo $pass;
-
         $pdo = new PDO($dsn, $user, $pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Préparer la requête SQL d'insertion
-        $sql = "INSERT INTO utilisateur (nom_utilisateur, mail, mot_de_passe, id_role) VALUES (:nom_utilisateur, :email, :mot_de_passe, :role_id)";
-        $stmt = $pdo->prepare($sql);
+        $sql = $pdo->prepare("INSERT INTO utilisateur (nom_utilisateur, mail, mot_de_passe, id_role) VALUES (:nom_utilisateur, :email, :mot_de_passe, :role_id)");
 
         // Liaison des paramètres
-        $stmt->bindParam(':nom_utilisateur', $nom_utilisateur);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':mot_de_passe', $mot_de_passe);
-        $stmt->bindParam(':role_id', $role_id);
+        $sql->bindParam(':nom_utilisateur', $nom_utilisateur);
+        $sql->bindParam(':email', $email);
+        $sql->bindParam(':mot_de_passe', $mot_de_passe);
+        $sql->bindParam(':role_id', $role_id);
 
         // Exécution de la requête SQL
-        $stmt->execute();
+        $sql->execute();
 
-        echo "L'utilisateur a été ajouté avec succès.";
+        // Définir un message de réussite dans la session
+        session_start();
+        $_SESSION['success_message'] = "L'utilisateur a été ajouté avec succès.";
+
+        // Rediriger vers une autre page
+        header("Location: admin.php");
+        exit();
+
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
     }
 
-
     // Fermer la connexion à la base de données
     $pdo = null;
 }
-
 ?>
