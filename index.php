@@ -21,13 +21,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $count = $sth->rowCount();
         $role = $sth->fetchColumn(4);
         if ($count == 1 and $role == '1') {
-            header("Location:admin.html");
+            echo "Connexion admin réussie";
+            // header("Location:admin.html");
             exit;
         } else if ($count == 1 and $role == '2') {
-            header("Location:comptable.html");
+            echo "Connexion comptable réussie";
+            // header("Location:comptable.html");
             exit;
         } else if ($count == 1 and $role == '3') {
-            header("Location:commercial.html");
+            echo "Connexion commercial réussie";
+            // header("Location:commercial.html");
             exit;
         } else {
             // Rediriger vers la page de connexion avec un message d'erreur
@@ -66,11 +69,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <center><button type="submit" class="bn1">Connexion</button></center> <!-- Remplacement du lien a par un bouton de type submit -->
         </form>
     </div>'; ?>
-
-    <!-- Ajout du lien vers le script JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
 
 </body>
 
