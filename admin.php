@@ -53,10 +53,9 @@ session_start();
                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                     // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
-                    $sql = "SELECT u.nom_utilisateur, nf.intitule, tf.type_frais 
-                            FROM note_de_frais nf 
-                            INNER JOIN utilisateur u ON nf.id_utilisateur = u.id_utilisateur 
-                            INNER JOIN type_de_frais tf ON nf.id_frais = tf.id_frais";
+                    $sql = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais 
+                    FROM note_de_frais n 
+                    INNER JOIN frais f ON n.id_frais = f.id_frais";
                     $stmt = $pdo->query($sql);
 
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -81,15 +80,17 @@ session_start();
               ?>
         </div>
 
+        <div>
+          <form method="POST" action="add_user.php" class="top-left" style="height: 50%; width: 50%;"> 
+            <h3><center>Ajouter un utilisateur</center></h3>
+            <p>Identifiant : </p> <input type="text" name="id">
+            <p> Email : </p> <input type="text" name="email"> 
+            <p>Mot de passe : </p><input type="password" name="mdp">
+            <p>Statut : </p> <input type="text" name="role">
+            <center><button class="bn1" type="submit">Ajouter</button></center>
+          </form>
+        </div>
 
-        <form method="POST" action="add_user.php" class="top-left" style="height: 50%; width: 50%;"> 
-          <h3><center>Ajouter un utilisateur</center></h3>
-          <p>Identifiant : </p> <input type="text" name="id">
-          <p> Email : </p> <input type="text" name="email"> 
-          <p>Mot de passe : </p><input type="password" name="mdp">
-          <p>Statut : </p> <input type="text" name="role">
-          <center><button class="bn1" type="submit">Ajouter</button></center>
-        </form>
 
         <div>
           <?php     
