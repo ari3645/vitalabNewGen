@@ -5,7 +5,7 @@ $dbname = "vitalab-new-gen";
 $user = "albinrvi";
 $pass = "Ari69.008";
 
-echo "entree";
+echo $_SERVER["REQUEST_METHOD"];
 // Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupérer les données du formulaire
