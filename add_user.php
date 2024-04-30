@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Définir un message de réussite dans la session
         session_start();
-        $_SESSION['success_message'] = "L'utilisateur a été supprimé avec succès.";
+        $_SESSION['success_message'] = "L'utilisateur a été ajouté avec succès.";
 
         // Rediriger vers une autre page
         header("Location: admin.php");
