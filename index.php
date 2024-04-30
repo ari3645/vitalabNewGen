@@ -25,11 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sth->execute();
         $count = $sth->rowCount();
         $id_utilisateur = $sth->fetchColumn(0);
-        $role = $sth->fetchColumn(3);
+        $role = $sth->fetchColumn(4);
 
         echo $count;
-        echo $role;
         echo $id_utilisateur;
+        echo $role;
+        
         // if ($count == 1 and $role == '1') {
         //     // echo "Connexion admin réussie";
         //     $_SESSION['id_utilisateur'] = $id_utilisateur;
