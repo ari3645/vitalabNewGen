@@ -7,7 +7,7 @@ $user = "albinrvi";
 $pass = "Ari69.008";
 
 // Vérifier si le formulaire a été soumis
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POST["email"]) && !empty($_POST["mdp"]) && !empty($_POST["role"])) {
 
     // Récupérer les données du formulaire
     $nom_utilisateur = $_POST["id"];
@@ -48,5 +48,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Fermer la connexion à la base de données
     $pdo = null;
+} else {
+    session_start();
+        $_SESSION['success_message'] = "Veuillez remplir tous les champs.";
+
+        // Rediriger vers une autre page
+        header("Location: admin.php");
+        exit();
 }
 ?>
