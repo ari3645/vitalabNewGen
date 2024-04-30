@@ -1,4 +1,7 @@
 <?php
+    session_start();
+?>
+<?php
 $serveur = "vitalab-new-gen.mysql.database.azure.com";
 $dbname = "vitalab-new-gen";
 $user = "albinrvi";
@@ -22,27 +25,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sth->execute();
         $count = $sth->rowCount();
         $role = $sth->fetchColumn(4);
-
-        session_start();
-
+        $id_utilisateur = $sth->fetchColumn(0);
 
         if ($count == 1 and $role == '1') {
             // echo "Connexion admin réussie";
-            $_SESSION['id_utilisateur'] = $sth->fetchColumn(0);
+            $_SESSION['id_utilisateur'] = $id_utilisateur;
             header("Location:admin.php");
 
             exit;
         } else if ($count == 1 and $role == '2') {
             // echo "Connexion comptable réussie";
 
-            $_SESSION['id_utilisateur'] =  $sth->fetchColumn(0);
+            $_SESSION['id_utilisateur'] =  $id_utilisateur;
             // header("Location:comptable.php");
             exit;
         } else if ($count == 1 and $role == '3') {
             // echo "Connexion commercial réussie";
             echo $sth->fetchColumn(4);
             echo $sth->fetchColumn(0);
-            $_SESSION['id_utilisateur'] =  $sth->fetchColumn(0);
+            echo $count;
+            echo $role;
+            echo $id_utilisateur;
+            $_SESSION['id_utilisateur'] =  $id_utilisateur;
             // echo $_SESSION['id_utilisateur'];
             // header("Location:commercial.php");
             exit;
