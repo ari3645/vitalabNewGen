@@ -18,6 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_utilisateur = $_POST["id_utilisateur"];
     $statut = "En attente"; // Statut par défaut
 
+    if (!empty($intitule) && !empty($date_facture) && !empty($montant_facture) && !empty($lieu_facture) && !empty($type_frais) && !empty($id_utilisateur)){
+
+    
     try {
         // Se connecter à la base de données
         $dsn = "mysql:host=$serveur;dbname=$dbname";
@@ -30,6 +33,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
+    }
+    } else {
+        session_start();
+        $_SESSION['success_message'] = "Veuillez remplir tous les champs.";
+
+        // Rediriger vers une autre page
+        header("Location: commercial.php");
+        exit();
     }
 
     // Fermer la connexion à la base de données
