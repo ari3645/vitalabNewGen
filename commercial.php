@@ -94,8 +94,9 @@
           <p>Id Frais : </p><input type="text" name="id_frais">
           <p>Id Utilisateur : </p><input type="text" name="id_utilisateur">
           <p>Statut : </p><input type="text" name="statut">
-          </form>
+
           <center><button class="bn1" type="submit">Ajouter</button></center>
+          </form>
         </div>
 
         <div class="bottom-left" style="height: 50%; width: 50%;">
