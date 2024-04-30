@@ -34,10 +34,46 @@
     <nav class="container2">
         <div class="right" >
           <h3><center>Liste notes de frais</center></h3>
-          <div class="note">
-            <p>Intitulé</p>
-            <a href="" class="bn1" >Supprimer</a>
-          </div>
+          <?php
+                // Informations d'identification
+                $serveur = "vitalab-new-gen.mysql.database.azure.com";
+                $dbname = "vitalab-new-gen";
+                $user = "albinrvi";
+                $pass = "Ari69.008";
+
+                try {
+                    // Connexion à la base de données
+                    $dsn = "mysql:host=$serveur;dbname=$dbname";
+                    $pdo = new PDO($dsn, $user, $pass);
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                    // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
+                    $sql = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut
+                    FROM note_de_frais n 
+                    INNER JOIN type_de_frais f ON n.id_frais = f.id_frais";
+                    $stmt = $pdo->query($sql);
+
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                      $liste_notes_html .= "<div class='card'>";
+                      $liste_notes_html .= "<div class='card-body'>";
+                      $liste_notes_html .= "<h5 class='card-title'>Date de facture: " . $row['date_facture'] . "</h5>";
+                      $liste_notes_html .= "<p class='card-text'>Montant: " . $row['montant_facture'] . "</p>";
+                      $liste_notes_html .= "<p class='card-text'>Lieu: " . $row['lieu_facture'] . "</p>";
+                      $liste_notes_html .= "<p class='card-text'>Type de frais: " . $row['type_frais'] . "</p>";
+                      $liste_notes_html .= "<p class='card-text'>Statut: " . $row['statut'] . "</p>";
+                      $liste_notes_html .= "</div>";
+                      $liste_notes_html .= "</div>";
+                  }
+
+                  echo $liste_notes_html;
+
+                } catch (PDOException $e) {
+                    echo "Erreur : " . $e->getMessage();
+                }
+
+                // Fermer la connexion à la base de données
+                $pdo = null;
+              ?>
           
         </div>
         <div class="top-left" style="height: 50%; width: 50%;">
