@@ -110,6 +110,9 @@ session_start();
                 $user = "albinrvi";
                 $pass = "Ari69.008";
 
+                // Initialiser la variable qui contiendra la liste des utilisateurs
+                $liste_utilisateurs_html = '';
+
                 try {
                     // Connexion à la base de données
                     $dsn = "mysql:host=$serveur;dbname=$dbname";
@@ -124,8 +127,13 @@ session_start();
 
                     // Afficher les résultats
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        echo "<li>" . $row['nom_utilisateur'] . " - Role: " . $row['nom_role'] . "</li>";
-                    }
+                      $liste_utilisateurs_html .= "<div class='card'>";
+                      $liste_utilisateurs_html .= "<div class='card-body'>";
+                      $liste_utilisateurs_html .= "<h5 class='card-title'>" . $row['nom_utilisateur'] . "</h5>";
+                      $liste_utilisateurs_html .= "<p class='card-text'>Role: " . $row['nom_role'] . "</p>";
+                      $liste_utilisateurs_html .= "</div>";
+                      $liste_utilisateurs_html .= "</div>";
+                  }
 
                 } catch (PDOException $e) {
                     echo "Erreur : " . $e->getMessage();
