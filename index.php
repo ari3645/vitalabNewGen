@@ -22,14 +22,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sth->bindParam('password', $password);
         $sth->execute();
         $count = $sth->rowCount();
-        $id_utilisateur = $sth->fetchColumn(0);
-        $role = $sth->fetchColumn(4);
+        $row = $sth->fetch(PDO::FETCH_ASSOC);
 
-
-        echo $id_utilisateur;
-        echo $role;
-        echo $count;
-        
+        // Vérifie si une ligne a été retournée
+        if ($row) {
+            // Récupère l'ID de l'utilisateur et le rôle depuis la ligne récupérée
+            $id_utilisateur = $row['id_utilisateur'];
+            $role = $row['role'];
+            echo $id_utilisateur;
+            echo $role;
+            echo $count;
+        }
         // if ($count == 1 and $role == '1') {
         //     // echo "Connexion admin réussie";
         //     $_SESSION['id_utilisateur'] = $id_utilisateur;
