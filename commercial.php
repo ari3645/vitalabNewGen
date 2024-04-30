@@ -84,26 +84,20 @@
           
         </div>
 
-        <div>
-          <form method="POST" action="add_user.php" class="top-left" style="height: 50%; width: 50%;"> 
-            <h3><center>Ajouter un utilisateur</center></h3>
-            <p>Identifiant : </p> <input type="text" name="id">
-            <p> Email : </p> <input type="text" name="email"> 
-            <p>Mot de passe : </p><input type="password" name="mdp">
-            <p>Statut : </p> <input type="text" name="role">
-            <center><button class="bn1" type="submit">Ajouter</button></center>
-          </form>
-        </div>
         <div class="top-left" style="height: 50%; width: 50%;">
-        
+          <form method="POST" action="add_user.php" class="top-left" style="height: 50%; width: 50%;"> 
           <h3><center>Ajouter note de frais</center></h3>
-          <p>Intitulé</p>
-          <input type="text" name="intitule">
-          
-          <p>Frais</p>
-          <input type="text" name="">
-          <center><a href="" class="bn1">Ajouter</a></center>
+          <p>Intitulé : </p><input type="text" name="intitule">
+          <p>Date : </p><input type="text" name="date">
+          <p>Montant : </p><input type="text" name="montant">
+          <p>Lieu : </p><input type="text" name="lieu">
+          <p>Id Frais : </p><input type="text" name="id_frais">
+          <p>Id Utilisateur : </p><input type="text" name="id_utilisateur">
+          <p>Statut : </p><input type="text" name="statut">
+          </form>
+          <center><button class="bn1" type="submit">Ajouter</button></center>
         </div>
+
         <div class="bottom-left" style="height: 50%; width: 50%;">
           <h3><center>Modifier note de frais</center></h3>
           <p>Intitulé</p>
