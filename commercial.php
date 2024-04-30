@@ -56,9 +56,9 @@
                     INNER JOIN type_de_frais f ON n.id_frais = f.id_frais";
                     $stmt = $pdo->query($sql);
 
-                    $stmt = $pdo->prepare($sql);
-                    $stmt->bindParam(':id_utilisateur', $id_utilisateur_connecte);
-                    $stmt->execute();
+                    // $stmt = $pdo->prepare($sql);
+                    // $stmt->bindParam(':id_utilisateur', $id_utilisateur_connecte);
+                    // $stmt->execute();
 
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                       $liste_notes_html .= "<div class='card'>";
