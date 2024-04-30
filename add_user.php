@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
             // Rediriger vers une autre page
             header("Location: admin.php");
             exit();
-        }else {}
+        }else {
 
             // Préparer la requête SQL d'insertion
             $sql = $pdo->prepare("INSERT INTO utilisateur (nom_utilisateur, mail, mot_de_passe, id_role) VALUES (:nom_utilisateur, :email, :mot_de_passe, :role_id)");
@@ -60,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
             // Rediriger vers une autre page
             header("Location: admin.php");
             exit();
+        }
 
     //Gestion des erreurs
     } catch (PDOException $e) {
