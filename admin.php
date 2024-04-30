@@ -53,7 +53,7 @@ session_start();
                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                     // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
-                    $sql = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais 
+                    $sql = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, f.statut
                     FROM note_de_frais n 
                     INNER JOIN type_de_frais f ON n.id_frais = f.id_frais";
                     $stmt = $pdo->query($sql);
@@ -65,6 +65,7 @@ session_start();
                       $liste_notes_html .= "<p class='card-text'>Montant: " . $row['montant_facture'] . "</p>";
                       $liste_notes_html .= "<p class='card-text'>Lieu: " . $row['lieu_facture'] . "</p>";
                       $liste_notes_html .= "<p class='card-text'>Type de frais: " . $row['type_frais'] . "</p>";
+                      $liste_notes_html .= "<p class='card-text'>Statut: " . $row['statut'] . "</p>";
                       $liste_notes_html .= "</div>";
                       $liste_notes_html .= "</div>";
                   }
