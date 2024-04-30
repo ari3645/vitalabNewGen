@@ -61,7 +61,7 @@ session_start();
                     $sql = "SELECT u.nom_utilisateur, nf.intitule, tf.type_frais 
                             FROM note_de_frais nf 
                             INNER JOIN utilisateur u ON nf.id_utilisateur = u.id 
-                            INNER JOIN type_de_frais tf ON nf.id_type_frais = tf.id_type_frais";
+                            INNER JOIN type_de_frais tf ON nf.id_frais = tf.id_frais";
                     $stmt = $pdo->query($sql);
 
                     // Construire le code HTML pour la liste des notes de frais
