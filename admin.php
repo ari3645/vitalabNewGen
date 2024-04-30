@@ -39,7 +39,6 @@ session_start();
     <nav class="container2">
         <div class="right" >
           <h3><center>Liste notes de frais</center></h3>
-          <div class="note">
               <?php
                 // Informations d'identification
                 $serveur = "vitalab-new-gen.mysql.database.azure.com";
@@ -80,7 +79,6 @@ session_start();
                 // Fermer la connexion à la base de données
                 $pdo = null;
               ?>
-          </div>
         </div>
 
 
@@ -108,7 +106,6 @@ session_start();
 
         <div class="bottom-left" style="height: 50%; width: 50%;">
           <h3><center>Liste des utilisateurs</center></h3>
-          <div class="note">
                 <?php
                 // Informations d'identification
                 $serveur = "vitalab-new-gen.mysql.database.azure.com";
@@ -150,7 +147,6 @@ session_start();
                 // Fermer la connexion à la base de données
                 $pdo = null;
                 ?>
-          </div>
         </div>
     </nav>
 
