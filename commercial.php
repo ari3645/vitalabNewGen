@@ -1,6 +1,6 @@
 <?php
 session_start();
-echo "hello"
+echo "hello";
 echo $_SESSION['id_utilisateur'];
 ?>
 
