@@ -48,9 +48,6 @@ session_start();
                 $user = "albinrvi";
                 $pass = "Ari69.008";
 
-                // Déclaration d'une variable pour stocker la liste des notes de frais
-                $liste_notes_html = '';
-
                 try {
                     // Connexion à la base de données
                     $dsn = "mysql:host=$serveur;dbname=$dbname";
