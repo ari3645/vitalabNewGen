@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $role = $sth->fetchColumn(4);
         if ($count == 1 and $role == '1') {
             // echo "Connexion admin réussie";
-            header("Location:admin.html");
+            header("Location:admin.php");
             exit;
         } else if ($count == 1 and $role == '2') {
             // echo "Connexion comptable réussie";

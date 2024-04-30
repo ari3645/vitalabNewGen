@@ -51,7 +51,6 @@ session_start();
                 </div>
             </div>
           </div>
-          
         </div>
 
 
@@ -94,7 +93,6 @@ session_start();
           </div>
         </div>
     </nav>
-
 
 </body>
 </html>
