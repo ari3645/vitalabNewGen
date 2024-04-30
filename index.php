@@ -24,8 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sth->bindParam('password', $password);
         $sth->execute();
         $count = $sth->rowCount();
-        $id_utilisateur = $sth->fetchColumn(1);
-        $role = $sth->fetchColumn(4);
+        $id_utilisateur = $sth->fetchColumn(0);
+        $role = $sth->fetchColumn(3);
 
         echo $count;
         echo $role;
