@@ -11,6 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupère les données du formulaire
     $login = $_POST["login"];
     $password = $_POST["password"];
+    $_SESSION['id_utilisateur'] = $login;
+
 
     try {
         //On vérifie si le login existe déjà et si le mot de passe correspond
@@ -30,8 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         } else if ($count == 1 and $role == '3') {
             // echo "Connexion commercial réussie";
-            $_SESSION['id_utilisateur'] = $login;
-            header("Location:commercial.php");
+            echo $_SESSION['id_utilisateur'];
+            // header("Location:commercial.php");
             exit;
         } else {
             // Rediriger vers la page de connexion avec un message d'erreur
