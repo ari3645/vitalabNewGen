@@ -11,7 +11,7 @@ echo "Tentative de connexion.";
 // Tentative de connexion à la base de données
 
 try {
-    $pdo = new PDO('mysql:host=$serveur;dbname=$dbname', $utilisateur, $mdp);
+    $pdo = new PDO("mysql:host=$serveur;dbname=$base_de_donnees", $utilisateur, $mot_de_passe);
     echo "Connexion réussie.";
     
     // Configuration supplémentaire, si nécessaire
