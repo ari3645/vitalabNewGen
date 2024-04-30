@@ -149,7 +149,7 @@ session_start();
                       $liste_utilisateurs_html .= "<p class='card-text'>Role: " . $row['nom_role'] . "</p>";
 
                       $liste_utilisateurs_html .= "<form method='post' action='delete_user.php'>";
-                      $liste_utilisateurs_html .= "<input type='hidden' name='nom_utilisateur' value='" . $row['nom_utilisateur'] . "' />";
+                      $liste_utilisateurs_html .= "<input type='hidden' name='nom_user' value='" . $row['nom_utilisateur'] . "' />";
                       $liste_utilisateurs_html .= "<button type='submit' class='btn btn-danger'>Supprimer</button>";
 
                       $liste_utilisateurs_html .= "</div>";
