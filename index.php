@@ -22,6 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sth->execute();
         $count = $sth->rowCount();
         $role = $sth->fetchColumn(4);
+
+        session_start();
+
         if ($count == 1 and $role == '1') {
             // echo "Connexion admin réussie";
             $_SESSION['id_utilisateur'] = $login;
