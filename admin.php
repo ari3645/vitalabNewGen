@@ -60,7 +60,7 @@ session_start();
                     // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
                     $sql = "SELECT u.nom_utilisateur, nf.intitule, tf.type_frais 
                             FROM note_de_frais nf 
-                            INNER JOIN utilisateur u ON nf.id_utilisateur = u.id 
+                            INNER JOIN utilisateur u ON nf.id_utilisateur = u.id_utilisateur 
                             INNER JOIN type_de_frais tf ON nf.id_frais = tf.id_frais";
                     $stmt = $pdo->query($sql);
 
