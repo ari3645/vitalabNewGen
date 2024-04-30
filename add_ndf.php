@@ -18,6 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_utilisateur = $_POST["id_utilisateur"];
     $statut = "En attente"; // Statut par défaut
 
+    echo $montant_facture,$date_facture,$lieu_facture;
+
     try {
         // Se connecter à la base de données
         $dsn = "mysql:host=$serveur;dbname=$dbname";
