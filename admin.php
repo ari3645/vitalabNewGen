@@ -80,7 +80,7 @@ session_start();
               ?>
         </div>
 
-        <div>
+        <!-- <div>
           <form method="POST" action="add_user.php" class="top-left" style="height: 50%; width: 50%;"> 
             <h3><center>Ajouter un utilisateur</center></h3>
             <p>Identifiant : </p> <input type="text" name="id">
@@ -89,12 +89,12 @@ session_start();
             <p>Statut : </p> <input type="text" name="role">
             <center><button class="bn1" type="submit">Ajouter</button></center>
           </form>
-        </div>
+        </div> -->
 
         <div>
           <form method="POST" action="" class="top-left" style="height: 50%; width: 50%;"> 
             <h3><center>Supprimer un utilisateur</center></h3>
-            <p>Identifiant : </p> <input type="text" name="id">
+            <p>Identifiant : </p> <input type="text" name="nom_user">
             <center><button class="bn1" type="submit">Supprimer</button></center>
           </form>
         </div>
