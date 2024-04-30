@@ -12,11 +12,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mot_de_passe = $_POST["mdp"];
     $role_id = $_POST["role"]; // Supposons que vous avez un champ pour le rôle de l'utilisateur
 
+    echo $nom_utilisateur;
+    echo $email;
+
     try {
         // Connexion à la base de données (assurez-vous de remplacer les valeurs par les vôtres)
         $dsn = "mysql:host=$serveur;dbname=$dbname";
 
-
+        echo $pass;
 
         $pdo = new PDO($dsn, $user, $pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
