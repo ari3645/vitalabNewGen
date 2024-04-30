@@ -42,17 +42,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
             exit();
         }else {
 
-            // Préparer la requête SQL d'insertion
-            $sql = $pdo->prepare("INSERT INTO utilisateur (nom_utilisateur, mail, mot_de_passe, id_role) VALUES (:nom_utilisateur, :email, :mot_de_passe, :role_id)");
+            // // Préparer la requête SQL d'insertion
+            // $sql = $pdo->prepare("INSERT INTO utilisateur (nom_utilisateur, mail, mot_de_passe, id_role) VALUES (:nom_utilisateur, :email, :mot_de_passe, :role_id)");
 
-            // Liaison des paramètres
-            $sql->bindParam(':nom_utilisateur', $nom_utilisateur);
-            $sql->bindParam(':mail', $mail);
-            $sql->bindParam(':mot_de_passe', $mot_de_passe);
-            $sql->bindParam(':role_id', $role_id);
+            // // Liaison des paramètres
+            // $sql->bindParam(':nom_utilisateur', $nom_utilisateur);
+            // $sql->bindParam(':mail', $mail);
+            // $sql->bindParam(':mot_de_passe', $mot_de_passe);
+            // $sql->bindParam(':role_id', $role_id);
 
-            // Exécution de la requête SQL
-            $sql->execute();
+            // // Exécution de la requête SQL
+            // $sql->execute();
+
+            $sql = "INSERT INTO utilisateur (nom_utilisateur, mail, mot_de_passe, id_role) VALUES ('$nom_utilisateur', '$mail', '$mot_de_passe', '$role_id')";
+            $pdo->exec($sql);  
+
 
             // Définir un message de réussite dans la session
             session_start();
