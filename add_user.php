@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
 
     // Récupérer les données du formulaire
     $nom_utilisateur = $_POST["id"];
-    $email = $_POST["email"];
+    $mail = $_POST["email"];
     $mot_de_passe = $_POST["mdp"];
     $role_id = $_POST["role"];
 
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-        $sql_check_existing = "SELECT COUNT(*) AS count FROM utilisateur WHERE nom_utilisateur = :nom_utilisateur OR email = :email";
+        $sql_check_existing = "SELECT COUNT(*) AS count FROM utilisateur WHERE nom_utilisateur = :nom_utilisateur OR mail = :mail";
         $stmt_check_existing = $pdo->prepare($sql_check_existing);
         $stmt_check_existing->bindParam(':nom_utilisateur', $nom_utilisateur);
         $stmt_check_existing->bindParam(':email', $email);
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
 
             // Liaison des paramètres
             $sql->bindParam(':nom_utilisateur', $nom_utilisateur);
-            $sql->bindParam(':email', $email);
+            $sql->bindParam(':mail', $email);
             $sql->bindParam(':mot_de_passe', $mot_de_passe);
             $sql->bindParam(':role_id', $role_id);
 
