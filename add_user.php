@@ -4,6 +4,8 @@ $serveur = "vitalab-new-gen.mysql.database.azure.com";
 $dbname = "vitalab-new-gen";
 $user = "albinrvi";
 $pass = "Ari69.008";
+
+echo "entree";
 // Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupérer les données du formulaire
@@ -42,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Erreur : " . $e->getMessage();
     }
 
+    echo "hello";
     // Fermer la connexion à la base de données
     $pdo = null;
 }
