@@ -95,7 +95,9 @@ session_start();
                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                     // Exécuter la requête SQL pour récupérer le nom de l'utilisateur et son rôle
-                    $sql = "SELECT nom_utilisateur, id_role FROM utilisateur";
+                    $sql = "SELECT u.nom_utilisateur, r.nom_role 
+                    FROM utilisateur u 
+                    INNER JOIN role r ON u.id_role = r.id_role";
                     $stmt = $pdo->query($sql);
 
                     // Afficher les résultats
