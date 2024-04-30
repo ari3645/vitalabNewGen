@@ -53,8 +53,7 @@
                     // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
                     $sql = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut
                     FROM note_de_frais n 
-                    INNER JOIN type_de_frais f ON n.id_frais = f.id_frais
-                    WHERE n.id_utilisateur = :id_utilisateur";
+                    INNER JOIN type_de_frais f ON n.id_frais = f.id_frais";
                     $stmt = $pdo->query($sql);
 
                     $stmt = $pdo->prepare($sql);
