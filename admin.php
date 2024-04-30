@@ -62,7 +62,7 @@ session_start();
                     $stmt = $pdo->query($sql);
 
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                      echo "<li>" . $row['nom_utilisateur'] . " - Intitulé: " . $row['intitule'] . " - Type de frais: " . $row['type_frais'] . "</li>";
+                      echo "<div class='card'><div class='card-body'><h5 class='card-title'>Date: {$row['date_facture']}</h5><p class='card-text'>Montant: {$row['montant_facture']}</p><p class='card-text'>Lieu: {$row['lieu_facture']}</p></div></div>";
                     }
 
                 } catch (PDOException $e) {
@@ -133,6 +133,7 @@ session_start();
                       $liste_utilisateurs_html .= "<p class='card-text'>Role: " . $row['nom_role'] . "</p>";
                       $liste_utilisateurs_html .= "</div>";
                       $liste_utilisateurs_html .= "</div>";
+                      echo $liste_utilisateurs_html;
                   }
 
                 } catch (PDOException $e) {
