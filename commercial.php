@@ -3,7 +3,7 @@ session_start();
 echo $_SESSION['id_utilisateur'];
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="FR">
 <head>
     <meta charset="UTF-8">
@@ -40,55 +40,55 @@ echo $_SESSION['id_utilisateur'];
         <div class="right" >
           <h3><center>Liste notes de frais</center></h3>
           <?php
-                // Informations d'identification
-                $serveur = "vitalab-new-gen.mysql.database.azure.com";
-                $dbname = "vitalab-new-gen";
-                $user = "albinrvi";
-                $pass = "Ari69.008";                    
+                // // Informations d'identification
+                // $serveur = "vitalab-new-gen.mysql.database.azure.com";
+                // $dbname = "vitalab-new-gen";
+                // $user = "albinrvi";
+                // $pass = "Ari69.008";                    
                 
-                session_start();
-                $id_utilisateur_connecte = $_SESSION['id_utilisateur'];
-                echo "<h2>$id_utilisateur_connecte</h2>";
+                // session_start();
+                // $id_utilisateur_connecte = $_SESSION['id_utilisateur'];
+                // echo "<h2>$id_utilisateur_connecte</h2>";
       
-                try {
-                    // Connexion à la base de données
-                    $dsn = "mysql:host=$serveur;dbname=$dbname";
-                    $pdo = new PDO($dsn, $user, $pass);
-                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                // try {
+                //     // Connexion à la base de données
+                //     $dsn = "mysql:host=$serveur;dbname=$dbname";
+                //     $pdo = new PDO($dsn, $user, $pass);
+                //     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                    $id_utilisateur_connecte = $_SESSION['id_utilisateur'];
+                //     $id_utilisateur_connecte = $_SESSION['id_utilisateur'];
 
-                    // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
-                    $sql = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut
-                    FROM note_de_frais n 
-                    INNER JOIN type_de_frais f ON n.id_frais = f.id_frais
-                    WHERE n.id_utilisateur = $id_utilisateur_connecte";
-                    $stmt = $pdo->query($sql);
+                //     // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
+                //     $sql = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut
+                //     FROM note_de_frais n 
+                //     INNER JOIN type_de_frais f ON n.id_frais = f.id_frais
+                //     WHERE n.id_utilisateur = $id_utilisateur_connecte";
+                //     $stmt = $pdo->query($sql);
 
-                    // $stmt = $pdo->prepare($sql);
-                    // $stmt->bindParam(':id_utilisateur', $id_utilisateur_connecte);
-                    // $stmt->execute();
+                //     // $stmt = $pdo->prepare($sql);
+                //     // $stmt->bindParam(':id_utilisateur', $id_utilisateur_connecte);
+                //     // $stmt->execute();
 
-                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                      $liste_notes_html .= "<div class='card'>";
-                      $liste_notes_html .= "<div class='card-body'>";
-                      $liste_notes_html .= "<h5 class='card-title'>Date de facture: " . $row['date_facture'] . "</h5>";
-                      $liste_notes_html .= "<p class='card-text'>Montant: " . $row['montant_facture'] . "</p>";
-                      $liste_notes_html .= "<p class='card-text'>Lieu: " . $row['lieu_facture'] . "</p>";
-                      $liste_notes_html .= "<p class='card-text'>Type de frais: " . $row['type_frais'] . "</p>";
-                      $liste_notes_html .= "<p class='card-text'>Statut: " . $row['statut'] . "</p>";
-                      $liste_notes_html .= "</div>";
-                      $liste_notes_html .= "</div>";
-                  }
+                //     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                //       $liste_notes_html .= "<div class='card'>";
+                //       $liste_notes_html .= "<div class='card-body'>";
+                //       $liste_notes_html .= "<h5 class='card-title'>Date de facture: " . $row['date_facture'] . "</h5>";
+                //       $liste_notes_html .= "<p class='card-text'>Montant: " . $row['montant_facture'] . "</p>";
+                //       $liste_notes_html .= "<p class='card-text'>Lieu: " . $row['lieu_facture'] . "</p>";
+                //       $liste_notes_html .= "<p class='card-text'>Type de frais: " . $row['type_frais'] . "</p>";
+                //       $liste_notes_html .= "<p class='card-text'>Statut: " . $row['statut'] . "</p>";
+                //       $liste_notes_html .= "</div>";
+                //       $liste_notes_html .= "</div>";
+                //   }
 
-                  // echo $liste_notes_html;
+                //   // echo $liste_notes_html;
 
-                } catch (PDOException $e) {
-                    echo "Erreur : " . $e->getMessage();
-                }
+                // } catch (PDOException $e) {
+                //     echo "Erreur : " . $e->getMessage();
+                // }
 
-                // Fermer la connexion à la base de données
-                $pdo = null;
+                // // Fermer la connexion à la base de données
+                // $pdo = null;
               ?>
           
         </div>
@@ -110,14 +110,14 @@ echo $_SESSION['id_utilisateur'];
 
         <div>
           <?php     
-            // Vérifier si un message de succès est défini dans la session
-            if (isset($_SESSION['success_message'])) {
-                // Afficher le message de succès
-                echo "<p>" . $_SESSION['success_message'] . "</p>";
+            // // Vérifier si un message de succès est défini dans la session
+            // if (isset($_SESSION['success_message'])) {
+            //     // Afficher le message de succès
+            //     echo "<p>" . $_SESSION['success_message'] . "</p>";
     
-                // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
-                unset($_SESSION['success_message']);
-            }
+            //     // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
+            //     unset($_SESSION['success_message']);
+            // }
           ?>
         </div>
 
@@ -134,4 +134,4 @@ echo $_SESSION['id_utilisateur'];
 
 
 </body>
-</html>
+</html> -->
