@@ -24,8 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pdo = new PDO($dsn, $user, $pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-
-        $sql=$pdo->query("INSERT INTO note_de_frais (intitule, date_facture, montant_facture, lieu_facture,image_facture, id_frais, id_utilisateur, statut) VALUES ('$intitule','$date_facture', $montant_facture, '$lieu_facture','image', $type_frais,$id_utilisateur '$statut')");
+        $sql = $pdo->query("INSERT INTO note_de_frais (intitule, date_facture, montant_facture, lieu_facture, image_facture, id_frais, id_utilisateur, statut) VALUES ('$intitule', '$date_facture', '$montant_facture', '$lieu_facture', 'image', '$type_frais', '$id_utilisateur', '$statut')");
 
         echo "La note de frais a été ajoutée avec succès.";
 
