@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="FR">
 <head>
@@ -38,7 +42,6 @@
                 $pass = "Ari69.008";                    
                 
                 // On récupère l'id de l'utilisateur connecté
-                session_start();
                 $id_utilisateur_connecte = $_SESSION['id_utilisateur'];
       
                 try {
