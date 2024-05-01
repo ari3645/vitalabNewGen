@@ -55,32 +55,30 @@
                     $sql = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut, n.id_note_de_frais, n.intitule
                     FROM note_de_frais n 
                     INNER JOIN type_de_frais f ON n.id_frais = f.id_frais
-                    WHERE n.id_utilisateur = $id_utilisateur_connecte";
+                    WHERE n.statut = 'En attente' OR n.statut = 'en attente'";
                     $stmt = $pdo->query($sql);
 
                     // Afficher les notes de frais sous forme de cartes
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-                      if ($row['statut'] == "En attente" || $row['statut'] == "en attente") {
-                        $liste_notes_html .= "<a href='detail_note_de_frais.php?id=" . $row['id_note_de_frais'] . "' class='card-link'>";  
-                        $liste_notes_html .= "<div class='card'>";
-                        $liste_notes_html .= "<div class='card-body'>";
-                        $liste_notes_html .= "<h2 class='card-title'>" . $row['intitule'] . "</h2>";
-                        $liste_notes_html .= "<h5 class='card-text'>Id de la note de frais : " . $row['id_note_de_frais'] . "</h5>";
-                        $liste_notes_html .= "<p class='card-title'>Date de facture: " . $row['date_facture'] . "</p>";
-                        $liste_notes_html .= "<p class='card-text'>Montant: " . $row['montant_facture'] . " € </p>";
-                        $liste_notes_html .= "<p class='card-text'>Lieu: " . $row['lieu_facture'] . "</p>";
-                        $liste_notes_html .= "<p class='card-text'>Type de frais: " . $row['type_frais'] . "</p>";
-                        $liste_notes_html .= "<p class='card-text'>Statut: " . $row['statut'] . "</p>";
-                        $liste_notes_html .= "<form method='post' action='delete_ndf.php'>";
-                        $liste_notes_html .= "<input type='hidden' name='id_note_de_frais' value='" . $row['id_note_de_frais'] . "' />";
-                        $liste_notes_html .= "<button type='submit' class='btn btn-danger'>Supprimer</button>";
-                        $liste_notes_html.= "</form>";
-                        $liste_notes_html .= "</div>";
-                        $liste_notes_html .= "</div>";
-                        $liste_notes_html .= "</a>";
+                      $liste_notes_html .= "<a href='detail_note_de_frais.php?id=" . $row['id_note_de_frais'] . "' class='card-link'>";  
+                      $liste_notes_html .= "<div class='card'>";
+                      $liste_notes_html .= "<div class='card-body'>";
+                      $liste_notes_html .= "<h2 class='card-title'>" . $row['intitule'] . "</h2>";
+                      $liste_notes_html .= "<h5 class='card-text'>Id de la note de frais : " . $row['id_note_de_frais'] . "</h5>";
+                      $liste_notes_html .= "<p class='card-title'>Date de facture: " . $row['date_facture'] . "</p>";
+                      $liste_notes_html .= "<p class='card-text'>Montant: " . $row['montant_facture'] . " € </p>";
+                      $liste_notes_html .= "<p class='card-text'>Lieu: " . $row['lieu_facture'] . "</p>";
+                      $liste_notes_html .= "<p class='card-text'>Type de frais: " . $row['type_frais'] . "</p>";
+                      $liste_notes_html .= "<p class='card-text'>Statut: " . $row['statut'] . "</p>";
+                      $liste_notes_html .= "<form method='post' action='delete_ndf.php'>";
+                      $liste_notes_html .= "<input type='hidden' name='id_note_de_frais' value='" . $row['id_note_de_frais'] . "' />";
+                      $liste_notes_html .= "<button type='submit' class='btn btn-danger'>Supprimer</button>";
+                      $liste_notes_html.= "</form>";
+                      $liste_notes_html .= "</div>";
+                      $liste_notes_html .= "</div>";
+                      $liste_notes_html .= "</a>";
                   }
-                }
 
                   // Afficher les notes de frais
                   echo $liste_notes_html;
