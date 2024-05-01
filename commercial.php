@@ -21,7 +21,6 @@ session_start();
             <img src="images/logo.png" alt="Bootstrap" class="img-nav">
           </a>
           
-
         </div>
         <center><p><h4>Vitalab New Gen</h4></p></center>
         <div class="dropdown">
@@ -30,6 +29,7 @@ session_start();
           </button>
 
           <script>
+            //Fonction pour se déconnecter
             function logoutcm() {
               window.location.href = "index.php";
             }
@@ -97,14 +97,14 @@ session_start();
 
         <div class="top-left" style="height: 50%; width: 50%;">
           <form method="POST" action="add_ndf.php" class="top-left" style="height: 50%; width: 50%;"> 
-          <h3><center>Ajouter note de frais</center></h3>
-          <p>Intitulé : </p><input type="text" name="intitule">
-          <p>Date : </p><input type="text" name="date">
-          <p>Montant : </p><input type="number" name="montant">
-          <p>Lieu : </p><input type="text" name="lieu">
-          <p>Id Frais : </p><input type="number" name="id_frais">
-          <p>Statut : </p><input type="text" name="statut">
-          <center><button class="bn1" type="submit">Ajouter</button></center>
+            <h3><center>Ajouter note de frais</center></h3>
+            <p>Intitulé : </p><input type="text" name="intitule">
+            <p>Date : </p><input type="text" name="date">
+            <p>Montant : </p><input type="number" name="montant">
+            <p>Lieu : </p><input type="text" name="lieu">
+            <p>Id Frais : </p><input type="number" name="id_frais">
+            <p>Statut : </p><input type="text" name="statut">
+            <center><button class="bn1" type="submit">Ajouter</button></center>
           </form>
         </div>
 
@@ -115,22 +115,22 @@ session_start();
                 // Afficher le message de succès
                 echo "<p>" . $_SESSION['success_message'] . "</p>";
                 // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
-                unset($_SESSION['success_message']);
-            }
+                unset($_SESSION['success_message']);}
           ?>
         </div>
 
         <div class="bottom-left" style="height: 50%; width: 50%;">
-          <h3><center>Modifier note de frais</center></h3>
-          <p>Intitulé</p>
-          <input type="text">
-          
-          <p>Frais</p>
-          <input type="text">
-          <center><a href="" class="bn1">Enregistrer</a></center>
+          <form method="POST" action="modif_ndf.php" class="top-left" style="height: 50%; width: 50%;"> 
+            <h3><center>Modifier une note de frais</center></h3>
+            <p>Id de la note à modifier : </p><input type="text" name="id_modif">
+            <p>Intitulé : </p><input type="number" name="intitulé">
+            <p>Date : </p><input type="text" name="date">
+            <p>Montant : </p><input type="number" name="montant">
+            <p>Lieu : </p><input type="text" name="lieu">
+            <p>Statut : </p><input type="text" name="statut">
+            <center><button class="bn1" type="submit">Ajouter</button></center>
+          </form>
         </div>
     </nav>
-
-
 </body>
 </html>
