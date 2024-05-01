@@ -10,8 +10,8 @@ $pass = "Ari69.008";
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POST["email"]) && !empty($_POST["mdp"]) && !empty($_POST["role"]) && ($_POST["role"] <= 3 && $_POST["role"] >= 1)) {
 
     // Récupérer les données du formulaire
-    $nom_utilisateur = $_POST["id"];
-    $mail = $_POST["email"];
+    $nom_utilisateur = filter_var($_POST["id"]);
+    $mail = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
     $mot_de_passe = $_POST["mdp"];
     $role_id = $_POST["role"];
 
