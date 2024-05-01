@@ -29,36 +29,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Récupère l'ID de l'utilisateur et le rôle depuis la ligne récupérée
             $id_utilisateur = $row['id_utilisateur'];
             $role = $row['id_role'];
-            echo $id_utilisateur;
-            echo $role;
-            echo $count;
+            // echo $id_utilisateur;
+            // echo $role;
+            // echo $count;
         }
-        // if ($count == 1 and $role == '1') {
-        //     // echo "Connexion admin réussie";
-        //     $_SESSION['id_utilisateur'] = $id_utilisateur;
-        //     header("Location:admin.php");
-
-        //     exit;
-        // } else if ($count == 1 and $role == '2') {
-        //     // echo "Connexion comptable réussie";
-
-        //     $_SESSION['id_utilisateur'] =  $id_utilisateur;
-        //     // header("Location:comptable.php");
-        //     exit;
-        // } else if ($count == 1 and $role == '3') {
-        //     // echo "Connexion commercial réussie";
-        //     echo $count;
-        //     echo $role;
-        //     echo $id_utilisateur;
-        //     $_SESSION['id_utilisateur'] =  $id_utilisateur;
-        //     // echo $_SESSION['id_utilisateur'];
-        //     // header("Location:commercial.php");
-        //     exit;
-        // } else {
-        //     // Rediriger vers la page de connexion avec un message d'erreur
-        //     // header("Location:testh.html");
-        //     exit;
-        // }
+        if ($count == 1 and $role == '1') {
+            $_SESSION['id_utilisateur'] = $id_utilisateur;
+            header("Location:admin.php");
+            exit;
+        } else if ($count == 1 and $role == '2') {
+            $_SESSION['id_utilisateur'] =  $id_utilisateur;
+            header("Location:comptable.php");
+            exit;
+        } else if ($count == 1 and $role == '3') {
+            $_SESSION['id_utilisateur'] =  $id_utilisateur;
+            header("Location:commercial.php");
+            exit;
+        } else {
+            // Rediriger vers la page de connexion avec un message d'erreur
+            header("Location:testh.html");
+            exit;
+        }
     } catch (PDOException $e) {
         echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
     }
