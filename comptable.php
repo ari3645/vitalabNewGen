@@ -70,10 +70,6 @@
                       $liste_notes_html .= "<p class='card-text'>Lieu: " . $row['lieu_facture'] . "</p>";
                       $liste_notes_html .= "<p class='card-text'>Type de frais: " . $row['type_frais'] . "</p>";
                       $liste_notes_html .= "<p class='card-text'>Statut: " . $row['statut'] . "</p>";
-                      $liste_notes_html .= "<form method='post' action='afficher_ndf.php'>";
-                      $liste_notes_html .= "<input type='hidden' name='id_note_de_frais' value='" . $row['id_note_de_frais'] . "' />";
-                      $liste_notes_html .= "<button type='submit' class='btn btn-danger'>Afficher</button>";
-                      $liste_notes_html.= "</form>";
                       $liste_notes_html .= "<form method='post' action='accepter_ndf.php'>";
                       $liste_notes_html .= "<input type='hidden' name='id_note_de_frais' value='" . $row['id_note_de_frais'] . "' />";
                       $liste_notes_html .= "<button type='submit' class='btn btn-danger'>Accepter</button>";
@@ -100,32 +96,6 @@
           <h3><center>Informations note de frais</center></h3>
           <p>Veuillez choisir une note de frais</p>
         </div>  
-
-
-
-        <div class="row">
-            <div class="col-md-3">
-                <button class="bn1" >Valider</button>
-            </div>
-            <div class="col-md-3">
-                 <button class="bn1" >Refuser</button>
-            </div>
-            </div>
-        </div>
     </nav>
-
-    <script>
-          function chargerDetails(idNoteDeFrais) {
-              var xhr = new XMLHttpRequest();
-              xhr.onreadystatechange = function() {
-                  if (xhr.readyState === 4 && xhr.status === 200) {
-                      document.getElementById('details_note_frais').innerHTML = xhr.responseText;
-                  }
-              };
-              xhr.open('GET', 'details_note_frais.php?id=' + idNoteDeFrais, true);
-              xhr.send();
-          }
-        </script>
-
 </body>
 </html>
