@@ -6,7 +6,7 @@ $user = "albinrvi";
 $pass = "Ari69.008";
 
 // Vérifier si le formulaire a été soumis
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     session_start( );
     $id_utilisateur = $_SESSION['id_utilisateur'];
