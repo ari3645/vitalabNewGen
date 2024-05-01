@@ -15,7 +15,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Préparer la requête SQL pour mettre à jour le statut de la note de frais
-    $stmt = $pdo->prepare("UPDATE note_de_frais SET statut = 'Accepté' WHERE id_note_de_frais = :id_note_de_frais");
+    $stmt = $pdo->prepare("UPDATE note_de_frais SET statut = 'Acceptée' WHERE id_note_de_frais = :id_note_de_frais");
 
     // Liaison des valeurs aux paramètres liés
     $stmt->bindParam(':id_note_de_frais', $id_note_de_frais);
