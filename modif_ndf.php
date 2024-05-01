@@ -14,18 +14,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_SESSION['id_utilisateur']) && is_numeric($_SESSION['id_utilisateur'])) {
            $id_utilisateur = $_SESSION['id_utilisateur'];
     } else {
+        // Rediriger vers la page de connexion
         $_SESSION['error_message'] = "Identifiant ou mot de passe incorrect.";
         header("Location:index.php");
         exit;
     }
 
     // Récupérer les données du formulaire
-    $id_note_de_frais = $_POST["id_modif"];
-    $intitule = $_POST["intitule"];
-    $date_facture = $_POST["date"];
-    $montant_facture = $_POST["montant"];
-    $lieu_facture = $_POST["lieu"];
-    $id_frais = $_POST["id_frais"];
+    $intitule = filter_input(INPUT_POST, 'intitule');
+    $date_facture = filter_input(INPUT_POST, 'date');
+    $montant_facture = filter_input(INPUT_POST, 'montant', FILTER_VALIDATE_FLOAT);
+    $lieu_facture = filter_input(INPUT_POST, 'lieu');
+    $id_frais = filter_input(INPUT_POST, 'id_frais', FILTER_VALIDATE_INT);
+    $id_note_de_frais = filter_input(INPUT_POST, 'id_modif', FILTER_VALIDATE_INT);
 
     if (!empty($intitule) && !empty($date_facture) && !empty($montant_facture) && !empty($lieu_facture) && !empty($id_frais) && !empty($id_utilisateur)){
         try {
