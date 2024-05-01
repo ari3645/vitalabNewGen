@@ -34,20 +34,62 @@
     <nav class="container2">
         <div class="right" >
           <h3><center>Liste notes de frais</center></h3>
-          <div class="note">
-            <div class="row">
-              <div class="col-md-4">
-                  <h4>Nom</h4>
-              </div>
-              <div class="col-md-4">
-                  <h4>Intitulé</h4>
-              </div>
-              <div class="col-md-4">
-                  <h4>Frais</h4>
-              </div>
-          </div>
-          </div>
-          
+          <?php
+                // Informations d'identification
+                $serveur = "vitalab-new-gen.mysql.database.azure.com";
+                $dbname = "vitalab-new-gen";
+                $user = "albinrvi";
+                $pass = "Ari69.008";                    
+                
+                // On récupère l'id de l'utilisateur connecté
+                session_start();
+                $id_utilisateur_connecte = $_SESSION['id_utilisateur'];
+      
+                try {
+                    // Connexion à la base de données
+                    $dsn = "mysql:host=$serveur;dbname=$dbname";
+                    $pdo = new PDO($dsn, $user, $pass);
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                    // Requête SQL pour récupérer les notes de frais de l'utilisateur connecté
+                    $sql = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut, n.id_note_de_frais, n.intitule
+                    FROM note_de_frais n 
+                    INNER JOIN type_de_frais f ON n.id_frais = f.id_frais
+                    WHERE n.id_utilisateur = $id_utilisateur_connecte";
+                    $stmt = $pdo->query($sql);
+
+                    // Afficher les notes de frais sous forme de cartes
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
+                      if ($row['statut'] == "En attente" || $row['statut'] == "en attente") {
+                        
+                      $liste_notes_html .= "<div class='card'>";
+                      $liste_notes_html .= "<div class='card-body'>";
+                      $liste_notes_html .= "<h2 class='card-title'>" . $row['intitule'] . "</h2>";
+                      $liste_notes_html .= "<h5 class='card-text'>Id de la note de frais : " . $row['id_note_de_frais'] . "</h5>";
+                      $liste_notes_html .= "<p class='card-title'>Date de facture: " . $row['date_facture'] . "</p>";
+                      $liste_notes_html .= "<p class='card-text'>Montant: " . $row['montant_facture'] . " € </p>";
+                      $liste_notes_html .= "<p class='card-text'>Lieu: " . $row['lieu_facture'] . "</p>";
+                      $liste_notes_html .= "<p class='card-text'>Type de frais: " . $row['type_frais'] . "</p>";
+                      $liste_notes_html .= "<p class='card-text'>Statut: " . $row['statut'] . "</p>";
+                      $liste_notes_html .= "<form method='post' action='delete_ndf.php'>";
+                      $liste_notes_html .= "<input type='hidden' name='id_note_de_frais' value='" . $row['id_note_de_frais'] . "' />";
+                      $liste_notes_html .= "<button type='submit' class='btn btn-danger'>Supprimer</button>";
+                      $liste_notes_html.= "</form>";
+                      $liste_notes_html .= "</div>";
+                      $liste_notes_html .= "</div>";
+                  }
+                }
+
+                  // Afficher les notes de frais
+                  echo $liste_notes_html;
+
+                //Gestion des erreurs
+                } catch (PDOException $e) {echo "Erreur : " . $e->getMessage();}
+
+                // Fermer la connexion à la base de données
+                $pdo = null;
+              ?>
         </div>
         <div class="extreme-gauche">
             <div class="left" >
