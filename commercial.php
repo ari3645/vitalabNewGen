@@ -124,7 +124,7 @@ session_start();
           <form method="POST" action="modif_ndf.php" class="top-left" style="height: 50%; width: 50%;"> 
             <h3><center>Modifier une note de frais</center></h3>
             <p>Id de la note à modifier : </p><input type="text" name="id_modif">
-            <p>Intitulé : </p><input type="number" name="intitule">
+            <p>Intitulé : </p><input type="text" name="intitule">
             <p>Date : </p><input type="text" name="date">
             <p>Montant : </p><input type="number" name="montant">
             <p>Lieu : </p><input type="text" name="lieu">
