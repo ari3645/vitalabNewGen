@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $id_note_de_frais = filter_input(INPUT_POST, 'id_modif', FILTER_VALIDATE_INT);
 
     // Vérifier si les données sont valides
-    if ($intitule && $date_facture && $montant_facture !== false && $lieu_facture && $id_frais && $id_note_de_frais) {
+    if ($intitule && $date_facture && $montant_facture !== false && $lieu_facture && $id_frais && $id_note_de_frais && $id_frais <= 10) {
         try {
             // Se connecter à la base de données de manière sécurisée
             $pdo = new PDO("mysql:host=$serveur;dbname=$dbname", $user, $pass);
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $statut = $pdo->query("SELECT statut FROM note_de_frais WHERE id_note_de_frais = $id_note_de_frais")->fetch(PDO::FETCH_ASSOC);
 
             if ($statut['statut'] == 'En attente' || $statut['statut'] == 'en attente') {
-                $stmt = $pdo->prepare("UPDATE note_de_frais
+                $sql = $pdo->prepare("UPDATE note_de_frais
                 SET intitule = :intitule,
                     date_facture = :date_facture,
                     montant_facture = :montant_facture,
@@ -48,15 +48,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 WHERE id_note_de_frais = :id_note_de_frais");
 
                 // Liaison des valeurs aux paramètres liés
-                $stmt->bindParam(':intitule', $intitule);
-                $stmt->bindParam(':date_facture', $date_facture);
-                $stmt->bindParam(':montant_facture', $montant_facture);
-                $stmt->bindParam(':lieu_facture', $lieu_facture);
-                $stmt->bindParam(':id_frais', $id_frais, PDO::PARAM_INT);
-                $stmt->bindParam(':id_note_de_frais', $id_note_de_frais, PDO::PARAM_INT);
+                $sql->bindParam(':intitule', $intitule);
+                $sql->bindParam(':date_facture', $date_facture);
+                $sql->bindParam(':montant_facture', $montant_facture);
+                $sql->bindParam(':lieu_facture', $lieu_facture);
+                $sql->bindParam(':id_frais', $id_frais, PDO::PARAM_INT);
+                $sql->bindParam(':id_note_de_frais', $id_note_de_frais, PDO::PARAM_INT);
 
                 // Exécution de la requête
-                $stmt->execute();
+                $sql->execute();
 
                 // Message de succès
                 $_SESSION['success_message'] = "Note de frais modifiée avec succès.";
@@ -78,11 +78,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $pdo = null;
         }
     } else {
-        // Message d'erreur
-        $_SESSION['success_message'] = "Veuillez remplir tous les champs.";
+        // Message d'erreur si les données sont invalides
+        $_SESSION['success_message'] = "Les données rentrées sont invalides.";
         header("Location: commercial.php");
         exit();
     }
+
+    // Si le formulaire n'a pas été soumis via la méthode POST
     $_SESSION['success_message'] = "Un problème est survenu, veuillez réessayez !.";
     header("Location: commercial.php");
     exit();
