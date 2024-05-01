@@ -1,5 +1,5 @@
 <?php
-session_start( );
+session_start();
 
 // Informations d'identification
 $serveur = "vitalab-new-gen.mysql.database.azure.com";
