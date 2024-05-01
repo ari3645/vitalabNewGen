@@ -8,8 +8,16 @@ $pass = "Ari69.008";
 // Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    session_start( );
-    $id_utilisateur = $_SESSION['id_utilisateur'];
+    session_start();
+    
+    // Valider l'existence et le type de données de session
+    if (isset($_SESSION['id_utilisateur']) && is_numeric($_SESSION['id_utilisateur'])) {
+           $id_utilisateur = $_SESSION['id_utilisateur'];
+    } else {
+        $_SESSION['error_message'] = "Identifiant ou mot de passe incorrect.";
+        header("Location:index.php");
+        exit;
+    }
 
     // Récupérer les données du formulaire
     $id_note_de_frais = $_POST["id_modif"];
