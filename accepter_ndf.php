@@ -18,9 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id_note_de_frais"])) {
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
             // Reqête SQL pour mettre à jour le statut de la note de frais
-            $stmt = $pdo->prepare("UPDATE note_de_frais SET statut = 'Acceptée' WHERE id_note_de_frais = :id_note_de_frais");
-            $stmt->bindParam(':id_note_de_frais', $id_note_de_frais);
-            $stmt->execute();
+            $sql = $pdo->prepare("UPDATE note_de_frais SET statut = 'Acceptée' WHERE id_note_de_frais = :id_note_de_frais");
+            $sql->bindParam(':id_note_de_frais', $id_note_de_frais);
+            $sql->execute();
     
             session_start();
     
