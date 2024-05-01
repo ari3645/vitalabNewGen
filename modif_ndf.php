@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //Requete qui récupère la valeur du statut de la note de frais
             $statut = $pdo->query("SELECT statut FROM note_de_frais WHERE id_note_de_frais = $id_note_de_frais")->fetch(PDO::FETCH_ASSOC);
 
-            if ($statut['statut'] == 'En attente') {
+            if ($statut['statut'] == 'En attente' || $statut['statut'] == 'en attente') {
                 $sql = $pdo->query("UPDATE note_de_frais
                 SET intitule = $intitule,
                     date_facture = $date_facture,
