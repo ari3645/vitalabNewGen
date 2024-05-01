@@ -1,7 +1,5 @@
 <?php
-    session_start();
-?>
-<?php
+session_start( );
 
 // Informations d'identification
 $serveur = "vitalab-new-gen.mysql.database.azure.com";
@@ -34,22 +32,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         // Si le login et le mot de passe correspondent, on redirige vers la page correspondante
-        if ($role === 1) {
+        if ($role === '1') {
             $_SESSION['id_utilisateur'] = $id_utilisateur;
             header("Location:admin.php");
             exit;
-        } else if ($role === 2) {
+        } else if ($role === '2') {
             $_SESSION['id_utilisateur'] =  $id_utilisateur;
             header("Location:comptable.php");
             exit;
-        } else if ($role === 3) {
+        } else if ($role === '3') {
             $_SESSION['id_utilisateur'] =  $id_utilisateur;
             header("Location:commercial.php");
             exit;
 
         // Sinon on affiche un message d'erreur
         } else {
-            session_start( );
             $_SESSION['error_message'] = "Identifiant ou mot de passe incorrect.";
             header("Location:index.php");
             exit;
@@ -58,8 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Gestion des erreurs
     } catch (PDOException $e) {
         echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
-    }
-}
+    }}
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +71,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
-
     <?php echo '<div class="card">
         <center><img src="images/logo.png" class="img-com-so" style="width: 18rem;"></center>
         <form method="post" action=""> 
