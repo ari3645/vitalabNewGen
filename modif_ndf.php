@@ -26,9 +26,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $pdo = new PDO($dsn, $user, $pass);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            //Requete qui récupère la valeur du statut de la note de frais
-            $statut = $pdo->query("SELECT statut FROM note_de_frais WHERE id_note_de_frais = $id_note_de_frais")->fetch(PDO::FETCH_ASSOC);
+            // Prépare la requête SQL avec un paramètre lié
+            $stmt = $pdo->prepare("SELECT statut FROM note_de_frais WHERE id_note_de_frais = :id_note_de_frais");
+
+            // Lie la valeur de $id_note_de_frais au paramètre lié :id_note_de_frais
+            $stmt->bindParam(':id_note_de_frais', $id_note_de_frais, PDO::PARAM_INT);
+
+            // Exécute la requête préparée
+            $stmt->execute();
+
+            // Récupère le résultat de la requête
+            $statut = $stmt->fetch(PDO::FETCH_ASSOC);
             echo $statut['statut'];
+
+
+
             // if ($statut['statut'] == 'En attente') {
             //     $sql = $pdo->query("UPDATE note_de_frais
             //     SET intitule = $intitule,
