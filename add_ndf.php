@@ -8,15 +8,15 @@ $pass = "Ari69.008";
 // Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-
+    session_start( );
+    $id_utilisateur = $_SESSION['id_utilisateur'];
     // Récupérer les données du formulaire
     $intitule = $_POST["intitule"];
     $date_facture = $_POST["date"];
     $montant_facture = $_POST["montant"];
     $lieu_facture = $_POST["lieu"];
     $type_frais = $_POST["id_frais"];
-    $id_utilisateur = $_POST["id_utilisateur"];
-    $statut = "En attente"; // Statut par défaut
+    $statut = $_POST["statut"]; // Statut par défaut
 
     if (!empty($intitule) && !empty($date_facture) && !empty($montant_facture) && !empty($lieu_facture) && !empty($type_frais) && !empty($id_utilisateur)){
         try {
