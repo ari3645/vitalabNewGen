@@ -16,13 +16,11 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <nav class="navbar">
         <div class="container1"> 
-            <img src="images/logo.png" alt="Bootstrap" class="img-nav">    
+          <img src="images/logo.png" alt="Bootstrap" class="img-nav">    
         </div>
         <center><p><h4>Vitalab New Gen</h4></p></center>
         <div class="dropdown">
-          <button href="" class="btn41-43 btn-42" onclick="logoutcm()">
-            Déconnexion
-          </button>
+          <button href="" class="btn41-43 btn-42" onclick="logoutcm()">Déconnexion</button>
 
           <script>
             //Fonction pour se déconnecter
@@ -33,9 +31,9 @@ session_start();
         </div>
     </nav>
     <nav class="container2">
-        <div class="right" >
+        <div class="right">
           <h3><center>Liste notes de frais</center></h3>
-          <?php
+            <?php
                 // Informations d'identification
                 $serveur = "vitalab-new-gen.mysql.database.azure.com";
                 $dbname = "vitalab-new-gen";
@@ -43,8 +41,13 @@ session_start();
                 $pass = "Ari69.008";                    
                 
                 // On récupère l'id de l'utilisateur connecté
-                session_start();
-                $id_utilisateur_connecte = $_SESSION['id_utilisateur'];
+                if (isset($_SESSION['id_utilisateur'])) {
+                  $id_utilisateur_connecte = filter_var($_SESSION['id_utilisateur'], FILTER_VALIDATE_INT);
+                } else {
+                  // Redirection vers la page de connexion si l'utilisateur n'est pas connecté
+                  header("Location: login.php");
+                  exit();
+                }
       
                 try {
                     // Connexion à la base de données
@@ -57,23 +60,25 @@ session_start();
                     FROM note_de_frais n 
                     INNER JOIN type_de_frais f ON n.id_frais = f.id_frais
                     WHERE n.id_utilisateur = $id_utilisateur_connecte";
-                    $stmt = $pdo->query($sql);
+                    $req = $pdo->prepare($sql);
+                    $req->bindParam(':id_utilisateur', $id_utilisateur_connecte, PDO::PARAM_INT);
+                    $req->execute();
 
                     // Afficher les notes de frais sous forme de cartes
-                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
                       $liste_notes_html .= "<div class='card'>";
                       $liste_notes_html .= "<div class='card-body'>";
-                      $liste_notes_html .= "<h2 class='card-title'>" . $row['intitule'] . "</h2>";
-                      $liste_notes_html .= "<h5 class='card-text'>Id de la note de frais : " . $row['id_note_de_frais'] . "</h5>";
-                      $liste_notes_html .= "<p class='card-title'>Date de facture: " . $row['date_facture'] . "</p>";
-                      $liste_notes_html .= "<p class='card-text'>Montant: " . $row['montant_facture'] . " € </p>";
-                      $liste_notes_html .= "<p class='card-text'>Lieu: " . $row['lieu_facture'] . "</p>";
-                      $liste_notes_html .= "<p class='card-text'>Type de frais: " . $row['type_frais'] . "</p>";
-                      $liste_notes_html .= "<p class='card-text'>Statut: " . $row['statut'] . "</p>";
+                      $liste_notes_html .= "<h2 class='card-title'>" . htmlspecialchars($row['intitule']) . "</h2>";
+                      $liste_notes_html .= "<h5 class='card-text'>Id de la note de frais : " . htmlspecialchars($row['id_note_de_frais']) . "</h5>";
+                      $liste_notes_html .= "<p class='card-title'>Date de facture: " . htmlspecialchars($row['date_facture']) . "</p>";
+                      $liste_notes_html .= "<p class='card-text'>Montant: " . htmlspecialchars($row['montant_facture']) . " € </p>";
+                      $liste_notes_html .= "<p class='card-text'>Lieu: " . htmlspecialchars($row['lieu_facture']) . "</p>";
+                      $liste_notes_html .= "<p class='card-text'>Type de frais: " . htmlspecialchars($row['type_frais']) . "</p>";
+                      $liste_notes_html .= "<p class='card-text'>Statut: " . htmlspecialchars($row['statut']) . "</p>";
 
                       if ($row['statut'] == "En attente" || $row['statut'] == "en attente") {
                         $liste_notes_html .= "<form method='post' action='delete_ndf.php'>";
-                        $liste_notes_html .= "<input type='hidden' name='id_note_de_frais' value='" . $row['id_note_de_frais'] . "' />";
+                        $liste_notes_html .= "<input type='hidden' name='id_note_de_frais' value='" . htmlspecialchars($row['id_note_de_frais']) . "' />";
                         $liste_notes_html .= "<button type='submit' class='btn btn-danger'>Supprimer</button>";
                         $liste_notes_html.= "</form>";
                       }
@@ -89,7 +94,7 @@ session_start();
 
                 // Fermer la connexion à la base de données
                 $pdo = null;
-              ?>
+            ?>
         </div>
 
         <div class="top-left" style="height: 50%; width: 50%;">
