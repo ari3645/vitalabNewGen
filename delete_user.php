@@ -35,7 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  && !empty($_POST["nom_user"])) {
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
     }
-
     // Fermer la connexion à la base de données
     $pdo = null;
 } else {
