@@ -88,7 +88,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div>
         <?php     
         // Vérifier si un message de succès est défini dans la session
-
             if (isset($_SESSION['error_message'])) {
                 // Afficher le message de succès
                 echo "<p>" . $_SESSION['error_message'] . "</p>";
