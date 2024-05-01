@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     date_facture = $date_facture,
                     montant_facture = $montant_facture,
                     lieu_facture = $lieu_facture,
-                    type_frais = $type_frais,
+                    type_frais = $type_frais
                 WHERE id_note_de_frais = $id_note_de_frais");
 
 
