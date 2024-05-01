@@ -69,6 +69,7 @@
                       $liste_notes_html .= "<form method='post' action='accepter_ndf.php'>";
                       $liste_notes_html .= "<input type='hidden' name='id_note_de_frais' value='" . $row['id_note_de_frais'] . "' />";
                       $liste_notes_html .= "<button type='submit' class='btn btn-danger'>Accepter</button>";
+                      $liste_notes_html.= "</form>";
                       $liste_notes_html .= "<form method='post' action='refuser_ndf.php'>";
                       $liste_notes_html .= "<input type='hidden' name='id_note_de_frais' value='" . $row['id_note_de_frais'] . "' />";
                       $liste_notes_html .= "<button type='submit' class='btn btn-danger'>Refuser</button>";
