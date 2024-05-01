@@ -21,10 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         //On vérifie si le login existe déjà et si le mot de passe correspond
-        $sth = $dbco->prepare("SELECT * FROM utilisateur WHERE Nom_utilisateur = :login AND mot_de_passe = :password");
-        $sth->bindParam('login', $login);
-        $sth->bindParam('password', $password);
-        $sth->execute();
+        $sql = $dbco->prepare("SELECT * FROM utilisateur WHERE Nom_utilisateur = :login AND mot_de_passe = :password");
+        $sql->bindParam('login', $login);
+        $sql->bindParam('password', $password);
+        $sql->execute();
         $row = $sth->fetch(PDO::FETCH_ASSOC);
 
         // Vérifie si une ligne a été retournée et ajoute des valeurs aux varaibles
@@ -34,15 +34,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         // Si le login et le mot de passe correspondent, on redirige vers la page correspondante
-        if ($role == '1') {
+        if ($role === 1) {
             $_SESSION['id_utilisateur'] = $id_utilisateur;
             header("Location:admin.php");
             exit;
-        } else if ($role == '2') {
+        } else if ($role === 2) {
             $_SESSION['id_utilisateur'] =  $id_utilisateur;
             header("Location:comptable.php");
             exit;
-        } else if ($role == '3') {
+        } else if ($role === 3) {
             $_SESSION['id_utilisateur'] =  $id_utilisateur;
             header("Location:commercial.php");
             exit;
