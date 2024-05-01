@@ -87,9 +87,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     <div>
         <?php     
-        // Vérifier si un message de succès est défini dans la session
+        // Vérifier si un message d'erreur est défini dans la session
             if (isset($_SESSION['error_message'])) {
-                // Afficher le message de succès
+                // Afficher le message d'erreur'
                 echo "<p>" . $_SESSION['error_message'] . "</p>";
 
                 // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
