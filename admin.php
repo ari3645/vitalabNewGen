@@ -128,9 +128,8 @@ session_start();
                       $sql = $pdo->prepare($req);
                       $sql->execute();
 
-                      echo $row['nom_utilisateur'];
                       echo "hello";
-                      echo $nom_utilisateur;
+                      echo $nom_user;
 
                     //   // Afficher les résultats
                     //   while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
