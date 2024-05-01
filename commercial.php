@@ -73,6 +73,12 @@ session_start();
                       $liste_notes_html .= "<p class='card-text'>Lieu: " . $row['lieu_facture'] . "</p>";
                       $liste_notes_html .= "<p class='card-text'>Type de frais: " . $row['type_frais'] . "</p>";
                       $liste_notes_html .= "<p class='card-text'>Statut: " . $row['statut'] . "</p>";
+
+                      if ($row['statut'] == "En attente") {
+                        $liste_utilisateurs_html .= "<form method='post' action='delete_ndf.php'>";
+                        $liste_utilisateurs_html .= "<input type='hidden' name='nom_user' value='" . $row['id_note_de_frais'] . "' />";
+                        $liste_utilisateurs_html .= "<button type='submit' class='btn btn-danger'>Supprimer</button>";
+                      }
                       $liste_notes_html .= "</div>";
                       $liste_notes_html .= "</div>";
                   }
