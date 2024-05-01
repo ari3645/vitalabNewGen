@@ -59,7 +59,7 @@ session_start();
                     $sql = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut, n.id_note_de_frais, n.intitule
                     FROM note_de_frais n 
                     INNER JOIN type_de_frais f ON n.id_frais = f.id_frais
-                    WHERE n.id_utilisateur = $id_utilisateur_connecte";
+                    WHERE n.id_utilisateur = :id_utilisateur";
                     $req = $pdo->prepare($sql);
                     $req->bindParam(':id_utilisateur', $id_utilisateur_connecte, PDO::PARAM_INT);
                     $req->execute();
