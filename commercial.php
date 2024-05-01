@@ -48,7 +48,6 @@ session_start();
                 
                 session_start();
                 $id_utilisateur_connecte = $_SESSION['id_utilisateur'];
-                echo "<h2>$id_utilisateur_connecte</h2>";
       
                 try {
                     // Connexion à la base de données
@@ -56,6 +55,7 @@ session_start();
                     $pdo = new PDO($dsn, $user, $pass);
                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+                    // On récupère l'ID de l'utilisateur connecté
                     $id_utilisateur_connecte = $_SESSION['id_utilisateur'];
 
                     // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
@@ -65,10 +65,7 @@ session_start();
                     WHERE n.id_utilisateur = $id_utilisateur_connecte";
                     $stmt = $pdo->query($sql);
 
-                    // $stmt = $pdo->prepare($sql);
-                    // $stmt->bindParam(':id_utilisateur', $id_utilisateur_connecte);
-                    // $stmt->execute();
-
+                    // Afficher les notes de frais sous forme de cartes
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                       $liste_notes_html .= "<div class='card'>";
                       $liste_notes_html .= "<div class='card-body'>";
@@ -81,11 +78,11 @@ session_start();
                       $liste_notes_html .= "</div>";
                   }
 
-                  // echo $liste_notes_html;
+                  // Afficher les notes de frais
+                  echo $liste_notes_html;
 
-                } catch (PDOException $e) {
-                    echo "Erreur : " . $e->getMessage();
-                }
+                //Gestion des erreurs
+                } catch (PDOException $e) {echo "Erreur : " . $e->getMessage();}
 
                 // Fermer la connexion à la base de données
                 $pdo = null;
