@@ -54,9 +54,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Gestion des erreurs
     } catch (PDOException $e) {
-            $_SESSION['error_message'] = "Une erreur s'est produite lors de la connexion à la base de données.";
-            header("Location: index.php");
-            exit();
+        $_SESSION['error_message'] = "Une erreur s'est produite lors de la connexion à la base de données.";
+        header("Location: index.php");
+        exit();
     }}
 ?>
 
