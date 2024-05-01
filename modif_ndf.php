@@ -28,34 +28,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             //Requete qui récupère la valeur du statut de la note de frais
             $statut = $pdo->query("SELECT statut FROM note_de_frais WHERE id_note_de_frais = $id_note_de_frais")->fetch(PDO::FETCH_ASSOC);
-            echo $statut['statut'];
 
-            // if ($statut['statut'] == 'En attente' || $statut['statut'] == 'en attente') {
-            //     $sql = $pdo->query("UPDATE note_de_frais
-            //     SET intitule = $intitule,
-            //         date_facture = $date_facture,
-            //         montant_facture = $montant_facture,
-            //         lieu_facture = $lieu_facture,
-            //         type_frais = $type_frais,
-            //     WHERE id_note_de_frais = $id_note_de_frais");
+            if ($statut['statut'] == 'En attente' || $statut['statut'] == 'en attente') {
+                $sql = $pdo->query("UPDATE note_de_frais
+                SET intitule = $intitule,
+                    date_facture = $date_facture,
+                    montant_facture = $montant_facture,
+                    lieu_facture = $lieu_facture,
+                    type_frais = $type_frais,
+                WHERE id_note_de_frais = $id_note_de_frais");
 
 
-            //     // Message de succès
-            //     session_start();
-            //     $_SESSION['success_message'] = "Note de frais ajoutée avec succès.";
+                // Message de succès
+                session_start();
+                $_SESSION['success_message'] = "Note de frais ajoutée avec succès.";
 
-            //     // Rediriger vers une autre page
-            //     header("Location: commercial.php");
-            //     exit();
-            // } else {
-            //     // Message d'erreur
-            //     session_start();
-            //     $_SESSION['success_message'] = "La note de frais ne peut pas être modifiée.";
+                // Rediriger vers une autre page
+                header("Location: commercial.php");
+                exit();
+            } else {
+                // Message d'erreur
+                session_start();
+                $_SESSION['success_message'] = "La note de frais ne peut pas être modifiée.";
                 
-            //     // Rediriger vers une autre page
-            //     header("Location: commercial.php");
-            //     exit();
-            // }
+                // Rediriger vers une autre page
+                header("Location: commercial.php");
+                exit();
+            }
 
         // Gestion des erreurs
         } catch (PDOException $e) {
