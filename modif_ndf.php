@@ -30,13 +30,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $statut = $pdo->query("SELECT statut FROM note_de_frais WHERE id_note_de_frais = $id_note_de_frais")->fetch(PDO::FETCH_ASSOC);
 
             if ($statut['statut'] == 'En attente' || $statut['statut'] == 'en attente') {
-                $sql = $pdo->query("UPDATE note_de_frais
-                SET intitule = $intitule,
-                    date_facture = $date_facture,
-                    montant_facture = $montant_facture,
-                    lieu_facture = $lieu_facture,
-                    id_frais = $id_frais
-                WHERE id_note_de_frais = $id_note_de_frais");
+                $stmt = $pdo->prepare("UPDATE note_de_frais
+                SET intitule = :intitule,
+                    date_facture = :date_facture,
+                    montant_facture = :montant_facture,
+                    lieu_facture = :lieu_facture,
+                    id_frais = :id_frais
+                WHERE id_note_de_frais = :id_note_de_frais");
+
+                // Liaison des valeurs aux paramètres liés
+                $stmt->bindParam(':intitule', $intitule);
+                $stmt->bindParam(':date_facture', $date_facture);
+                $stmt->bindParam(':montant_facture', $montant_facture);
+                $stmt->bindParam(':lieu_facture', $lieu_facture);
+                $stmt->bindParam(':id_frais', $id_frais);
+                $stmt->bindParam(':id_note_de_frais', $id_note_de_frais);
+
+                // Exécution de la requête
+                $stmt->execute();
 
 
                 // Message de succès
