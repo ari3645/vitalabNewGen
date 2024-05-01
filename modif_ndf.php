@@ -10,16 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     session_start();
     
-    // Valider l'existence et le type de données de session
-    if (isset($_SESSION['id_utilisateur']) && is_numeric($_SESSION['id_utilisateur'])) {
-           $id_utilisateur = $_SESSION['id_utilisateur'];
-    } else {
-        // Rediriger vers la page de connexion
-        $_SESSION['error_message'] = "Identifiant ou mot de passe incorrect.";
-        header("Location:index.php");
-        exit;
-    }
-
     // Récupérer les données du formulaire
     $intitule = filter_input(INPUT_POST, 'intitule');
     $date_facture = filter_input(INPUT_POST, 'date');
