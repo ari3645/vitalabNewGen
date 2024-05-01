@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Vérifier si les données sont valides
-    if ($intitule && $date_facture && $montant_facture !== false && $lieu_facture && $id_frais && $id_note_de_frais && $id_frais <= $nombre_de_lignes && $id_frais > 0) {
+    if ($intitule && $date_facture && $montant_facture !== false && $lieu_facture && $id_frais && $id_note_de_frais && $id_frais <= $nombre_de_lignes && $id_frais > 0 && $id_note_de_frais > 0 && $montant_facture > 0) {
         try {
             // Se connecter à la base de données de manière sécurisée
             $pdo = new PDO("mysql:host=$serveur;dbname=$dbname", $user, $pass);
