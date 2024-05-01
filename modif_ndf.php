@@ -28,14 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $id_frais = filter_input(INPUT_POST, 'id_frais', FILTER_VALIDATE_INT);
     $id_note_de_frais = filter_input(INPUT_POST, 'id_modif', FILTER_VALIDATE_INT);
 
-
+    // On va compter le nombre de lignes dans la table type_frais
     try {
         // Connexion à la base de données
         $pde = new PDO("mysql:host=$serveur;dbname=$dbname", $user, $pass);
         $pde->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // Requête SQL pour compter le nombre de lignes dans la table type_frais
-        $nb_li = $pde->query("SELECT COUNT(*) AS nombre_de_lignes FROM type_frais");
+        // Requête SQL pour compter le nombre de lignes dans la table type_de_frais
+        $nb_li = $pde->query("SELECT COUNT(*) AS nombre_de_lignes FROM type_de_frais");
         $result = $nb_li->fetch(PDO::FETCH_ASSOC);
         $nombre_de_lignes = $result['nombre_de_lignes'];
     } catch (PDOException $e) {
