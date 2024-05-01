@@ -2,7 +2,6 @@
 session_start();
 ?>
 
-
 <!DOCTYPE html>
 <html lang="FR">
 <head>
@@ -140,7 +139,6 @@ session_start();
                       $liste_utilisateurs_html .= "<input type='hidden' name='nom_user' value='" . $row['nom_utilisateur'] . "' />";
                       $liste_utilisateurs_html .= "<button type='submit' class='btn btn-danger'>Supprimer</button>";
                       $liste_utilisateurs_html .= "</form>";
-
                       $liste_utilisateurs_html .= "</div>";
                       $liste_utilisateurs_html .= "</div>";
                       
