@@ -94,7 +94,20 @@
           <p>Veuillez choisir une note de frais</p>
         </div>  
 
-        <script>
+
+
+        <div class="row">
+            <div class="col-md-3">
+                <button class="bn1" >Valider</button>
+            </div>
+            <div class="col-md-3">
+                 <button class="bn1" >Refuser</button>
+            </div>
+            </div>
+        </div>
+    </nav>
+
+    <script>
           function chargerDetails(idNoteDeFrais) {
               var xhr = new XMLHttpRequest();
               xhr.onreadystatechange = function() {
@@ -106,19 +119,6 @@
               xhr.send();
           }
         </script>
-
-        <div class="row">
-            <div class="col-md-3">
-                <a href="" class="bn1" >Accepter</a>
-            </div>
-            <div class="col-md-3">
-                 <a href="" class="bn1" >Refuser</a>
-            </div>
-            <div class="col-md-6">      
-            </div>
-        </div>
-    </nav>
-
 
 </body>
 </html>
