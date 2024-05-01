@@ -31,15 +31,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Vérifier si les données sont valides
     if ($intitule && $date_facture && $montant_facture !== false && $lieu_facture && $id_frais && $id_note_de_frais) {
         try {
-            // Se connecter à la base de données
-            $dsn = "mysql:host=$serveur;dbname=$dbname";
-            $pdo = new PDO($dsn, $user, $pass);
+            // Se connecter à la base de données de manière sécurisée
+            $pdo = new PDO("mysql:host=$serveur;dbname=$dbname", $user, $pass);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            //Requete qui récupère la valeur du statut de la note de frais
-            $statut = $pdo->query("SELECT statut FROM note_de_frais WHERE id_note_de_frais = $id_note_de_frais")->fetch(PDO::FETCH_ASSOC);
+            // Requête sécurisée pour récupérer le statut de la note de frais
+            $stmt_statut = $pdo->prepare("SELECT statut FROM note_de_frais WHERE id_note_de_frais = :id_note_de_frais");
+            $stmt_statut->bindParam(':id_note_de_frais', $id_note_de_frais, PDO::PARAM_INT);
+            $stmt_statut->execute();
+            $statut = $stmt_statut->fetchColumn();
 
-            if ($statut['statut'] == 'En attente' || $statut['statut'] == 'en attente') {
+            if ($statut['statut'] === 'En attente' || $statut['statut'] === 'en attente') {
                 $stmt = $pdo->prepare("UPDATE note_de_frais
                 SET intitule = :intitule,
                     date_facture = :date_facture,
@@ -60,18 +62,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $stmt->execute();
 
                 // Message de succès
-                session_start();
-                $_SESSION['success_message'] = "Note de frais ajoutée avec succès.";
-
-                // Rediriger vers une autre page
+                $_SESSION['success_message'] = "Note de frais modifiée avec succès.";
                 header("Location: commercial.php");
                 exit();
+
             } else {
                 // Message d'erreur
-                session_start();
                 $_SESSION['success_message'] = "La note de frais ne peut pas être modifiée.";
-                
-                // Rediriger vers une autre page
                 header("Location: commercial.php");
                 exit();
             }
