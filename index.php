@@ -2,15 +2,19 @@
     session_start();
 ?>
 <?php
+
+// Informations d'identification
 $serveur = "vitalab-new-gen.mysql.database.azure.com";
 $dbname = "vitalab-new-gen";
 $user = "albinrvi";
 $pass = "Ari69.008";
 
+// Connexion à la base de données
 $dbco = new PDO("mysql:host=$serveur;dbname=$dbname", $user, $pass);
 $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     // Récupère les données du formulaire
     $login = $_POST["login"];
     $password = $_POST["password"];
@@ -24,11 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $count = $sth->rowCount();
         $row = $sth->fetch(PDO::FETCH_ASSOC);
 
-        // Vérifie si une ligne a été retournée
+        // Vérifie si une ligne a été retournée et ajoute des valeurs aux varaibles
         if ($row) {
             $id_utilisateur = $row['id_utilisateur'];
             $role = $row['id_role'];
         }
+
+        // Si le login et le mot de passe correspondent, on redirige vers la page correspondante
         if ($count == 1 and $role == '1') {
             $_SESSION['id_utilisateur'] = $id_utilisateur;
             header("Location:admin.php");
@@ -41,13 +47,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['id_utilisateur'] =  $id_utilisateur;
             header("Location:commercial.php");
             exit;
-        } else {
 
+        // Sinon on affiche un message d'erreur
+        } else {
             session_start( );
             $_SESSION['error_message'] = "Identifiant ou mot de passe incorrect.";
             header("Location:index.php");
             exit;
         }
+
+    // Gestion des erreurs
     } catch (PDOException $e) {
         echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
     }
@@ -88,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div>
           <?php     
             // Vérifier si un message de succès est défini dans la session
-            if (isset($_SESSION['success_message'])) {
+            if (isset($_SESSION['error_message'])) {
                 // Afficher le message de succès
                 echo "<p>" . $_SESSION['error_message'] . "</p>";
                 // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
