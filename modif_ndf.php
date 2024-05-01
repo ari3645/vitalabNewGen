@@ -28,7 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $id_frais = filter_input(INPUT_POST, 'id_frais', FILTER_VALIDATE_INT);
     $id_note_de_frais = filter_input(INPUT_POST, 'id_modif', FILTER_VALIDATE_INT);
 
-    if (!empty($intitule) && !empty($date_facture) && !empty($montant_facture) && !empty($lieu_facture) && !empty($id_frais) && !empty($id_utilisateur)){
+    // Vérifier si les données sont valides
+    if ($intitule && $date_facture && $montant_facture !== false && $lieu_facture && $id_frais && $id_note_de_frais) {
         try {
             // Se connecter à la base de données
             $dsn = "mysql:host=$serveur;dbname=$dbname";
