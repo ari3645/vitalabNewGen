@@ -92,10 +92,6 @@
               ?>
         </div>
 
-        <div id="details_note_frais">
-          <h3><center>Informations note de frais</center></h3>
-          <p>Veuillez choisir une note de frais</p>
-        </div>  
     </nav>
 </body>
 </html>

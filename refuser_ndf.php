@@ -26,7 +26,9 @@ try {
     session_start();
     $_SESSION['success_message'] = "La note de frais a été refusée avec succès.";
     // Rediriger vers une autre page ou afficher un message de succès
-    header("Location: page_de_redirection.php");
+    header("Location: comptable.php");
+
+    
     exit();
 
 } catch (PDOException $e) {
