@@ -90,25 +90,20 @@
                 $pdo = null;
               ?>
         </div>
-        <div class="extreme-gauche" style="display: none;">
-            <div class="left" >
-              <h3><center>Informations note de frais</center></h3>
-              <h5>Intitulé : </h5>
-              <h5> Frais : </h5>
-              <h5>Date : </h5>
-              <h5> Détails : </h5>
+
+        <div id="details_note_frais">
+          <h3><center>Informations note de frais</center></h3>
+          <p>Veuillez choisir une note de frais</p>
+        </div>  
+
+        <div class="row">
+            <div class="col-md-3">
+                <a href="" class="bn1" >Accepter</a>
             </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="" class="bn1" >Accepter</a>
-                </div>
-                <div class="col-md-3">
-                    <a href="" class="bn1" >Refuser</a>
-                </div>
-                <div class="col-md-6">
-                    
-                </div>
-                
+            <div class="col-md-3">
+                 <a href="" class="bn1" >Refuser</a>
+            </div>
+            <div class="col-md-6">      
             </div>
         </div>
     </nav>
