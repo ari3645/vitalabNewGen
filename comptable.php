@@ -61,8 +61,7 @@
                     // Afficher les notes de frais sous forme de cartes
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-                      $liste_notes_html .= "<a href='detail_note_de_frais.php?id=" . $row['id_note_de_frais'] . "' class='card-link'>";  
-                      $liste_notes_html .= "<div class='card'>";
+                      $liste_notes_html .= "<div class='card' onclick='chargerDetails(" . $row['id_note_de_frais'] . ")>";
                       $liste_notes_html .= "<div class='card-body'>";
                       $liste_notes_html .= "<h2 class='card-title'>" . $row['intitule'] . "</h2>";
                       $liste_notes_html .= "<h5 class='card-text'>Id de la note de frais : " . $row['id_note_de_frais'] . "</h5>";
@@ -77,7 +76,6 @@
                       $liste_notes_html.= "</form>";
                       $liste_notes_html .= "</div>";
                       $liste_notes_html .= "</div>";
-                      $liste_notes_html .= "</a>";
                   }
 
                   // Afficher les notes de frais
@@ -95,6 +93,19 @@
           <h3><center>Informations note de frais</center></h3>
           <p>Veuillez choisir une note de frais</p>
         </div>  
+
+        <script>
+          function chargerDetails(idNoteDeFrais) {
+              var xhr = new XMLHttpRequest();
+              xhr.onreadystatechange = function() {
+                  if (xhr.readyState === 4 && xhr.status === 200) {
+                      document.getElementById('details_note_frais').innerHTML = xhr.responseText;
+                  }
+              };
+              xhr.open('GET', 'details_note_frais.php?id=' + idNoteDeFrais, true);
+              xhr.send();
+          }
+        </script>
 
         <div class="row">
             <div class="col-md-3">
