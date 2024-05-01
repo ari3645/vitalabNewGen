@@ -9,23 +9,22 @@ $dbname = "vitalab-new-gen";
 $user = "albinrvi";
 $pass = "Ari69.008";
 
-// Connexion à la base de données
-$dbco = new PDO("mysql:host=$serveur;dbname=$dbname", $user, $pass);
-$dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Récupère les données du formulaire
-    $login = $_POST["login"];
-    $password = $_POST["password"];
+    $login = filter_input(INPUT_POST, 'login');
+    $password = filter_input(INPUT_POST, 'password');
 
     try {
+        // Connexion à la base de données
+        $dbco = new PDO("mysql:host=$serveur;dbname=$dbname", $user, $pass);
+        $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
         //On vérifie si le login existe déjà et si le mot de passe correspond
         $sth = $dbco->prepare("SELECT * FROM utilisateur WHERE Nom_utilisateur = :login AND mot_de_passe = :password");
         $sth->bindParam('login', $login);
         $sth->bindParam('password', $password);
         $sth->execute();
-        $count = $sth->rowCount();
         $row = $sth->fetch(PDO::FETCH_ASSOC);
 
         // Vérifie si une ligne a été retournée et ajoute des valeurs aux varaibles
@@ -35,15 +34,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Si le login et le mot de passe correspondent, on redirige vers la page correspondante
-        if ($count == 1 and $role == '1') {
+        if ($role == '1') {
             $_SESSION['id_utilisateur'] = $id_utilisateur;
             header("Location:admin.php");
             exit;
-        } else if ($count == 1 and $role == '2') {
+        } else if ($role == '2') {
             $_SESSION['id_utilisateur'] =  $id_utilisateur;
             header("Location:comptable.php");
             exit;
-        } else if ($count == 1 and $role == '3') {
+        } else if ($role == '3') {
             $_SESSION['id_utilisateur'] =  $id_utilisateur;
             header("Location:commercial.php");
             exit;
@@ -65,7 +64,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -89,21 +87,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <center><button type="submit" class="bn1">Connexion</button></center> 
         </form>
     </div>'; ?>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
     
-        <div>
-          <?php     
-            // Vérifier si un message de succès est défini dans la session
+    <div>
+        <?php     
+        // Vérifier si un message de succès est défini dans la session
             if (isset($_SESSION['error_message'])) {
                 // Afficher le message de succès
                 echo "<p>" . $_SESSION['error_message'] . "</p>";
                 // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
                 unset($_SESSION['error_message']);}
           ?>
-        </div>
-
+    </div>
 </body>
 </html>
