@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
     } else {
         // Message d'erreur
         session_start();
-        $_SESSION['success_message'] = "Veuillez remplir tous les champs.";
+        $_SESSION['success_message'] = "Les données entrées sont invalides.";
 
         // Rediriger vers une autre page
         header("Location: admin.php");
@@ -78,6 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
     $pdo = null;
 } else {
     session_start();
+        // Message d'erreur
         $_SESSION['success_message'] = "Veuillez remplir tous les champs.";
 
         // Rediriger vers une autre page
