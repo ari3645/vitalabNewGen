@@ -61,7 +61,7 @@
                     // Afficher les notes de frais sous forme de cartes
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-                      $liste_notes_html .= "<div class='card' onclick='chargerDetails(" . $row['id_note_de_frais'] . ")>";
+                      $liste_notes_html .= "<div class='card'>";
                       $liste_notes_html .= "<div class='card-body'>";
                       $liste_notes_html .= "<h2 class='card-title'>" . $row['intitule'] . "</h2>";
                       $liste_notes_html .= "<h5 class='card-text'>Id de la note de frais : " . $row['id_note_de_frais'] . "</h5>";
@@ -70,9 +70,16 @@
                       $liste_notes_html .= "<p class='card-text'>Lieu: " . $row['lieu_facture'] . "</p>";
                       $liste_notes_html .= "<p class='card-text'>Type de frais: " . $row['type_frais'] . "</p>";
                       $liste_notes_html .= "<p class='card-text'>Statut: " . $row['statut'] . "</p>";
-                      $liste_notes_html .= "<form method='post' action='delete_ndf.php'>";
+                      $liste_notes_html .= "<form method='post' action='afficher_ndf.php'>";
                       $liste_notes_html .= "<input type='hidden' name='id_note_de_frais' value='" . $row['id_note_de_frais'] . "' />";
-                      $liste_notes_html .= "<button type='submit' class='btn btn-danger'>Supprimer</button>";
+                      $liste_notes_html .= "<button type='submit' class='btn btn-danger'>Afficher</button>";
+                      $liste_notes_html.= "</form>";
+                      $liste_notes_html .= "<form method='post' action='accepter_ndf.php'>";
+                      $liste_notes_html .= "<input type='hidden' name='id_note_de_frais' value='" . $row['id_note_de_frais'] . "' />";
+                      $liste_notes_html .= "<button type='submit' class='btn btn-danger'>Accepter</button>";
+                      $liste_notes_html .= "<form method='post' action='refuser_ndf.php'>";
+                      $liste_notes_html .= "<input type='hidden' name='id_note_de_frais' value='" . $row['id_note_de_frais'] . "' />";
+                      $liste_notes_html .= "<button type='submit' class='btn btn-danger'>Refuser</button>";
                       $liste_notes_html.= "</form>";
                       $liste_notes_html .= "</div>";
                       $liste_notes_html .= "</div>";
