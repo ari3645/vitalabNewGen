@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $montant_facture = $_POST["montant"];
     $lieu_facture = $_POST["lieu"];
     $type_frais = $_POST["id_frais"];
-    $statut = $_POST["statut"]; // Statut par défaut
+    $statut = "En attente"; // Statut par défaut
 
     if (!empty($intitule) && !empty($date_facture) && !empty($montant_facture) && !empty($lieu_facture) && !empty($type_frais) && !empty($id_utilisateur)){
         try {
