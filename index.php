@@ -26,12 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Vérifie si une ligne a été retournée
         if ($row) {
-            // Récupère l'ID de l'utilisateur et le rôle depuis la ligne récupérée
             $id_utilisateur = $row['id_utilisateur'];
             $role = $row['id_role'];
-            // echo $id_utilisateur;
-            // echo $role;
-            // echo $count;
         }
         if ($count == 1 and $role == '1') {
             $_SESSION['id_utilisateur'] = $id_utilisateur;
@@ -46,8 +42,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location:commercial.php");
             exit;
         } else {
-            // Rediriger vers la page de connexion avec un message d'erreur
-            header("Location:testh.html");
+
+            session_start( );
+            $_SESSION['error_message'] = "Identifiant ou mot de passe incorrect.";
+            header("Location:index.php");
             exit;
         }
     } catch (PDOException $e) {
@@ -82,6 +80,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <center><button type="submit" class="bn1">Connexion</button></center> 
         </form>
     </div>'; ?>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    
+        <div>
+          <?php     
+            // Vérifier si un message de succès est défini dans la session
+            if (isset($_SESSION['success_message'])) {
+                // Afficher le message de succès
+                echo "<p>" . $_SESSION['error_message'] . "</p>";
+                // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
+                unset($_SESSION['error_message']);}
+          ?>
+        </div>
 
 </body>
 </html>
