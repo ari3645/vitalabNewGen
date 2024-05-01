@@ -1,5 +1,9 @@
 <?php
 session_start();
+$_SESSION['error_message'] = "";
+$_SESSION['success_message'] = "";
+$_SESSION['id_utilisateur'] = "";
+$_SESSION['role'] = "";
 
 // Informations d'identification
 $serveur = "vitalab-new-gen.mysql.database.azure.com";
