@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
 } else {
     session_start();
         // Message d'erreur
-        $_SESSION['success_message'] = "Les données sont invalides.";
+        $_SESSION['success_message'] = "Les données entrées sont invalides.";
 
         // Rediriger vers une autre page
         header("Location: admin.php");
