@@ -92,7 +92,7 @@
                 $pdo = null;
               ?>
         </div>
-        <div class="extreme-gauche">
+        <div class="extreme-gauche" style="display: none;">
             <div class="left" >
               <h3><center>Informations note de frais</center></h3>
               <h5>Intitulé : </h5>
