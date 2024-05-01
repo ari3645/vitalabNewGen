@@ -30,6 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
             $si_existant = $est_existant->fetch(PDO::FETCH_ASSOC);
 
             if ($si_existant['count'] > 0) {
+
+                // Définir un message d'erreur dans la session
                 session_start();
                 $_SESSION['success_message'] = "L'utilisateur existe déjà.";
 
@@ -38,12 +40,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
                 exit();
 
             }else {
-                $stmt = $pdo->prepare("INSERT INTO utilisateur (nom_utilisateur, mail, mot_de_passe, id_role) VALUES (:nom_utilisateur, :mail, :mot_de_passe, :role_id)");
-                $stmt->bindParam(':nom_utilisateur', $nom_utilisateur, PDO::PARAM_STR);
-                $stmt->bindParam(':mail', $mail, PDO::PARAM_STR);
-                $stmt->bindParam(':mot_de_passe', $mot_de_passe, PDO::PARAM_STR);
-                $stmt->bindParam(':role_id', $role_id, PDO::PARAM_INT);
-                $stmt->execute(); 
+
+                // Préparer la requête SQL d'insertion
+                $sql = $pdo->prepare("INSERT INTO utilisateur (nom_utilisateur, mail, mot_de_passe, id_role) VALUES (:nom_utilisateur, :mail, :mot_de_passe, :role_id)");
+                $sql->bindParam(':nom_utilisateur', $nom_utilisateur, PDO::PARAM_STR);
+                $sql->bindParam(':mail', $mail, PDO::PARAM_STR);
+                $sql->bindParam(':mot_de_passe', $mot_de_passe, PDO::PARAM_STR);
+                $sql->bindParam(':role_id', $role_id, PDO::PARAM_INT);
+                $sql->execute(); 
 
                 // Définir un message de réussite dans la session
                 session_start();
@@ -58,6 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
         } catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();
         }
+        $pdo = null;
+
     } else {
         // Message d'erreur
         session_start();
