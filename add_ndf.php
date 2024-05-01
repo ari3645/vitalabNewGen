@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $type_frais = $_POST["id_frais"];
     $statut = "En attente"; // Statut par défaut
 
-    if (!empty($intitule) && !empty($date_facture) && !empty($montant_facture) && !empty($lieu_facture) && !empty($type_frais) && !empty($id_utilisateur)){
+    if (!empty($intitule) && !empty($date_facture) && !empty($montant_facture) && !empty($lieu_facture) && !empty($type_frais) && !empty($id_utilisateur) && !empty($statut) && ($type_frais <= 10) ){
         try {
             // Se connecter à la base de données
             $dsn = "mysql:host=$serveur;dbname=$dbname";
