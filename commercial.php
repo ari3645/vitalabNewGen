@@ -57,7 +57,7 @@ session_start();
                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                     // Requête SQL pour récupérer les notes de frais de l'utilisateur connecté
-                    $sql = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut
+                    $sql = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut, n.id_note_de_frais
                     FROM note_de_frais n 
                     INNER JOIN type_de_frais f ON n.id_frais = f.id_frais
                     WHERE n.id_utilisateur = $id_utilisateur_connecte";
@@ -67,7 +67,8 @@ session_start();
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                       $liste_notes_html .= "<div class='card'>";
                       $liste_notes_html .= "<div class='card-body'>";
-                      $liste_notes_html .= "<h5 class='card-title'>Date de facture: " . $row['date_facture'] . "</h5>";
+                      $liste_notes_html .= "<h5 class='card-text'>Id de la note de frais : " . $row['id_note_de_frais'] . "</h5>";
+                      $liste_notes_html .= "<p class='card-title'>Date de facture: " . $row['date_facture'] . "</p>";
                       $liste_notes_html .= "<p class='card-text'>Montant: " . $row['montant_facture'] . "</p>";
                       $liste_notes_html .= "<p class='card-text'>Lieu: " . $row['lieu_facture'] . "</p>";
                       $liste_notes_html .= "<p class='card-text'>Type de frais: " . $row['type_frais'] . "</p>";
