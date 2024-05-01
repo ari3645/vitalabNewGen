@@ -115,6 +115,11 @@ session_start();
                       $pdo = new PDO($dsn, $user, $pass);
                       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+                      $nom_utilisateur = "SELECT nom_utilisateur FROM utilisateur WHERE id_utilisateur = :id_utilisateur";
+                      $nom_utilisateur = $pdo->prepare($nom_utilisateur);
+                      $nom_utilisateur->bindParam(':id_utilisateur', $_SESSION['id_utilisateur']);
+                      $nom_utilisateur->execute();
+
                       // Exécuter la requête SQL pour récupérer le nom de l'utilisateur et son rôle
                       $req = "SELECT u.nom_utilisateur, r.nom_role 
                       FROM utilisateur u 
@@ -124,6 +129,10 @@ session_start();
 
                       // Afficher les résultats
                       while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
+                        
+                        if ($row['nom_utilisateur'] == $nom_utilisateur ) {
+                          continue;
+                        }
                         $liste_utilisateurs_html .= "<div class='card'>";
                         $liste_utilisateurs_html .= "<div class='card-body'>";
                         $liste_utilisateurs_html .= "<h5 class='card-title'>" . htmlspecialchars($row['nom_utilisateur']) . "</h5>";
