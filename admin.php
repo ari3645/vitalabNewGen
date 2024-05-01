@@ -119,6 +119,7 @@ session_start();
                       $nom_utilisateur = $pdo->prepare($nom_utilisateur);
                       $nom_utilisateur->bindParam(':id_utilisateur', $_SESSION['id_utilisateur']);
                       $nom_utilisateur->execute();
+                      $nom_user = $nom_utilisateur->fetch(PDO::FETCH_ASSOC);
 
                       // Exécuter la requête SQL pour récupérer le nom de l'utilisateur et son rôle
                       $req = "SELECT u.nom_utilisateur, r.nom_role 

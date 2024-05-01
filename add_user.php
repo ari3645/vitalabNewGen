@@ -21,9 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
         $pdo = new PDO($dsn, $user, $pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $result_check_existing=$pdo->query("SELECT COUNT(*) as count FROM utilisateur WHERE nom_utilisateur = '$nom_utilisateur' OR mail = '$mail'")->fetch(PDO::FETCH_ASSOC);
+        $si_existant=$pdo->query("SELECT COUNT(*) as count FROM utilisateur WHERE nom_utilisateur = '$nom_utilisateur' OR mail = '$mail'")->fetch(PDO::FETCH_ASSOC);
 
-        if ($result_check_existing['count'] > 0) {
+        if ($si_existant['count'] > 0) {
             session_start();
             $_SESSION['success_message'] = "L'utilisateur existe déjà.";
 
