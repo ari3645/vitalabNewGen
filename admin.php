@@ -121,38 +121,32 @@ session_start();
                       $nom_utilisateur->execute();
                       $nom_user = $nom_utilisateur->fetch(PDO::FETCH_ASSOC);
 
-                      // // Exécuter la requête SQL pour récupérer le nom de l'utilisateur et son rôle
-                      // $req = "SELECT u.nom_utilisateur, r.nom_role 
-                      // FROM utilisateur u 
-                      // INNER JOIN role r ON u.id_role = r.id_role";
-                      // $sql = $pdo->prepare($req);
-                      // $sql->execute();
+                      // Exécuter la requête SQL pour récupérer le nom de l'utilisateur et son rôle
+                      $req = "SELECT u.nom_utilisateur, r.nom_role 
+                      FROM utilisateur u 
+                      INNER JOIN role r ON u.id_role = r.id_role";
+                      $sql = $pdo->prepare($req);
+                      $sql->execute();
+                      $row= $sql->fetch(PDO::FETCH_ASSOC);
 
-                      echo $_SESSION['id_utilisateur'];
-                      echo "hello";
-                      echo $nom_user['nom_utilisateur'];
+                      // Afficher les résultats
+                      while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
+                        if ($row['nom_utilisateur'] == $nom_user['nom_utilisateur'] ) {
+                          continue;
+                        }else {
+                          $liste_utilisateurs_html .= "<div class='card'>";
+                          $liste_utilisateurs_html .= "<div class='card-body'>";
+                          $liste_utilisateurs_html .= "<h5 class='card-title'>" . htmlspecialchars($row['nom_utilisateur']) . "</h5>";
+                          $liste_utilisateurs_html .= "<p class='card-text'>Role: " . htmlspecialchars($row['nom_role']) . "</p>";
+                          $liste_utilisateurs_html .= "<form method='post' action='delete_user.php'>";
+                          $liste_utilisateurs_html .= "<input type='hidden' name='nom_user' value='" . htmlspecialchars($row['nom_utilisateur']) . "' />";
+                          $liste_utilisateurs_html .= "<button type='submit' class='btn btn-danger'>Supprimer</button>";
+                          $liste_utilisateurs_html .= "</form>";
+                          $liste_utilisateurs_html .= "</div>";
+                          $liste_utilisateurs_html .= "</div>";
+                        }
 
-                    //   // Afficher les résultats
-                    //   while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
-
-
-                        
-                    //     if ($row['nom_utilisateur'] == $nom_utilisateur ) {
-                    //       continue;
-                    //     }else {
-                    //       $liste_utilisateurs_html .= "<div class='card'>";
-                    //       $liste_utilisateurs_html .= "<div class='card-body'>";
-                    //       $liste_utilisateurs_html .= "<h5 class='card-title'>" . htmlspecialchars($row['nom_utilisateur']) . "</h5>";
-                    //       $liste_utilisateurs_html .= "<p class='card-text'>Role: " . htmlspecialchars($row['nom_role']) . "</p>";
-                    //       $liste_utilisateurs_html .= "<form method='post' action='delete_user.php'>";
-                    //       $liste_utilisateurs_html .= "<input type='hidden' name='nom_user' value='" . htmlspecialchars($row['nom_utilisateur']) . "' />";
-                    //       $liste_utilisateurs_html .= "<button type='submit' class='btn btn-danger'>Supprimer</button>";
-                    //       $liste_utilisateurs_html .= "</form>";
-                    //       $liste_utilisateurs_html .= "</div>";
-                    //       $liste_utilisateurs_html .= "</div>";
-                    //     }
-
-                    // }
+                    }
 
                     // Afficher les utilisateurs
                     echo $liste_utilisateurs_html;
