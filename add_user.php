@@ -7,7 +7,7 @@ $user = "albinrvi";
 $pass = "Ari69.008";
 
 // Vérifier si le formulaire a été soumis
-if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POST["email"]) && !empty($_POST["mdp"]) && !empty($_POST["role"])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POST["email"]) && !empty($_POST["mdp"]) && !empty($_POST["role"]) && ($_POST["role"] <= 3)) {
 
     // Récupérer les données du formulaire
     $nom_utilisateur = $_POST["id"];
