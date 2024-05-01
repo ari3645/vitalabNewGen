@@ -35,8 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $pdo = new PDO("mysql:host=$serveur;dbname=$dbname", $user, $pass);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            // Requête sécurisée pour récupérer le statut de la note de frais
-            $statut = $pdo->query("SELECT statut FROM note_de_frais WHERE id_note_de_frais = $id_note_de_frais")->fetch(PDO::FETCH_ASSOC);
+            $sta = $pdo->prepare("SELECT statut FROM note_de_frais WHERE id_note_de_frais = :id_note_de_frais");
+            $sta->bindParam(':id_note_de_frais', $id_note_de_frais, PDO::PARAM_INT);
+            $sta->execute();
+            $statut = $sta->fetch(PDO::FETCH_ASSOC);
 
             if ($statut['statut'] == 'En attente' || $statut['statut'] == 'en attente') {
                 $sql = $pdo->prepare("UPDATE note_de_frais
