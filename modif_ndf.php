@@ -17,9 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date_facture = $_POST["date"];
     $montant_facture = $_POST["montant"];
     $lieu_facture = $_POST["lieu"];
-    $type_frais = $_POST["id_frais"];
+    $id_frais = $_POST["id_frais"];
 
-    if (!empty($intitule) && !empty($date_facture) && !empty($montant_facture) && !empty($lieu_facture) && !empty($type_frais) && !empty($id_utilisateur)){
+    if (!empty($intitule) && !empty($date_facture) && !empty($montant_facture) && !empty($lieu_facture) && !empty($id_frais) && !empty($id_utilisateur)){
         try {
             // Se connecter à la base de données
             $dsn = "mysql:host=$serveur;dbname=$dbname";
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     date_facture = $date_facture,
                     montant_facture = $montant_facture,
                     lieu_facture = $lieu_facture,
-                    type_frais = $type_frais
+                    id_frais = $id_frais
                 WHERE id_note_de_frais = $id_note_de_frais");
 
 
