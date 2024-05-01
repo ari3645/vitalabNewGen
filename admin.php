@@ -128,6 +128,7 @@ session_start();
                       // $sql = $pdo->prepare($req);
                       // $sql->execute();
 
+                      echo $_SESSION['id_utilisateur'];
                       echo "hello";
                       echo $nom_user;
 
