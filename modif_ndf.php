@@ -52,8 +52,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $stmt->bindParam(':date_facture', $date_facture);
                 $stmt->bindParam(':montant_facture', $montant_facture);
                 $stmt->bindParam(':lieu_facture', $lieu_facture);
-                $stmt->bindParam(':id_frais', $id_frais);
-                $stmt->bindParam(':id_note_de_frais', $id_note_de_frais);
+                $stmt->bindParam(':id_frais', $id_frais, PDO::PARAM_INT);
+                $stmt->bindParam(':id_note_de_frais', $id_note_de_frais, PDO::PARAM_INT);
 
                 // Exécution de la requête
                 $stmt->execute();
@@ -73,18 +73,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Gestion des erreurs
         } catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();
+        } finally {
+            // Fermer la connexion à la base de données
+            $pdo = null;
         }
-
     } else {
         // Message d'erreur
-        session_start();
         $_SESSION['success_message'] = "Veuillez remplir tous les champs.";
-
-        // Rediriger vers une autre page
         header("Location: commercial.php");
         exit();
     }
-    // Fermer la connexion à la base de données
-    $pdo = null;
+    $_SESSION['success_message'] = "Un problème est survenu, veuillez réessayez !.";
+    header("Location: commercial.php");
+    exit();
 }
 ?>
