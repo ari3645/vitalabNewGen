@@ -129,7 +129,7 @@ session_start();
             <p>Lieu : </p><input type="text" name="lieu">
             <p>Id Frais : </p><input type="number" name="id_frais">
             <p>Statut : </p><input type="text" name="statut">
-            <center><button class="bn1" type="submit">Ajouter</button></center>
+            <center><button class="bn1" type="submit">Modifier</button></center>
           </form>
         </div>
     </nav>
