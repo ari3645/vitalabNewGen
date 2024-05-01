@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_utilisateur = $_SESSION['id_utilisateur'];
 
     // Récupérer les données du formulaire
-    $id_note_de_frais = $_POST["id_note_de_frais"];
+    $id_note_de_frais = $_POST["id_modif"];
     $intitule = $_POST["intitule"];
     $date_facture = $_POST["date"];
     $montant_facture = $_POST["montant"];
@@ -26,47 +26,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $pdo = new PDO($dsn, $user, $pass);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            // Prépare la requête SQL avec un paramètre lié
-            $stmt = $pdo->prepare("SELECT statut FROM note_de_frais WHERE id_note_de_frais = :id_note_de_frais");
+            //Requete qui récupère la valeur du statut de la note de frais
+            $statut = $pdo->query("SELECT statut FROM note_de_frais WHERE id_note_de_frais = $id_note_de_frais")->fetch(PDO::FETCH_ASSOC);
 
-            // Lie la valeur de $id_note_de_frais au paramètre lié :id_note_de_frais
-            $stmt->bindParam(':id_note_de_frais', $id_note_de_frais, PDO::PARAM_INT);
-
-            // Exécute la requête préparée
-            $stmt->execute();
-
-            // Récupère le résultat de la requête
-            $statut = $stmt->fetch(PDO::FETCH_ASSOC);
-            echo $statut['statut'];
-
+            if ($statut['statut'] == 'En attente') {
+                $sql = $pdo->query("UPDATE note_de_frais
+                SET intitule = $intitule,
+                    date_facture = $date_facture,
+                    montant_facture = $montant_facture,
+                    lieu_facture = $lieu_facture,
+                    type_frais = $type_frais,
+                WHERE id_note_de_frais = $id_note_de_frais");
 
 
-            // if ($statut['statut'] == 'En attente') {
-            //     $sql = $pdo->query("UPDATE note_de_frais
-            //     SET intitule = $intitule,
-            //         date_facture = $date_facture,
-            //         montant_facture = $montant_facture,
-            //         lieu_facture = $lieu_facture,
-            //         type_frais = $type_frais,
-            //     WHERE id_note_de_frais = $id_note_de_frais");
+                // Message de succès
+                session_start();
+                $_SESSION['success_message'] = "Note de frais ajoutée avec succès.";
 
-
-            //     // Message de succès
-            //     session_start();
-            //     $_SESSION['success_message'] = "Note de frais ajoutée avec succès.";
-
-            //     // Rediriger vers une autre page
-            //     header("Location: commercial.php");
-            //     exit();
-            // } else {
-            //     // Message d'erreur
-            //     session_start();
-            //     $_SESSION['success_message'] = "La note de frais ne peut pas être modifiée.";
+                // Rediriger vers une autre page
+                header("Location: commercial.php");
+                exit();
+            } else {
+                // Message d'erreur
+                session_start();
+                $_SESSION['success_message'] = "La note de frais ne peut pas être modifiée.";
                 
-            //     // Rediriger vers une autre page
-            //     header("Location: commercial.php");
-            //     exit();
-            // }
+                // Rediriger vers une autre page
+                header("Location: commercial.php");
+                exit();
+            }
 
         // Gestion des erreurs
         } catch (PDOException $e) {
