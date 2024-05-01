@@ -130,7 +130,7 @@ session_start();
 
                       echo $_SESSION['id_utilisateur'];
                       echo "hello";
-                      echo $nom_user;
+                      echo $nom_user['nom_utilisateur'];
 
                     //   // Afficher les résultats
                     //   while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
