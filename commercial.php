@@ -69,7 +69,7 @@ session_start();
                       $liste_notes_html .= "<div class='card-body'>";
                       $liste_notes_html .= "<h5 class='card-text'>Id de la note de frais : " . $row['id_note_de_frais'] . "</h5>";
                       $liste_notes_html .= "<p class='card-title'>Date de facture: " . $row['date_facture'] . "</p>";
-                      $liste_notes_html .= "<p class='card-text'>Montant: " . $row['montant_facture'] . "</p>";
+                      $liste_notes_html .= "<p class='card-text'>Montant: " . $row['montant_facture'] . " € </p>";
                       $liste_notes_html .= "<p class='card-text'>Lieu: " . $row['lieu_facture'] . "</p>";
                       $liste_notes_html .= "<p class='card-text'>Type de frais: " . $row['type_frais'] . "</p>";
                       $liste_notes_html .= "<p class='card-text'>Statut: " . $row['statut'] . "</p>";
