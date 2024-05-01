@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $stmt_statut->execute();
             $statut = $stmt_statut->fetchColumn();
 
-            if ($statut['statut'] === 'En attente' || $statut['statut'] === 'en attente') {
+            if ($statut['statut'] == 'En attente' || $statut['statut'] == 'en attente') {
                 $stmt = $pdo->prepare("UPDATE note_de_frais
                 SET intitule = :intitule,
                     date_facture = :date_facture,
