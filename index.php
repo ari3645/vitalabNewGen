@@ -32,15 +32,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         // Si le login et le mot de passe correspondent, on redirige vers la page correspondante
-        if ($role === '1') {
+        if ($role == 1) {
             $_SESSION['id_utilisateur'] = $id_utilisateur;
             header("Location:admin.php");
             exit;
-        } else if ($role === '2') {
+        } else if ($role == 2) {
             $_SESSION['id_utilisateur'] =  $id_utilisateur;
             header("Location:comptable.php");
             exit;
-        } else if ($role === '3') {
+        } else if ($role == 3) {
             $_SESSION['id_utilisateur'] =  $id_utilisateur;
             header("Location:commercial.php");
             exit;
@@ -54,7 +54,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Gestion des erreurs
     } catch (PDOException $e) {
-        echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
+            $_SESSION['error_message'] = "Une erreur s'est produite lors de la connexion à la base de données.";
+            header("Location: index.php");
+            exit();
     }}
 ?>
 
@@ -86,9 +88,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div>
         <?php     
         // Vérifier si un message de succès est défini dans la session
+
             if (isset($_SESSION['error_message'])) {
                 // Afficher le message de succès
                 echo "<p>" . $_SESSION['error_message'] . "</p>";
+
                 // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
                 unset($_SESSION['error_message']);}
           ?>
