@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $sql->bindParam('login', $login);
         $sql->bindParam('password', $password);
         $sql->execute();
-        $row = $sth->fetch(PDO::FETCH_ASSOC);
+        $row = $sql->fetch(PDO::FETCH_ASSOC);
 
         // Vérifie si une ligne a été retournée et ajoute des valeurs aux varaibles
         if ($row) {
