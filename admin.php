@@ -49,7 +49,8 @@ session_start();
                     $req = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut
                     FROM note_de_frais n 
                     INNER JOIN type_de_frais f ON n.id_frais = f.id_frais";
-                    $sql = $pdo->query($req);
+                    $sql = $pdo->prepare($req);
+                    $sql->execute();
 
                     while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
                       $liste_notes_html .= "<div class='card'>";
@@ -108,9 +109,6 @@ session_start();
                   $user = "albinrvi";
                   $pass = "Ari69.008";
 
-                  // Initialiser la variable qui contiendra la liste des utilisateurs
-                  $liste_utilisateurs_html = '';
-
                   try {
                       // Connexion à la base de données
                       $dsn = "mysql:host=$serveur;dbname=$dbname";
@@ -118,34 +116,35 @@ session_start();
                       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                       // Exécuter la requête SQL pour récupérer le nom de l'utilisateur et son rôle
-                      $sql = "SELECT u.nom_utilisateur, r.nom_role 
+                      $req = "SELECT u.nom_utilisateur, r.nom_role 
                       FROM utilisateur u 
                       INNER JOIN role r ON u.id_role = r.id_role";
-                      $stmt = $pdo->query($sql);
+                      $sql = $pdo->prepare($req);
+                      $sql->execute();
 
                       // Afficher les résultats
-                      while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                      while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
                         $liste_utilisateurs_html .= "<div class='card'>";
                         $liste_utilisateurs_html .= "<div class='card-body'>";
-                        $liste_utilisateurs_html .= "<h5 class='card-title'>" . $row['nom_utilisateur'] . "</h5>";
-                        $liste_utilisateurs_html .= "<p class='card-text'>Role: " . $row['nom_role'] . "</p>";
+                        $liste_utilisateurs_html .= "<h5 class='card-title'>" . htmlspecialchars($row['nom_utilisateur']) . "</h5>";
+                        $liste_utilisateurs_html .= "<p class='card-text'>Role: " . htmlspecialchars($row['nom_role']) . "</p>";
                         $liste_utilisateurs_html .= "<form method='post' action='delete_user.php'>";
-                        $liste_utilisateurs_html .= "<input type='hidden' name='nom_user' value='" . $row['nom_utilisateur'] . "' />";
+                        $liste_utilisateurs_html .= "<input type='hidden' name='nom_user' value='" . htmlspecialchars($row['nom_utilisateur']) . "' />";
                         $liste_utilisateurs_html .= "<button type='submit' class='btn btn-danger'>Supprimer</button>";
                         $liste_utilisateurs_html .= "</form>";
                         $liste_utilisateurs_html .= "</div>";
                         $liste_utilisateurs_html .= "</div>";
-                        
                     }
+
+                    // Afficher les utilisateurs
                     echo $liste_utilisateurs_html;
 
                   } catch (PDOException $e) {
                       echo "Erreur : " . $e->getMessage();
-                  }
-
-                  // Fermer la connexion à la base de données
-                  $pdo = null;
-                ?>
+                  }finally{
+                      // Fermer la connexion à la base de données
+                      $pdo = null;
+                  }?>
         </div>
     </nav>
 </body>
