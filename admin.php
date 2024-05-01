@@ -121,12 +121,12 @@ session_start();
                       $nom_utilisateur->execute();
                       $nom_user = $nom_utilisateur->fetch(PDO::FETCH_ASSOC);
 
-                      // Exécuter la requête SQL pour récupérer le nom de l'utilisateur et son rôle
-                      $req = "SELECT u.nom_utilisateur, r.nom_role 
-                      FROM utilisateur u 
-                      INNER JOIN role r ON u.id_role = r.id_role";
-                      $sql = $pdo->prepare($req);
-                      $sql->execute();
+                      // // Exécuter la requête SQL pour récupérer le nom de l'utilisateur et son rôle
+                      // $req = "SELECT u.nom_utilisateur, r.nom_role 
+                      // FROM utilisateur u 
+                      // INNER JOIN role r ON u.id_role = r.id_role";
+                      // $sql = $pdo->prepare($req);
+                      // $sql->execute();
 
                       echo "hello";
                       echo $nom_user;
