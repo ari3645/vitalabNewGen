@@ -28,8 +28,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $id_frais = filter_input(INPUT_POST, 'id_frais', FILTER_VALIDATE_INT);
     $id_note_de_frais = filter_input(INPUT_POST, 'id_modif', FILTER_VALIDATE_INT);
 
+
+    try {
+        // Connexion à la base de données
+        $pde = new PDO("mysql:host=$serveur;dbname=$dbname", $user, $pass);
+        $pde->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // Requête SQL pour compter le nombre de lignes dans la table type_frais
+        $nb_li = $pde->query("SELECT COUNT(*) AS nombre_de_lignes FROM type_frais");
+        $result = $nb_li->fetch(PDO::FETCH_ASSOC);
+        $nombre_de_lignes = $result['nombre_de_lignes'];
+    } catch (PDOException $e) {
+        echo "Erreur : " . $e->getMessage();
+    }
+
     // Vérifier si les données sont valides
-    if ($intitule && $date_facture && $montant_facture !== false && $lieu_facture && $id_frais && $id_note_de_frais && $id_frais <= 10) {
+    if ($intitule && $date_facture && $montant_facture !== false && $lieu_facture && $id_frais && $id_note_de_frais && $id_frais <= $nombre_de_lignes) {
         try {
             // Se connecter à la base de données de manière sécurisée
             $pdo = new PDO("mysql:host=$serveur;dbname=$dbname", $user, $pass);
