@@ -46,6 +46,7 @@ session_start();
                 $user = "albinrvi";
                 $pass = "Ari69.008";                    
                 
+                // On récupère l'id de l'utilisateur connecté
                 session_start();
                 $id_utilisateur_connecte = $_SESSION['id_utilisateur'];
       
@@ -55,10 +56,7 @@ session_start();
                     $pdo = new PDO($dsn, $user, $pass);
                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                    // On récupère l'ID de l'utilisateur connecté
-                    $id_utilisateur_connecte = $_SESSION['id_utilisateur'];
-
-                    // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
+                    // Requête SQL pour récupérer les notes de frais de l'utilisateur connecté
                     $sql = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut
                     FROM note_de_frais n 
                     INNER JOIN type_de_frais f ON n.id_frais = f.id_frais
@@ -87,7 +85,6 @@ session_start();
                 // Fermer la connexion à la base de données
                 $pdo = null;
               ?>
-          
         </div>
 
         <div class="top-left" style="height: 50%; width: 50%;">
@@ -100,7 +97,6 @@ session_start();
           <p>Id Frais : </p><input type="number" name="id_frais">
           <p>Id Utilisateur : </p><input type="number" name="id_utilisateur">
           <p>Statut : </p><input type="text" name="statut">
-
           <center><button class="bn1" type="submit">Ajouter</button></center>
           </form>
         </div>
@@ -111,7 +107,6 @@ session_start();
             if (isset($_SESSION['success_message'])) {
                 // Afficher le message de succès
                 echo "<p>" . $_SESSION['success_message'] . "</p>";
-    
                 // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
                 unset($_SESSION['success_message']);
             }

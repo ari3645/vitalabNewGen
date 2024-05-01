@@ -29,7 +29,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $sql = $pdo->query("INSERT INTO note_de_frais (intitule, date_facture, montant_facture, lieu_facture, image_facture, id_frais, id_utilisateur, statut) VALUES ('$intitule', '$date_facture', '$montant_facture', '$lieu_facture', 'image', '$type_frais', '$id_utilisateur', '$statut')");
 
-        echo "La note de frais a été ajoutée avec succès.";
+        session_start();
+        $_SESSION['success_message'] = "Note de frais ajoutée avec succès.";
+
+        // Rediriger vers une autre page
+        header("Location: commercial.php");
+        exit();
 
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
