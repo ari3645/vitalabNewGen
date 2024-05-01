@@ -132,17 +132,19 @@ session_start();
                         
                         if ($row['nom_utilisateur'] == $nom_utilisateur ) {
                           continue;
+                        }else {
+                          $liste_utilisateurs_html .= "<div class='card'>";
+                          $liste_utilisateurs_html .= "<div class='card-body'>";
+                          $liste_utilisateurs_html .= "<h5 class='card-title'>" . htmlspecialchars($row['nom_utilisateur']) . "</h5>";
+                          $liste_utilisateurs_html .= "<p class='card-text'>Role: " . htmlspecialchars($row['nom_role']) . "</p>";
+                          $liste_utilisateurs_html .= "<form method='post' action='delete_user.php'>";
+                          $liste_utilisateurs_html .= "<input type='hidden' name='nom_user' value='" . htmlspecialchars($row['nom_utilisateur']) . "' />";
+                          $liste_utilisateurs_html .= "<button type='submit' class='btn btn-danger'>Supprimer</button>";
+                          $liste_utilisateurs_html .= "</form>";
+                          $liste_utilisateurs_html .= "</div>";
+                          $liste_utilisateurs_html .= "</div>";
                         }
-                        $liste_utilisateurs_html .= "<div class='card'>";
-                        $liste_utilisateurs_html .= "<div class='card-body'>";
-                        $liste_utilisateurs_html .= "<h5 class='card-title'>" . htmlspecialchars($row['nom_utilisateur']) . "</h5>";
-                        $liste_utilisateurs_html .= "<p class='card-text'>Role: " . htmlspecialchars($row['nom_role']) . "</p>";
-                        $liste_utilisateurs_html .= "<form method='post' action='delete_user.php'>";
-                        $liste_utilisateurs_html .= "<input type='hidden' name='nom_user' value='" . htmlspecialchars($row['nom_utilisateur']) . "' />";
-                        $liste_utilisateurs_html .= "<button type='submit' class='btn btn-danger'>Supprimer</button>";
-                        $liste_utilisateurs_html .= "</form>";
-                        $liste_utilisateurs_html .= "</div>";
-                        $liste_utilisateurs_html .= "</div>";
+
                     }
 
                     // Afficher les utilisateurs
