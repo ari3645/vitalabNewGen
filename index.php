@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Gestion des erreurs
     } catch (PDOException $e) {
-        $_SESSION['error_message'] = "Une erreur s'est produite lors de la connexion à la base de données.";
+        $_SESSION['error_message_not_enleve'] = "Une erreur s'est produite lors de la connexion à la base de données.";
         header("Location: index.php");
         exit();
     }}
@@ -92,9 +92,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div>
         <?php     
         // Vérifier si un message d'erreur est défini dans la session
-            if (isset($_SESSION['error_message'])) {
+            if (isset($_SESSION['error_message_not_enleve'])) {
                 // Afficher le message d'erreur'
-                echo "<p>" . $_SESSION['error_message'] . "</p>";
+                echo "<p>" . $_SESSION['error_message_not_enleve'] . "</p>";
 
                 // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
                 unset($_SESSION['error_message']);}
