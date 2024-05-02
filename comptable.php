@@ -30,7 +30,8 @@ session_start();
             </script>
         </div>
     </nav>
-    <nav class="container2">
+    <div class="container2">
+      <center>
         <div class="right">
           <h3><center>Liste notes de frais</center></h3>
             <?php
@@ -97,6 +98,7 @@ session_start();
                 $pdo = null;
               ?>
         </div>
-    </nav>
+              </div>
+  </center>
 </body>
 </html>

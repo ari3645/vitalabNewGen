@@ -20,7 +20,7 @@ session_start();
         </div>
         <center><p><h3 style="letter-spacing: 5px;">Vitalab New Gen</h3></p></center>
         <div class="dropdown">
-          <button href="" class="btn41-43 btn-42" onclick="logouta()">Déconnexion</button>
+          <button href="" class="btn41-43 btn-42" style="padding-right:20%" onclick="logouta()">Déconnexion</button>
           
           <script>
             //Fonction pour se déconnecter
@@ -32,84 +32,10 @@ session_start();
     </nav>
     <div class="container2">
       <center>
-      <div class="top-left">
-          <h3><center>Liste notes de frais</center></h3>
-          <hr>
-          <div class="note-countainer">
-              <?php
-                // Informations d'identification
-                $serveur = "vitalab-new-gen.mysql.database.azure.com";
-                $dbname = "vitalab-new-gen";
-                $user = "albinrvi";
-                $pass = "Ari69.008";
-
-                try {
-                    // Connexion à la base de données
-                    $dsn = "mysql:host=$serveur;dbname=$dbname";
-                    $pdo = new PDO($dsn, $user, $pass);
-                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-                    // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
-                    $req = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut
-                    FROM note_de_frais n 
-                    INNER JOIN type_de_frais f ON n.id_frais = f.id_frais";
-                    $sql = $pdo->prepare($req);
-                    $sql->execute();
-
-                    while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
-                      $liste_notes_html .= "<div class='card'>";
-                      $liste_notes_html .= "<div class='card-body'>";
-                      $liste_notes_html .= "<h5 class='card-title'>Date de facture: " . htmlspecialchars($row['date_facture']) . "</h5>";
-                      $liste_notes_html .= "<p class='card-text'>Montant: " . htmlspecialchars($row['montant_facture']) . "</p>";
-                      $liste_notes_html .= "<p class='card-text'>Lieu: " . htmlspecialchars($row['lieu_facture']) . "</p>";
-                      $liste_notes_html .= "<p class='card-text'>Type de frais: " . htmlspecialchars($row['type_frais']) . "</p>";
-                      $liste_notes_html .= "<p class='card-text'>Statut: " . htmlspecialchars($row['statut']) . "</p>";
-                      $liste_notes_html .= "</div>";
-                      $liste_notes_html .= "</div>";
-                  }
-                  
-                  // Afficher les notes de frais
-                  echo $liste_notes_html;
-
-                } catch (PDOException $e) {
-                    echo "Erreur : " . $e->getMessage();
-                }finally{
-                    // Fermer la connexion à la base de données
-                    $pdo = null;
-                }
-              ?>
-          </div>
-        </div>
-
-        <div>
-          <form method="POST" action="add_user.php" class="right" style="height: 50%; width: 50%;"> 
-            <h3 class="title"><center>Ajouter un utilisateur</center></h3>
+        <div class="top-left">
+            <h3><center>Liste notes de frais</center></h3>
             <hr>
-            <p>Identifiant : </p> <input type="text" name="id">
-            <p> Email : </p> <input type="text" name="email"> 
-            <p>Mot de passe : </p><input type="password" name="mdp">
-            <p>Statut : </p> <input type="text" name="role">
-            <center><button class="bn1" type="submit">Ajouter</button></center>
-          </form>
-        </div>
-
-        <div>
-          <?php     
-            // Vérifier si un message de succès est défini dans la session
-            if (isset($_SESSION['success_message'])) {
-                // Afficher le message de succès
-                echo "<p>" . $_SESSION['success_message'] . "</p>";
-    
-                // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
-                unset($_SESSION['success_message']);
-            }
-          ?>
-        </div>
-
-        <div class="bottom-left" style="height: 50%; width: 50%;">
-          <h3><center>Liste des utilisateurs</center></h3>
-          <hr>
-          <div class="note-countainer">
+            <div class="note-countainer">
                 <?php
                   // Informations d'identification
                   $serveur = "vitalab-new-gen.mysql.database.azure.com";
@@ -123,50 +49,124 @@ session_start();
                       $pdo = new PDO($dsn, $user, $pass);
                       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                      $nom_utilisateur = "SELECT nom_utilisateur FROM utilisateur WHERE id_utilisateur = :id_utilisateur";
-                      $nom_utilisateur = $pdo->prepare($nom_utilisateur);
-                      $nom_utilisateur->bindParam(':id_utilisateur', $_SESSION['id_utilisateur']);
-                      $nom_utilisateur->execute();
-                      $nom_user = $nom_utilisateur->fetch(PDO::FETCH_ASSOC);
-
-                      // Exécuter la requête SQL pour récupérer le nom de l'utilisateur et son rôle
-                      $req = "SELECT u.nom_utilisateur, r.nom_role 
-                      FROM utilisateur u 
-                      INNER JOIN role r ON u.id_role = r.id_role";
+                      // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
+                      $req = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut
+                      FROM note_de_frais n 
+                      INNER JOIN type_de_frais f ON n.id_frais = f.id_frais";
                       $sql = $pdo->prepare($req);
                       $sql->execute();
-                      $row= $sql->fetch(PDO::FETCH_ASSOC);
 
-                      // Afficher les résultats
                       while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
-                        if ($row['nom_utilisateur'] == $nom_user['nom_utilisateur'] ) {
-                          continue;
-                        }else {
-                          $liste_utilisateurs_html .= "<div class='card'>";
-                          $liste_utilisateurs_html .= "<div class='card-body'>";
-                          $liste_utilisateurs_html .= "<h5 class='card-title'>" . htmlspecialchars($row['nom_utilisateur']) . "</h5>";
-                          $liste_utilisateurs_html .= "<p class='card-text'>Role: " . htmlspecialchars($row['nom_role']) . "</p>";
-                          $liste_utilisateurs_html .= "<form method='post' action='delete_user.php'>";
-                          $liste_utilisateurs_html .= "<input type='hidden' name='nom_user' value='" . htmlspecialchars($row['nom_utilisateur']) . "' />";
-                          $liste_utilisateurs_html .= "<button type='submit' class='btn btn-danger'>Supprimer</button>";
-                          $liste_utilisateurs_html .= "</form>";
-                          $liste_utilisateurs_html .= "</div>";
-                          $liste_utilisateurs_html .= "</div>";
-                        }
-
+                        $liste_notes_html .= "<div class='card'>";
+                        $liste_notes_html .= "<div class='card-body'>";
+                        $liste_notes_html .= "<h5 class='card-title'>Date de facture: " . htmlspecialchars($row['date_facture']) . "</h5>";
+                        $liste_notes_html .= "<p class='card-text'>Montant: " . htmlspecialchars($row['montant_facture']) . "</p>";
+                        $liste_notes_html .= "<p class='card-text'>Lieu: " . htmlspecialchars($row['lieu_facture']) . "</p>";
+                        $liste_notes_html .= "<p class='card-text'>Type de frais: " . htmlspecialchars($row['type_frais']) . "</p>";
+                        $liste_notes_html .= "<p class='card-text'>Statut: " . htmlspecialchars($row['statut']) . "</p>";
+                        $liste_notes_html .= "</div>";
+                        $liste_notes_html .= "</div>";
                     }
-
-                    // Afficher les utilisateurs
-                    echo $liste_utilisateurs_html;
+                    
+                    // Afficher les notes de frais
+                    echo $liste_notes_html;
 
                   } catch (PDOException $e) {
                       echo "Erreur : " . $e->getMessage();
                   }finally{
                       // Fermer la connexion à la base de données
                       $pdo = null;
-                  }?>
+                  }
+                ?>
+            </div>
           </div>
-        </div>
+
+          <div>
+            <form method="POST" action="add_user.php" class="right" style="height: 50%; width: 50%;"> 
+              <h3 class="title"><center>Ajouter un utilisateur</center></h3>
+              <hr>
+              <p>Identifiant : </p> <input type="text" name="id">
+              <p> Email : </p> <input type="text" name="email"> 
+              <p>Mot de passe : </p><input type="password" name="mdp">
+              <p>Statut : </p> <input type="text" name="role">
+              <center><button class="bn1" type="submit">Ajouter</button></center>
+            </form>
+          </div>
+
+          <div>
+            <?php     
+              // Vérifier si un message de succès est défini dans la session
+              if (isset($_SESSION['success_message'])) {
+                  // Afficher le message de succès
+                  echo "<p>" . $_SESSION['success_message'] . "</p>";
+      
+                  // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
+                  unset($_SESSION['success_message']);
+              }
+            ?>
+          </div>
+
+          <div class="bottom-left" style="height: 50%; width: 50%;">
+            <h3><center>Liste des utilisateurs</center></h3>
+            <hr>
+            <div class="note-countainer">
+                  <?php
+                    // Informations d'identification
+                    $serveur = "vitalab-new-gen.mysql.database.azure.com";
+                    $dbname = "vitalab-new-gen";
+                    $user = "albinrvi";
+                    $pass = "Ari69.008";
+
+                    try {
+                        // Connexion à la base de données
+                        $dsn = "mysql:host=$serveur;dbname=$dbname";
+                        $pdo = new PDO($dsn, $user, $pass);
+                        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                        $nom_utilisateur = "SELECT nom_utilisateur FROM utilisateur WHERE id_utilisateur = :id_utilisateur";
+                        $nom_utilisateur = $pdo->prepare($nom_utilisateur);
+                        $nom_utilisateur->bindParam(':id_utilisateur', $_SESSION['id_utilisateur']);
+                        $nom_utilisateur->execute();
+                        $nom_user = $nom_utilisateur->fetch(PDO::FETCH_ASSOC);
+
+                        // Exécuter la requête SQL pour récupérer le nom de l'utilisateur et son rôle
+                        $req = "SELECT u.nom_utilisateur, r.nom_role 
+                        FROM utilisateur u 
+                        INNER JOIN role r ON u.id_role = r.id_role";
+                        $sql = $pdo->prepare($req);
+                        $sql->execute();
+                        $row= $sql->fetch(PDO::FETCH_ASSOC);
+
+                        // Afficher les résultats
+                        while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
+                          if ($row['nom_utilisateur'] == $nom_user['nom_utilisateur'] ) {
+                            continue;
+                          }else {
+                            $liste_utilisateurs_html .= "<div class='card'>";
+                            $liste_utilisateurs_html .= "<div class='card-body'>";
+                            $liste_utilisateurs_html .= "<h5 class='card-title'>" . htmlspecialchars($row['nom_utilisateur']) . "</h5>";
+                            $liste_utilisateurs_html .= "<p class='card-text'>Role: " . htmlspecialchars($row['nom_role']) . "</p>";
+                            $liste_utilisateurs_html .= "<form method='post' action='delete_user.php'>";
+                            $liste_utilisateurs_html .= "<input type='hidden' name='nom_user' value='" . htmlspecialchars($row['nom_utilisateur']) . "' />";
+                            $liste_utilisateurs_html .= "<button type='submit' class='btn btn-danger'>Supprimer</button>";
+                            $liste_utilisateurs_html .= "</form>";
+                            $liste_utilisateurs_html .= "</div>";
+                            $liste_utilisateurs_html .= "</div>";
+                          }
+
+                      }
+
+                      // Afficher les utilisateurs
+                      echo $liste_utilisateurs_html;
+
+                    } catch (PDOException $e) {
+                        echo "Erreur : " . $e->getMessage();
+                    }finally{
+                        // Fermer la connexion à la base de données
+                        $pdo = null;
+                    }?>
+            </div>
+          </div>
       </center> 
     </div>
 </body>
