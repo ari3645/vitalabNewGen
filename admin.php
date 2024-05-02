@@ -30,8 +30,9 @@ session_start();
           </script>
         </div>
     </nav>
-    <nav class="container2">
-        <div class="top-left">
+    <div class="container2">
+      <center>
+      <div class="top-left">
           <h3><center>Liste notes de frais</center></h3>
           <hr>
           <div class="note-countainer">
@@ -166,6 +167,7 @@ session_start();
                   }?>
           </div>
         </div>
-    </nav>
+      </center> 
+    </div>
 </body>
 </html>
