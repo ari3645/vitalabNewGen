@@ -15,7 +15,7 @@ session_start();
 <body  style="background: rgb(204, 242, 244);
 background: linear-gradient(180deg, rgba(204, 242, 244), 1 12%, rgba(227,246,247,1) 41%, rgba(244, 249, 249, 1) 85%);
 background-repeat: no-repeat;
-background-attachment: fixed;" >>
+background-attachment: fixed;" >
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <nav class="navbar">
         <div class="container1"> 
