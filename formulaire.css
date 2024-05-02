@@ -33,14 +33,6 @@ background: rgb(204,242,244);
 background: linear-gradient(180deg, rgba(204,242,244,1) 12%, rgba(227,246,247,1) 41%, rgba(244,249,249,1) 85%);
 background-repeat: no-repeat;
 background-attachment: fixed;
-
-
-
-
-
-
-
-
 display: flex;
 align-items: center;
 justify-content: center;
@@ -53,10 +45,6 @@ justify-content: center;
 }
 .card {
 
-
-
-
-
 margin-top: 7%;
 height: 500px;
 width: 900px;
@@ -64,15 +52,6 @@ align-items: center;
 display:grid;
 max-height:max-content;
 margin-bottom: 7%;
-
-
-
-
-
-
-
-
-
 border: 1px solid rgba(255, 255, 255, .25);
 border-radius: 2px;
 background-color: rgba(255, 255, 255, 0.45);
@@ -83,40 +62,15 @@ color: #618264;
 }
 
 input{
-
-
-
-
-
-
-
-
   margin-left: 5%;
   margin-right: 5%;
-
-
-
-
-
-
   max-height: 50px;
   margin-top: 0px;
   margin-bottom: 5PX;
   border: 1px solid rgba(235, 235, 235, 0.497);
   border-radius: 10px;
   background-color: rgba(215, 214, 214, 0.363);
-
-
-
-
-
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
-
-
-
-
-
-
   backdrop-filter: blur(5px);
   text-align:justify;
   padding: 10px
