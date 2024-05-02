@@ -98,7 +98,8 @@ session_start();
                 $pdo = null;
               ?>
         </div>
-              </div>
-  </center>
+      </center>
+    </div>
+
 </body>
 </html>
