@@ -1,23 +1,28 @@
-body{
-    background: rgb(204,242,244);
-    background: linear-gradient(180deg, rgba(204,242,244,1) 12%, rgba(227,246,247,1) 41%, rgba(244,249,249,1) 85%);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
 
-.navbar{
-    background-color: #92C7CF;
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-
-    backdrop-filter: blur(15px);
+.header{
+    background-color: #11698E;
+    color: aliceblue;
+    height: 100px;
     
-    font-family:  "Courier New", monospace;
-    min-width: 99%;
+    display:flex ;
+    top: 0px;
+    backdrop-filter: blur(15px);
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1%;
+    padding-right: 5%;
+    
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+   
 }
+
 .img-nav{
-    width: 80px;
+    width: auto;
     height: 74px;
     margin-left: 80px;
+    min-width: 40px;
+    min-height: 37px;
     
 }
 
@@ -27,9 +32,7 @@ body{
     width: 100%;
 
 }
-.dropdown{
-    margin-right: 80px;
-}
+
 
 
 
@@ -37,17 +40,21 @@ body{
     
     border-radius: 2px;
     background-color: #fff;
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
-
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
+    color: #11698E;
     backdrop-filter: blur(15px);
     
-    margin-top: 20px;
+    margin-top: 10px;
     position: absolute;
-    right: 50px;
-    left: 850px;
-    max-width: 40%;
-    height: 37.5rem;
-    font-family:  "Courier New", monospace;
+    right: 20px;
+    width: 46%;
+    
+    min-width: 40%;
+    height: 80%;
+    min-height: 15rem;
+
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
     bottom: 20px;
     
     
@@ -58,23 +65,21 @@ body{
     
     border-radius: 2px;
     background-color: #fff;
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
 
     backdrop-filter: blur(15px);
-    max-width: 52%;
-    max-height: 18rem;
+    
     margin-top: 20px;
     position: absolute;
-    left: 50px;
-    font-family:  "Courier New", monospace;
-   
-    p{
-        top: 20px;
-        position: relative;
-        text-align: left;
-        left: 30%;
-
-    }
+    left: 20px;
+    height: 39%;
+    width: 48%;
+    text-align: center;
+    
+    color: #11698E;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+    
    
 }
 
@@ -82,31 +87,36 @@ body{
     
     border-radius: 2px;
     background-color: #fcfbfb;
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
 
     backdrop-filter: blur(15px);
-    max-width: 52%;
-    max-height: 18rem;
-    
+    height: 39%;
+    width: 48%;
+    color: #11698E;
     position: absolute;
-    left: 50px;
+    left: 20px;
     bottom: 20px;
-    font-family:  "Courier New", monospace;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .note{
     border: 1px solid rgba(255, 255, 255, .25);
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.282);
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
-
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
+    justify-content: space-around;
+    align-items: center ;
+    display: flex;
     backdrop-filter: blur(15px);
-    height: 100px;
-    margin-left: 15px;
-    margin-right: 15px;
+    height: 75px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    height: 50px;
 }
 
 .bn1 {
-
+    
     max-height: 50px;
     max-width: 150px;
     display: inline-block;
@@ -122,8 +132,7 @@ body{
     text-align: center;
     transition: all 0.2s;
     width: 200px;
-    margin-bottom: 50px;
-    margin-top: 35px;
+    margin-top: 7%;
     
   }
   
@@ -194,3 +203,55 @@ body{
   .btn-42:active {
     top: 2px;
   }
+
+
+input{
+  max-height: 50px;
+    margin-top: 0px;
+    margin-bottom: 5PX;
+    border: 1px solid rgba(235, 235, 235, 0.497);
+    border-radius: 10px;
+    background-color: rgba(215, 214, 214, 0.363);
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    height: 7%;
+
+
+}
+
+.card-text{
+  display: flex;
+  margin-left: 5%;
+  
+}
+
+
+
+hr{
+  width: 90%;
+  
+}
+
+.card-text_1{
+  display: flex;
+  margin-left: 5%;
+  padding-top: 2%;
+  
+  
+}
+
+.note-countainer{
+
+  padding-top: 2%;
+}
+
+
+.note-text{
+  display: flex;
+  padding-bottom: 10%;
+  padding-left: 3%;
+  padding-right: 3%;
+  
+}
+
