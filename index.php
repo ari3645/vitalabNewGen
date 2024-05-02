@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 echo "<p>" . $_SESSION['error_message_not_enleve'] . "</p>";
 
                 // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
-                unset($_SESSION['error_message']);}
+                unset($_SESSION['error_message_not_enleve']);}
           ?>
     </div>
 </body>
