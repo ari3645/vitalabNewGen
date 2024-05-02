@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Sinon on affiche un message d'erreur
         } else {
-            $_SESSION['error_message'] = "Identifiant ou mot de passe incorrect.";
+            $_SESSION['error_message_not_enleve'] = "Identifiant ou mot de passe incorrect.";
             header("Location:index.php");
             exit;
         }
