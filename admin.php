@@ -12,16 +12,13 @@ session_start();
     <link rel="icon" href="images/logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
-<body  style="background: rgb(204, 242, 244);
-background: linear-gradient(180deg, rgba(204, 242, 244), 1 12%, rgba(227,246,247,1) 41%, rgba(244, 249, 249, 1) 85%);
-background-repeat: no-repeat;
-background-attachment: fixed;" >
+<body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <nav class="navbar">
         <div class="container1"> 
-          <img src="images/logo.png" alt="Bootstrap" class="img-nav">
+          <img src="images/logo.png" class="img-nav">
         </div>
-        <center><p><h4>Vitalab New Gen</h4></p></center>
+        <center><p><h3 style="letter-spacing: 5px;">Vitalab New Gen</h3></p></center>
         <div class="dropdown">
           <button href="" class="btn41-43 btn-42" onclick="logouta()">Déconnexion</button>
           
@@ -34,8 +31,10 @@ background-attachment: fixed;" >
         </div>
     </nav>
     <nav class="container2">
-        <div class="right">
+        <div class="top-left">
           <h3><center>Liste notes de frais</center></h3>
+          <hr>
+          <div class="note-countainer">
               <?php
                 // Informations d'identification
                 $serveur = "vitalab-new-gen.mysql.database.azure.com";
@@ -60,7 +59,7 @@ background-attachment: fixed;" >
                       $liste_notes_html .= "<div class='card'>";
                       $liste_notes_html .= "<div class='card-body'>";
                       $liste_notes_html .= "<h5 class='card-title'>Date de facture: " . htmlspecialchars($row['date_facture']) . "</h5>";
-                      $liste_notes_html .= "<p class='card-text'>Montant: " . htmlspecialchars($row['montant_facture']) . " € </p>";
+                      $liste_notes_html .= "<p class='card-text'>Montant: " . htmlspecialchars($row['montant_facture']) . "</p>";
                       $liste_notes_html .= "<p class='card-text'>Lieu: " . htmlspecialchars($row['lieu_facture']) . "</p>";
                       $liste_notes_html .= "<p class='card-text'>Type de frais: " . htmlspecialchars($row['type_frais']) . "</p>";
                       $liste_notes_html .= "<p class='card-text'>Statut: " . htmlspecialchars($row['statut']) . "</p>";
@@ -78,11 +77,13 @@ background-attachment: fixed;" >
                     $pdo = null;
                 }
               ?>
+          </div>
         </div>
 
         <div>
-          <form method="POST" action="add_user.php" class="top-left" style="height: 50%; width: 50%;"> 
-            <h3><center>Ajouter un utilisateur</center></h3>
+          <form method="POST" action="add_user.php" class="right" style="height: 50%; width: 50%;"> 
+            <h3 class="title"><center>Ajouter un utilisateur</center></h3>
+            <hr>
             <p>Identifiant : </p> <input type="text" name="id">
             <p> Email : </p> <input type="text" name="email"> 
             <p>Mot de passe : </p><input type="password" name="mdp">
@@ -106,6 +107,8 @@ background-attachment: fixed;" >
 
         <div class="bottom-left" style="height: 50%; width: 50%;">
           <h3><center>Liste des utilisateurs</center></h3>
+          <hr>
+          <div class="note-countainer">
                 <?php
                   // Informations d'identification
                   $serveur = "vitalab-new-gen.mysql.database.azure.com";
@@ -161,6 +164,7 @@ background-attachment: fixed;" >
                       // Fermer la connexion à la base de données
                       $pdo = null;
                   }?>
+          </div>
         </div>
     </nav>
 </body>

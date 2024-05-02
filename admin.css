@@ -1,29 +1,32 @@
-
-.navbar{
-    background-color: #11698E;
-    color: aliceblue;
-    height: 100px;
-    
-    display:flex ;
-    top: 0px;
-    backdrop-filter: blur(15px);
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 1%;
-    padding-right: 5%;
-    
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    
-   
+body{
+  background: rgb(204,242,244);
+  background: linear-gradient(180deg, rgba(204,242,244,1) 12%, rgba(227,246,247,1) 41%, rgba(244,249,249,1) 85%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
+.navbar{
+  background-color: #11698E;
+  color: aliceblue;
+  height: 100px;
+  
+  display:flex ;
+  top: 0px;
+  backdrop-filter: blur(15px);
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1%;
+  padding-right: 5%;
+  
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+}
 .img-nav{
-    width: auto;
-    height: 74px;
-    margin-left: 80px;
-    min-width: 40px;
-    min-height: 37px;
-    
+  width: auto;
+  height: 74px;
+  margin-left: 80px;
+  min-width: 40px;
+  min-height: 37px;
 }
 
 .navbar-brand{
@@ -34,28 +37,26 @@
 }
 
 
-
-
 .right{
     
-    border-radius: 2px;
-    background-color: #fff;
-    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
-    color: #11698E;
-    backdrop-filter: blur(15px);
-    
-    margin-top: 10px;
-    position: absolute;
-    right: 20px;
-    width: 46%;
-    
-    min-width: 40%;
-    height: 80%;
-    min-height: 15rem;
+  border-radius: 2px;
+  background-color: #fff;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
+  color: #11698E;
+  backdrop-filter: blur(15px);
+  
+  margin-top: 10px;
+  position: absolute;
+  right: 20px;
+  width: 46%;
+  
+  min-width: 40%;
+  height: 80%;
+  min-height: 15rem;
 
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    
-    bottom: 20px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+  bottom: 20px;
     
     
     
@@ -63,60 +64,60 @@
 
 .top-left{
     
-    border-radius: 2px;
-    background-color: #fff;
-    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
+  border-radius: 2px;
+  background-color: #fff;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
 
-    backdrop-filter: blur(15px);
-    
-    margin-top: 20px;
-    position: absolute;
-    left: 20px;
-    height: 39%;
-    width: 48%;
-    text-align: center;
-    
-    color: #11698E;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  backdrop-filter: blur(15px);
   
-    
+  margin-top: 20px;
+  position: absolute;
+  left: 20px;
+  height: 39%;
+  width: 48%;
+  text-align: center;
+  
+  color: #11698E;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   
+   
    
 }
 
 .bottom-left{
     
-    border-radius: 2px;
-    background-color: #fcfbfb;
-    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
+  border-radius: 2px;
+  background-color: #fcfbfb;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
 
-    backdrop-filter: blur(15px);
-    height: 39%;
-    width: 48%;
-    color: #11698E;
-    position: absolute;
-    left: 20px;
-    bottom: 20px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  backdrop-filter: blur(15px);
+  height: 39%;
+  width: 48%;
+  color: #11698E;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .note{
-    border: 1px solid rgba(255, 255, 255, .25);
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.282);
-    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
-    justify-content: space-around;
-    align-items: center ;
-    display: flex;
-    backdrop-filter: blur(15px);
-    height: 75px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
-    height: 50px;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.282);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
+  justify-content: space-around;
+  align-items: center ;
+  display: flex;
+  backdrop-filter: blur(15px);
+  height: 75px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  height: 50px;
 }
 
 .bn1 {
-    
+
     max-height: 50px;
     max-width: 150px;
     display: inline-block;
@@ -132,7 +133,8 @@
     text-align: center;
     transition: all 0.2s;
     width: 200px;
-    margin-top: 7%;
+    margin-bottom: 50px;
+    margin-top: 35px;
     
   }
   
@@ -140,6 +142,7 @@
     color: #11698E;
     background-color: #ffffff;
   }
+
 
   .logo{
     height: 100px;
@@ -190,7 +193,7 @@
     background: rgb(255, 255, 255);
     transition: all 0.3s ease;
   }
-  
+
   .btn-42:hover {
     color: rgb(0, 0, 0);
   }
@@ -205,53 +208,53 @@
   }
 
 
-input{
-  max-height: 50px;
-    margin-top: 0px;
-    margin-bottom: 5PX;
-    border: 1px solid rgba(235, 235, 235, 0.497);
-    border-radius: 10px;
-    background-color: rgba(215, 214, 214, 0.363);
+
+  input{
+    max-height: 50px;
+      margin-top: 0px;
+      margin-bottom: 5PX;
+      border: 1px solid rgba(235, 235, 235, 0.497);
+      border-radius: 10px;
+      background-color: rgba(215, 214, 214, 0.363);
+      margin-left: 5%;
+      margin-right: 5%;
+      width: 90%;
+      height: 7%;
+  
+  
+  }
+  
+  .card-text{
+    display: flex;
     margin-left: 5%;
-    margin-right: 5%;
+    
+  }
+  
+  
+  
+  hr{
     width: 90%;
-    height: 7%;
-
-
-}
-
-.card-text{
-  display: flex;
-  margin-left: 5%;
+    
+  }
   
-}
-
-
-
-hr{
-  width: 90%;
+  .card-text_1{
+    display: flex;
+    margin-left: 5%;
+    padding-top: 2%;
+    
+    
+  }
   
-}
-
-.card-text_1{
-  display: flex;
-  margin-left: 5%;
-  padding-top: 2%;
+  .note-countainer{
+  
+    padding-top: 2%;
+  }
   
   
-}
-
-.note-countainer{
-
-  padding-top: 2%;
-}
-
-
-.note-text{
-  display: flex;
-  padding-bottom: 10%;
-  padding-left: 3%;
-  padding-right: 3%;
-  
-}
-
+  .note-text{
+    display: flex;
+    padding-bottom: 10%;
+    padding-left: 3%;
+    padding-right: 3%;
+    
+  }
