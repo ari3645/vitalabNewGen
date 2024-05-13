@@ -9,14 +9,14 @@ body{
   background-color: #11698E;
   color: aliceblue;
   height: 100px;
-  
+  max-width:99%
   display:flex ;
   top: 0px;
   backdrop-filter: blur(15px);
   justify-content: space-between;
   align-items: center;
   padding-left: 0%;
-  padding-right: 0%;
+  padding-right: 5%;
   
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   
@@ -25,7 +25,7 @@ body{
 .img-nav{
   width: auto;
   height: 74px;
-  margin-left: 80px;
+  margin-left: 40px;
   min-width: 40px;
   min-height: 37px;
   
