@@ -56,7 +56,7 @@ body{
 
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   
-  bottom: 300px;
+ 
     
     
     
@@ -96,9 +96,9 @@ body{
   color: #11698E;
   position: absolute;
   left: 20px;
-  bottom: 20px;
+  bottom: 10px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  margin-top: 300 px;
+ 
 }
 .note{
   border: 1px solid rgba(255, 255, 255, .25);
