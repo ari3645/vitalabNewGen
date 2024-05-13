@@ -68,7 +68,7 @@ body{
     
 }
 
-.top-left{
+.bottom-left{
     
   border-radius: 2px;
   background-color: #fff;
@@ -92,7 +92,7 @@ body{
    
 }
 
-.bottom-left{
+.top-left{
     
   border-radius: 2px;
   background-color: #fcfbfb;
