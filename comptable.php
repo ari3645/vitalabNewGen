@@ -104,12 +104,7 @@ session_start();
                           echo "</td>";
                           echo "</tr>";
                       }
-
-                      // Afficher les notes de frais
-                      echo $liste_notes_html;
-
-
-
+                      
                     //Gestion des erreurs
                     } catch (PDOException $e) {echo "Erreur : " . $e->getMessage();}
 
