@@ -50,6 +50,7 @@ session_start();
                     <th>Lieu</th>
                     <th>Type de frais</th>
                     <th>Statut</th>
+                    <th>Actions</th> <!-- Ajout de la colonne Actions -->
                 </tr>
               </thead>
               <tbody>
@@ -115,7 +116,7 @@ session_start();
                 ?>
               </tbody>
             </table>
-            <div>
+          <div>
             <?php     
               // Vérifier si un message de succès est défini dans la session
               if (isset($_SESSION['delete_ndf'])) {
