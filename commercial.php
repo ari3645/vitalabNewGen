@@ -152,5 +152,14 @@ session_start();
             </form>
         </div>
     </nav>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.display').DataTable();
+        });
+    </script>
+
 </body>
 </html>
