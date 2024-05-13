@@ -130,7 +130,7 @@ session_start();
         </div>
 
         <div class="top-left">
-          <form method="POST" action="add_ndf.php" class="right" style="height: 50%; width: 50%;"> 
+          <form method="POST" action="add_ndf.php" style="height: 50%; width: 50%;"> 
               <h3><center>Ajouter note de frais</center></h3>
               <hr>
               <p>Intitulé : </p><input type="text" name="intitule">
