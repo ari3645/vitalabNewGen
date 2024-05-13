@@ -121,7 +121,7 @@ session_start();
               // Vérifier si un message de succès est défini dans la session
               if (isset($_SESSION['delete_ndf'])) {
                   // Afficher le message de succès
-                  echo "<p>" . $_SESSION['delete_ndf'] . "</p>";
+                  echo "<center><p>" . $_SESSION['delete_ndf'] . "</p></center>";
                   // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
                   unset($_SESSION['delete_ndf']);}
             ?>
