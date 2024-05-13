@@ -6,6 +6,7 @@ body{
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
 .navbar{
   background-color: #11698E;
   color: aliceblue;
@@ -23,6 +24,7 @@ body{
   
  
 }
+
 .img-nav{
   width: auto;
   height: 74px;
@@ -48,7 +50,6 @@ body{
 
 
 
-
 .top-left{
 
   border-radius: 2px;
@@ -67,9 +68,9 @@ body{
   color: #11698E;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
-
-
 }
+
+
 .bottom-left{
 
   border-radius: 2px;
@@ -84,7 +85,11 @@ body{
   left: 20px;
   bottom: 20px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
 }
+
+
+
 .note{
   border: 1px solid rgba(255, 255, 255, .25);
   border-radius: 15px;
@@ -117,6 +122,8 @@ body{
   }
   
 }
+
+
 .bn1 {
   max-height: 50px;
   max-width: 150px;
@@ -141,11 +148,13 @@ body{
   color: #11698E;
   background-color: #ffffff;
 }
+
 input{
   min-width: 100px;
   width: auto;
   max-width: 400px;
 }
+
 .btn41-43 {
   padding: 10px 25px;
   font-family: "Roboto", sans-serif;
@@ -157,11 +166,13 @@ input{
   position: relative;
   display: inline-block;
 }
+
 .btn-42 {
   border: 2px solid rgb(255, 255, 255);
   z-index: 1;
   color: white;
 }
+
 .btn-42:after {
   position: absolute;
   content: "";
