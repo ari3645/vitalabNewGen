@@ -57,8 +57,8 @@ body{
   min-width: 20%;
   
   min-width: 40%;
-  height: 90%;
-  min-height: 90%;
+  height: 70%;
+  min-height: 60%;
   
 
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -81,9 +81,9 @@ body{
   position: absolute;
   left: 10px;
   height: 98%;
-  max-width: 65%;
-  min-width: 60%;
-  width: 61%;
+  max-width: 59%;
+  min-width: 55%;
+  width: 56%;
   text-align: center;
 
  
@@ -107,7 +107,7 @@ body{
   height: 30%;
   max-width: 99%;
   min-width: 97%;
-  width: 98%;
+  width: 99%;
   color: #11698E;
   position: absolute;
   top:50%;
