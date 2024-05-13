@@ -30,6 +30,9 @@ body{
   min-height: 37px;
   
 }
+.dropdown{
+  margin-right: 40px;
+}
 .navbar-brand{
     justify-content: space-between;
     align-items: center;
@@ -77,9 +80,9 @@ body{
   position: absolute;
   left: 10px;
   height: 30%;
-  max-width: 65%;
+  max-width: 60%;
   min-width: 40%;
-  width: 60%;
+  width: 52%;
   text-align: center;
   
   color: #11698E;
@@ -97,9 +100,9 @@ body{
 
   backdrop-filter: blur(15px);
   height: 30%;
-  max-width: 65%;
+  max-width: 60%;
   min-width: 40%;
-  width: 60%;
+  width: 52%;
   color: #11698E;
   position: absolute;
   top:200px;
