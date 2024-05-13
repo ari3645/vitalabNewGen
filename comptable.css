@@ -9,14 +9,14 @@ body{
   background-color: #11698E;
   color: aliceblue;
   height: 100px;
-  
+  max-width:99%
   display:flex ;
   top: 0px;
   backdrop-filter: blur(15px);
   justify-content: space-between;
   align-items: center;
-  padding-left: 5%;
-  padding-right: 0%;
+  padding-left: 0%;
+  padding-right: 5%;
   
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   
@@ -25,10 +25,13 @@ body{
 .img-nav{
   width: auto;
   height: 74px;
-  margin-left: 80px;
+  margin-left: 40px;
   min-width: 40px;
   min-height: 37px;
   
+}
+.dropdown{
+  margin-right: 40px;
 }
 
 .navbar-brand{
@@ -53,10 +56,10 @@ body{
   
   margin-top: 10px;
   position: absolute;
-  padding-left:10px;
-  padding-right:10px;
+  margin-left:10px;
+  margin-right:10px;
   
-  width: 90%;
+  width: 99%;
   
   min-width: 40%;
   height: 80%;
@@ -86,22 +89,7 @@ body{
 }
 
 
-.note{
-  border: 1px solid rgba(255, 255, 255, .25);
-  border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.282);
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
-  justify-content: space-around;
-  align-items: center ;
-  display: flex;
-  backdrop-filter: blur(15px);
-  height: 75px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
-  height: 50px;
-}
+
 
 .bn1 {
 
