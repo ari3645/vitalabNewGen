@@ -129,6 +129,7 @@ session_start();
           </div>
         </div>
 
+        <div class="top-left">
           <form method="POST" action="add_ndf.php" class="right" style="height: 50%; width: 50%;"> 
               <h3><center>Ajouter note de frais</center></h3>
               <hr>
@@ -147,9 +148,10 @@ session_start();
                   unset($_SESSION['ajout_ndf']);}
               ?>
           </form>
+        </div>
 
 
-        <div class="right" style="height: 50%; width: 50%;">
+        <div class="bottom-left" style="height: 50%; width: 50%;">
             <form method="POST" action="modif_ndf.php" class="top-left" style="height: 50%; width: 50%;"> 
               <h3><center>Modifier une note de frais</center></h3>
               <p>Id de la note à modifier : </p><input type="text" name="id_modif">
@@ -159,6 +161,14 @@ session_start();
               <p>Lieu : </p><input type="text" name="lieu">
               <p>Id Frais : </p><input type="number" name="id_frais">
               <center><button class="bn1" type="submit">Modifier</button></center>
+              <?php
+                // Vérifier si un message de succès est défini dans la session
+                if (isset($_SESSION['modif_ndf'])) {
+                  // Afficher le message de succès
+                  echo "<p>" . $_SESSION['modif_ndf'] . "</p>";
+                  // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
+                  unset($_SESSION['modif_ndf']);}
+              ?>
             </form>
         </div>
     </nav>

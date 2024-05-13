@@ -65,13 +65,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $sql->execute();
 
                 // Message de succès
-                $_SESSION['success_message'] = "Note de frais modifiée avec succès.";
+                $_SESSION['modif_ndf'] = "Note de frais modifiée avec succès.";
                 header("Location: commercial.php");
                 exit();
 
             } else {
                 // Message d'erreur
-                $_SESSION['success_message'] = "La note de frais ne peut pas être modifiée.";
+                $_SESSION['modif_ndf'] = "La note de frais ne peut pas être modifiée.";
                 header("Location: commercial.php");
                 exit();
             }
@@ -85,13 +85,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     } else {
         // Message d'erreur si les données sont invalides
-        $_SESSION['success_message'] = "Les données rentrées sont invalides.";
+        $_SESSION['modif_ndf'] = "Les données rentrées sont invalides.";
         header("Location: commercial.php");
         exit();
     }
 
     // Si le formulaire n'a pas été soumis via la méthode POST
-    $_SESSION['success_message'] = "Un problème est survenu, veuillez réessayez !.";
+    $_SESSION['modif_ndf'] = "Un problème est survenu, veuillez réessayez !.";
     header("Location: commercial.php");
     exit();
 }
