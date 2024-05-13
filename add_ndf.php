@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Vérifier si l'utilisateur est connecté
     if (!isset($_SESSION['id_utilisateur'])) {
         $_SESSION['error_message'] = "Vous devez vous connecter pour ajouter une note de frais.";
-        header("Location: login.php");
+        header("Location: commercial.php");
         exit();
     }
     // Récupérer l'ID de l'utilisateur connecté
