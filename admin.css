@@ -74,6 +74,8 @@ body{
   position: absolute;
   left: 10px;
   height: 30%;
+  max-width: 48%;
+  max-width: 40%;
   width: 48%;
   text-align: center;
   
@@ -92,6 +94,8 @@ body{
 
   backdrop-filter: blur(15px);
   height: 30%;
+  max-width: 48%;
+  max-width: 40%;
   width: 48%;
   color: #11698E;
   position: absolute;
