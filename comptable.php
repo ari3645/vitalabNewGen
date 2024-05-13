@@ -19,7 +19,7 @@ session_start();
         <div class="container1"> 
           <img src="images/logo.png" alt="Bootstrap" class="img-nav">
         </div>
-        <center><p><h4>Vitalab New Gen</h4></p></center>
+        <center><p><h3 style="letter-spacing: 5px;">Vitalab New Gen</h3></p></center>
         <div class="dropdown">
           <button href="" class="btn41-43 btn-42" onclick="logoutcp()">Déconnexion</button>
 
