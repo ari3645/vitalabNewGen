@@ -104,6 +104,7 @@ session_start();
                   }
                 ?>
               </tbody>
+            </table>
             </div>
           </div>
 
