@@ -95,8 +95,10 @@ body{
   width: 48%;
   color: #11698E;
   position: absolute;
+  top:90%;
+  margin-top: 900px;
   left: 10px;
-  bottom: 10px;
+  
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
  
 }
