@@ -45,10 +45,10 @@ body{
   color: #11698E;
   backdrop-filter: blur(15px);
   
-  margin-top: 10px;
+  margin-top: 20px;
   position: absolute;
   right: 20px;
-  width: 46%;
+  width: 40%;
   
   min-width: 40%;
   height: 50%;
@@ -98,6 +98,7 @@ body{
   left: 20px;
   bottom: 20px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-top: 300 px;
 }
 .note{
   border: 1px solid rgba(255, 255, 255, .25);
