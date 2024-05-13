@@ -9,7 +9,7 @@ body{
   background-color: #11698E;
   color: aliceblue;
   height: 100px;
-  max-width:100%
+  max-width:99%
   display:flex ;
   top: 0px;
   backdrop-filter: blur(15px);
@@ -33,11 +33,10 @@ body{
 .dropdown{
   margin-right: 40px;
 }
-
 .navbar-brand{
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 
 }
 .dropdown{
@@ -59,7 +58,7 @@ body{
   margin-left:10px;
   margin-right:10px;
   
-  width: 98%;
+  width: 98.5%;
   
   min-width: 40%;
   height: 80%;
@@ -74,11 +73,11 @@ body{
 }
 
 
-  h4{
-      position: relative;
-      left: 25px;
-      top : 50px;
-  }
+   h4{
+        position: relative;
+        top: 35px; 
+        text-align: center;
+    }
   
   
 }
