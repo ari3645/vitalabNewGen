@@ -117,19 +117,6 @@ session_start();
             </form>
           </div>
 
-          <div>
-            <?php     
-              // Vérifier si un message de succès est défini dans la session
-              if (isset($_SESSION['success_message'])) {
-                  // Afficher le message de succès
-                  echo "<p>" . $_SESSION['success_message'] . "</p>";
-      
-                  // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
-                  unset($_SESSION['success_message']);
-              }
-            ?>
-          </div>
-
           <div class="bottom-left" style="height: 50%; width: 50%;">
             <h3><center>Liste des utilisateurs</center></h3>
             <hr>
@@ -197,12 +184,24 @@ session_start();
                 </tbody>
               </table>
             </div>
+            <div>
+            <?php     
+              // Vérifier si un message de succès est défini dans la session
+              if (isset($_SESSION['success_message'])) {
+                  // Afficher le message de succès
+                  echo "<p>" . $_SESSION['success_message'] . "</p>";
+      
+                  // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
+                  unset($_SESSION['success_message']);
+              }
+            ?>
+            </div>
           </div>
       </center> 
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    
+
     <script>
         $(document).ready(function() {
             $('.display').DataTable();
