@@ -47,20 +47,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql->execute();
 
             // Message de succès
-            $_SESSION['success_message'] = "Note de frais ajoutée avec succès.";
+            $_SESSION['ajout_ndf'] = "Note de frais ajoutée avec succès.";
 
             // Rediriger vers une autre page
             header("Location: commercial.php");
             exit();
         // Gestion des erreurs
         } catch (PDOException $e) {
-            $_SESSION['error_message'] = "Erreur lors de l'ajout de la note de frais : " . $e->getMessage();
+            $_SESSION['ajout_ndf'] = "Erreur lors de l'ajout de la note de frais : " . $e->getMessage();
             header("Location: commercial.php");
             exit();
         }
     } else {
         // Message d'erreur
-        $_SESSION['error_message'] = "Veuillez remplir tous les champs.";
+        $_SESSION['ajout_ndf'] = "Veuillez remplir tous les champs.";
         header("Location: commercial.php");
         exit();
     }
