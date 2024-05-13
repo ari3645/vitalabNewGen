@@ -129,9 +129,9 @@ session_start();
           </div>
         </div>
 
-        <div class="top-left" style="height: 50%; width: 50%;">
-            <form method="POST" action="add_ndf.php" class="right" style="height: 50%; width: 50%;"> 
+          <form method="POST" action="add_ndf.php" class="right" style="height: 50%; width: 50%;"> 
               <h3><center>Ajouter note de frais</center></h3>
+              <hr>
               <p>Intitulé : </p><input type="text" name="intitule">
               <p>Date : </p><input type="text" name="date">
               <p>Montant : </p><input type="number" name="montant">
@@ -146,8 +146,8 @@ session_start();
                   // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
                   unset($_SESSION['ajout_ndf']);}
               ?>
-            </form>
-        </div>
+          </form>
+
 
         <div class="right" style="height: 50%; width: 50%;">
             <form method="POST" action="modif_ndf.php" class="top-left" style="height: 50%; width: 50%;"> 
