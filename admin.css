@@ -81,9 +81,9 @@ body{
   position: absolute;
   left: 10px;
   height: 98%;
-  max-width: 59%;
+  max-width: 60%;
   min-width: 55%;
-  width: 56%;
+  width: 60%;
   text-align: center;
 
  
@@ -107,7 +107,7 @@ body{
   height: 30%;
   max-width: 99%;
   min-width: 97%;
-  width: 99%;
+  width: 98.5%;
   color: #11698E;
   position: absolute;
   top:50%;
