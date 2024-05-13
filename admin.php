@@ -14,19 +14,6 @@ session_start();
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
   </head>
 <body>
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Initialiser DataTable sur les tables avec la classe "dataTable"
-            $('#myTable').DataTable({
-              pagingType: 'full', //Ajoute les boutons de navigation (premier, précédent, suivant, dernier)
-              scrollY: '400px', //Hauteur de la zone de défilement
-              scrollCollapse: true, //Réduire la hauteur si moins de lignes
-              paging: true //Activer la pagination
-            });
-        });
-    </script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     
     <nav class="navbar">
@@ -116,16 +103,17 @@ session_start();
               <center><button class="bn1" type="submit">Ajouter</button></center>
             </form>
             <div>
-            <?php     
-              // Vérifier si un message de succès est défini dans la session
-              if (isset($_SESSION['add_user'])) {
-                  // Afficher le message de succès
-                  echo "<p>" . $_SESSION['add_user'] . "</p>";
-      
-                  // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
-                  unset($_SESSION['add_user']);
-              }
-            ?>
+              <?php     
+                echo 'heelo';
+                // Vérifier si un message de succès est défini dans la session
+                if (isset($_SESSION['add_user'])) {
+                    // Afficher le message de succès
+                    echo "<p>" . $_SESSION['add_user'] . "</p>";
+        
+                    // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
+                    unset($_SESSION['add_user']);
+                }
+              ?>
             </div>
           </div>
 
