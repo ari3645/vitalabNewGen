@@ -84,19 +84,14 @@ session_start();
                         $sql->execute();
 
                         while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
-                          $liste_notes_html .= "<div class='card'>";
-                          $liste_notes_html .= "<div class='card-body'>";
-                          $liste_notes_html .= "<h5 class='card-title'>Date de facture: " . htmlspecialchars($row['date_facture']) . "</h5>";
-                          $liste_notes_html .= "<p class='card-text'>Montant: " . htmlspecialchars($row['montant_facture']) . "</p>";
-                          $liste_notes_html .= "<p class='card-text'>Lieu: " . htmlspecialchars($row['lieu_facture']) . "</p>";
-                          $liste_notes_html .= "<p class='card-text'>Type de frais: " . htmlspecialchars($row['type_frais']) . "</p>";
-                          $liste_notes_html .= "<p class='card-text'>Statut: " . htmlspecialchars($row['statut']) . "</p>";
-                          $liste_notes_html .= "</div>";
-                          $liste_notes_html .= "</div>";
+                          echo "<tr>";
+                          echo "<td>" . htmlspecialchars($row['date_facture']) . "</td>";
+                          echo "<td>" . htmlspecialchars($row['montant_facture']) . "</td>";
+                          echo "<td>" . htmlspecialchars($row['lieu_facture']) . "</td>";
+                          echo "<td>" . htmlspecialchars($row['type_frais']) . "</td>";
+                          echo "<td>" . htmlspecialchars($row['statut']) . "</td>";
+                          echo "</tr>";
                       }
-                      
-                      // Afficher les notes de frais
-                      echo $liste_notes_html;
 
                     } catch (PDOException $e) {
                         echo "Erreur : " . $e->getMessage();
