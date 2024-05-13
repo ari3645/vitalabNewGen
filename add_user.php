@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
 
                 // Définir un message de réussite dans la session
                 session_start();
-                $_SESSION['success_message'] = "L'utilisateur a été ajouté avec succès.";
+                $_SESSION['add_user'] = "L'utilisateur a été ajouté avec succès.";
 
                 // Rediriger vers une autre page
                 header("Location: admin.php");
@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id"]) && !empty($_POS
     } else {
         // Message d'erreur
         session_start();
-        $_SESSION['success_message'] = "Les données entrées sont invalides.";
+        $_SESSION['add_user'] = "Les données entrées sont invalides.";
 
         // Rediriger vers une autre page
         header("Location: admin.php");

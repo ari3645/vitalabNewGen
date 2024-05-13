@@ -115,6 +115,18 @@ session_start();
               <p>Statut : </p> <input type="text" name="role">
               <center><button class="bn1" type="submit">Ajouter</button></center>
             </form>
+            <div>
+            <?php     
+              // Vérifier si un message de succès est défini dans la session
+              if (isset($_SESSION['add_user'])) {
+                  // Afficher le message de succès
+                  echo "<p>" . $_SESSION['add_user'] . "</p>";
+      
+                  // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
+                  unset($_SESSION['add_user']);
+              }
+            ?>
+            </div>
           </div>
 
           <div class="bottom-left" style="height: 50%; width: 50%;">
