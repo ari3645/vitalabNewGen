@@ -26,16 +26,18 @@ session_start();
               paging: true //Activer la pagination
             });
         });
-      </script>
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
     <nav class="navbar">
+
         <div class="container1"> 
           <img src="images/logo.png" class="img-nav">
         </div>
         <center><p><h3 style="letter-spacing: 5px;">Vitalab New Gen</h3></p></center>
+
         <div class="dropdown">
           <button href="" class="btn41-43 btn-42" style="padding-right:20%" onclick="logouta()">Déconnexion</button>
-          
           <script>
             //Fonction pour se déconnecter
             function logouta() {
@@ -137,6 +139,15 @@ session_start();
             <h3><center>Liste des utilisateurs</center></h3>
             <hr>
             <div class="note-countainer">
+              <table id="myTable" class="display">
+                <thead>
+                  <tr>
+                      <th>Nom</th>
+                      <th>Role</th>
+                      <th>Supprimer</th>
+                  </tr>
+                </thead>
+                <tbody>
                   <?php
                     // Informations d'identification
                     $serveur = "vitalab-new-gen.mysql.database.azure.com";
@@ -192,6 +203,8 @@ session_start();
                         // Fermer la connexion à la base de données
                         $pdo = null;
                     }?>
+                </tbody>
+              </table>
             </div>
           </div>
       </center> 
