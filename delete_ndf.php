@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["id_note_de_frais"])) 
 
         session_start();
         // Définir un message de réussite dans la session
-        $_SESSION['success_message'] = "La note de frais a été supprimé avec succès.";
+        $_SESSION['delete_ndf'] = "La note de frais a été supprimé avec succès.";
 
         // Rediriger vers une autre page
         header("Location: commercial.php");

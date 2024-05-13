@@ -112,7 +112,19 @@ session_start();
 
                 // Fermer la connexion à la base de données
                 $pdo = null;
-            ?>
+                ?>
+            </tbody>
+          </table>
+          <div>
+          <?php     
+            // Vérifier si un message de succès est défini dans la session
+            if (isset($_SESSION['delete_ndf'])) {
+                // Afficher le message de succès
+                echo "<p>" . $_SESSION['delete_ndf'] . "</p>";
+                // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
+                unset($_SESSION['delete_ndf']);}
+          ?>
+          </div>
         </div>
 
         <div class="top-left" style="height: 50%; width: 50%;">
@@ -127,16 +139,7 @@ session_start();
           </form>
         </div>
 
-        <div>
-          <?php     
-            // Vérifier si un message de succès est défini dans la session
-            if (isset($_SESSION['success_message'])) {
-                // Afficher le message de succès
-                echo "<p>" . $_SESSION['success_message'] . "</p>";
-                // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
-                unset($_SESSION['success_message']);}
-          ?>
-        </div>
+
 
         <div class="bottom-left" style="height: 50%; width: 50%;">
           <form method="POST" action="modif_ndf.php" class="top-left" style="height: 50%; width: 50%;"> 
