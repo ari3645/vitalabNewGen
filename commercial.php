@@ -155,12 +155,12 @@ session_start();
             <form method="POST" action="modif_ndf.php" style="height: 50%; width: 50%;"> 
               <h3><center>Modifier une note de frais</center></h3>
               <hr>
-              <p>Id de la note à modifier : </p><input type="text" name="id_modif">
-              <p>Intitulé : </p><input type="text" name="intitule">
-              <p>Date : </p><input type="text" name="date">
-              <p>Montant : </p><input type="number" name="montant">
-              <p>Lieu : </p><input type="text" name="lieu">
-              <p>Id Frais : </p><input type="number" name="id_frais">
+              <center><p>Id de la note à modifier : </p><input type="text" name="id_modif"></center>
+              <center><p>Intitulé : </p><input type="text" name="intitule"></center>
+              <center><p>Date : </p><input type="text" name="date"></center>
+              <center><p>Montant : </p><input type="number" name="montant"></center>
+              <center><p>Lieu : </p><input type="text" name="lieu"></center>
+              <center><p>Id Frais : </p><input type="number" name="id_frais"></center>
               <center><button class="bn1" type="submit">Modifier</button></center>
               <?php
                 // Vérifier si un message de succès est défini dans la session
