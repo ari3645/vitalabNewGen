@@ -15,20 +15,21 @@ body{
   backdrop-filter: blur(15px);
   justify-content: space-between;
   align-items: center;
-  padding-left: 1%;
-  padding-right: 5%;
+  padding-left: 0%;
+  padding-right: 0%;
   
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   
+ 
 }
 .img-nav{
   width: auto;
   height: 74px;
-  margin-left: 30px;
+  margin-left: 80px;
   min-width: 40px;
   min-height: 37px;
+  
 }
-
 .navbar-brand{
     justify-content: space-between;
     align-items: center;
