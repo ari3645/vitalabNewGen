@@ -200,5 +200,14 @@ session_start();
           </div>
       </center> 
     </div>
+
+    <script src="chemin/vers/jquery.js"></script>
+    <script src="chemin/vers/datatables.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
+    </script>
+
 </body>
 </html>
