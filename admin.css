@@ -80,9 +80,9 @@ body{
   position: absolute;
   left: 10px;
   height: 30%;
-  max-width: 60%;
+  max-width: 70%;
   min-width: 40%;
-  width: 58%;
+  width: 65%;
   text-align: center;
   
   color: #11698E;
@@ -100,13 +100,13 @@ body{
 
   backdrop-filter: blur(15px);
   height: 30%;
-  max-width: 60%;
+  max-width: 90%;
   min-width: 40%;
-  width: 58%;
+  width: 90%;
   color: #11698E;
   position: absolute;
   top:50%;
-  margin-top: 600px;
+  margin-top: 300px;
   left: 10px;
   
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
