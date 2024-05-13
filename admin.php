@@ -19,7 +19,12 @@ session_start();
     <script>
         $(document).ready(function() {
             // Initialiser DataTable sur les tables avec la classe "dataTable"
-            $('#myTable').DataTable();
+            $('#myTable').DataTable({
+              pagingType: 'full',
+              scrollY: '400px', // Définissez la hauteur de la zone de défilement
+              scrollCollapse: true, // Permettez à la zone de défilement de s'effondrer lorsque le contenu est inférieur à la hauteur définie
+              paging: true // Activez la pagination
+            });
         });
       </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
