@@ -57,8 +57,9 @@ body{
   min-width: 20%;
   
   min-width: 40%;
-  height: 98%;
-  min-height: 80%;
+  height: 99%;
+  min-height: 98%;
+  padding-bottom: 10px;
 
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   
@@ -84,8 +85,8 @@ body{
   min-width: 55%;
   width: 58%;
   text-align: center;
-  padding-left: 10px;
-  padding-right: 10px;
+
+ 
   
   color: #11698E;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -113,8 +114,7 @@ body{
   margin-top: 375px;
   left: 10px;
   right: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+ 
   
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
  
