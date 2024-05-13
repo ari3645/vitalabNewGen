@@ -44,7 +44,7 @@ body{
 
 
 
-.bottom-left{
+.top-left{
     
   border-radius: 2px;
   background-color: #fff;
@@ -76,7 +76,7 @@ body{
   
 
 
-.right{
+.bottom-left{
     
   border-radius: 2px;
   background-color: #fff;
@@ -103,7 +103,7 @@ body{
    }
    
 }
-.top-left{
+.right{
     
   border-radius: 2px;
   background-color: #fcfbfb;
