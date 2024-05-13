@@ -127,31 +127,29 @@ session_start();
             </div>
           </div>
 
-        <div class="top-left" style="height: 50%; width: 50%;">
-          <form method="POST" action="add_ndf.php" class="right" style="height: 50%; width: 50%;"> 
-            <h3><center>Ajouter note de frais</center></h3>
-            <p>Intitulé : </p><input type="text" name="intitule">
-            <p>Date : </p><input type="text" name="date">
-            <p>Montant : </p><input type="number" name="montant">
-            <p>Lieu : </p><input type="text" name="lieu">
-            <p>Id Frais : </p><input type="number" name="id_frais">
-            <center><button class="bn1" type="submit">Ajouter</button></center>
-          </form>
-        </div>
+          <div class="top-left" style="height: 50%; width: 50%;">
+            <form method="POST" action="add_ndf.php" class="right" style="height: 50%; width: 50%;"> 
+              <h3><center>Ajouter note de frais</center></h3>
+              <p>Intitulé : </p><input type="text" name="intitule">
+              <p>Date : </p><input type="text" name="date">
+              <p>Montant : </p><input type="number" name="montant">
+              <p>Lieu : </p><input type="text" name="lieu">
+              <p>Id Frais : </p><input type="number" name="id_frais">
+              <center><button class="bn1" type="submit">Ajouter</button></center>
+            </form>
+          </div>
 
-
-
-        <div class="right" style="height: 50%; width: 50%;">
-          <form method="POST" action="modif_ndf.php" class="top-left" style="height: 50%; width: 50%;"> 
-            <h3><center>Modifier une note de frais</center></h3>
-            <p>Id de la note à modifier : </p><input type="text" name="id_modif">
-            <p>Intitulé : </p><input type="text" name="intitule">
-            <p>Date : </p><input type="text" name="date">
-            <p>Montant : </p><input type="number" name="montant">
-            <p>Lieu : </p><input type="text" name="lieu">
-            <p>Id Frais : </p><input type="number" name="id_frais">
-            <center><button class="bn1" type="submit">Modifier</button></center>
-          </form>
+          <div class="right" style="height: 50%; width: 50%;">
+            <form method="POST" action="modif_ndf.php" class="top-left" style="height: 50%; width: 50%;"> 
+              <h3><center>Modifier une note de frais</center></h3>
+              <p>Id de la note à modifier : </p><input type="text" name="id_modif">
+              <p>Intitulé : </p><input type="text" name="intitule">
+              <p>Date : </p><input type="text" name="date">
+              <p>Montant : </p><input type="number" name="montant">
+              <p>Lieu : </p><input type="text" name="lieu">
+              <p>Id Frais : </p><input type="number" name="id_frais">
+              <center><button class="bn1" type="submit">Modifier</button></center>
+            </form>
         </div>
     </nav>
 </body>
