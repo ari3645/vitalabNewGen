@@ -101,8 +101,7 @@ session_start();
               <p>Mot de passe : </p><input type="password" name="mdp">
               <p>Statut : </p> <input type="text" name="role">
               <center><button class="bn1" type="submit">Ajouter</button></center>
-            </form>
-            <?php     
+              <?php     
                 // Vérifier si un message de succès est défini dans la session
                 if (isset($_SESSION['add_user'])) {
                     // Afficher le message de succès
@@ -112,6 +111,7 @@ session_start();
                     unset($_SESSION['add_user']);
                 }
             ?>
+            </form>
           </div>
 
           <div class="bottom-left" style="height: 50%; width: 50%;">
