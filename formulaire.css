@@ -62,18 +62,22 @@ color: #618264;
 }
 
 input{
-  margin-left: 5%;
-  margin-right: 5%;
-  max-height: 50px;
-  margin-top: 0px;
-  margin-bottom: 5PX;
-  border: 1px solid rgba(235, 235, 235, 0.497);
-  border-radius: 10px;
-  background-color: rgba(215, 214, 214, 0.363);
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(5px);
-  text-align:justify;
-  padding: 10px
+
+    display: flex;
+    left: 5%;
+    right: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    max-height: 50px;
+    margin-top: 0px;
+    margin-bottom: 5PX;
+    border: 1px solid rgba(235, 235, 235, 0.497);
+    border-radius: 10px;
+    background-color: rgba(215, 214, 214, 0.363);
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+    text-align:justify;
+    padding: 10px;
 }
 
 
