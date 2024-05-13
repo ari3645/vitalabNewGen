@@ -91,12 +91,23 @@ session_start();
                   // Afficher les notes de frais
                   echo $liste_notes_html;
 
+
+
                 //Gestion des erreurs
                 } catch (PDOException $e) {echo "Erreur : " . $e->getMessage();}
 
                 // Fermer la connexion à la base de données
                 $pdo = null;
               ?>
+              <div>              
+                <?php
+                // Vérifier si un message de succès est défini dans la session
+                if (isset($_SESSION['ajout_ndf'])) {
+                  // Afficher le message de succès
+                  echo "<p>" . $_SESSION['ajout_ndf'] . "</p>";
+                  // Supprimer le message de la session pour qu'il ne s'affiche plus après un rafraîchissement de la page
+                  unset($_SESSION['ajout_ndf']);}
+              ?></div>
         </div>
       </center>
     </div>

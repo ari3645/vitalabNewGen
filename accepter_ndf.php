@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id_note_de_frais"])) {
             session_start();
     
             // Définir un message de succès dans la session
-            $_SESSION['success_message'] = "La note de frais a été acceptée avec succès.";
+            $_SESSION['accept_ndf'] = "La note de frais a été acceptée avec succès.";
     
             // Rediriger vers une autre page ou afficher un message de succès
             header("Location: comptable.php");
