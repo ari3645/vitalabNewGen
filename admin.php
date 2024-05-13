@@ -200,7 +200,12 @@ session_start();
 
     <script>
         $(document).ready(function() {
-            $('.display').DataTable();
+            $('.display').DataTable({
+              pagingType: 'full',
+              scrollY: '400px', // Définissez la hauteur de la zone de défilement
+              scrollCollapse: true, // Permettez à la zone de défilement de s'effondrer lorsque le contenu est inférieur à la hauteur définie
+              paging: true // Activez la pagination
+          });
         });
     </script>
 
