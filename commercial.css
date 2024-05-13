@@ -47,30 +47,7 @@ body{
 
 
 
-.right{
 
-  border-radius: 2px;
-  background-color: #fff;
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
-  color: #11698E;
-  backdrop-filter: blur(15px);
-
-  margin-top: 10px;
-  position: absolute;
-  right: 20px;
-  width: 46%;
-
-  min-width: 40%;
-  height: 80%;
-  min-height: 15rem;
-
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-  bottom: 20px;
-
-
-
-}
 
 .top-left{
 
