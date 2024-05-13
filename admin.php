@@ -23,7 +23,7 @@ session_start();
         <center><p><h3 style="letter-spacing: 5px;">Vitalab New Gen</h3></p></center>
 
         <div class="dropdown">
-          <button href="" class="btn41-43 btn-42" style="padding-right:20%" onclick="logouta()">Déconnexion</button>
+          <button href="" class="btn41-43 btn-42" style="padding-right:25%" onclick="logouta()">Déconnexion</button>
           <script>
             //Fonction pour se déconnecter
             function logouta() {
