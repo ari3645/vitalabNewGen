@@ -24,7 +24,7 @@ body{
 .img-nav{
   width: auto;
   height: 74px;
-  margin-left: 80px;
+  margin-left: 30px;
   min-width: 40px;
   min-height: 37px;
 }
@@ -47,8 +47,8 @@ body{
   
   margin-top: 20px;
   position: absolute;
-  right: 20px;
-  width: 40%;
+  right: 10px;
+  width: 30%;
   
   min-width: 40%;
   height: 50%;
@@ -72,8 +72,8 @@ body{
   
   margin-top: 10px;
   position: absolute;
-  left: 20px;
-  height: 39%;
+  left: 10px;
+  height: 30%;
   width: 48%;
   text-align: center;
   
@@ -91,11 +91,11 @@ body{
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
 
   backdrop-filter: blur(15px);
-  height: 39%;
+  height: 30%;
   width: 48%;
   color: #11698E;
   position: absolute;
-  left: 20px;
+  left: 10px;
   bottom: 10px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
  
