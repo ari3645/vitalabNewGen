@@ -36,7 +36,7 @@ session_start();
     </nav>
 
     <nav class="container2">
-        <div class="right">
+        <div class="bottom">
           <h3><center>Liste notes de frais</center></h3>
           <hr>
           <div class="note-countainer">
