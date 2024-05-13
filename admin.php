@@ -20,10 +20,10 @@ session_start();
         $(document).ready(function() {
             // Initialiser DataTable sur les tables avec la classe "dataTable"
             $('#myTable').DataTable({
-              pagingType: 'full',
-              scrollY: '400px', // Définissez la hauteur de la zone de défilement
-              scrollCollapse: true, // Permettez à la zone de défilement de s'effondrer lorsque le contenu est inférieur à la hauteur définie
-              paging: true // Activez la pagination
+              pagingType: 'full', //Ajoute les boutons de navigation (premier, précédent, suivant, dernier)
+              scrollY: '400px', //Hauteur de la zone de défilement
+              scrollCollapse: true, //Réduire la hauteur si moins de lignes
+              paging: true //Activer la pagination
             });
         });
       </script>
@@ -50,6 +50,17 @@ session_start();
             <h3><center>Liste notes de frais</center></h3>
             <hr>
             <div id="myTable" class="note-countainer">
+            <table id="dataTable" class="display">
+              <thead>
+                <tr>
+                    <th>Date de facture</th>
+                    <th>Montant</th>
+                    <th>Lieu</th>
+                    <th>Type de frais</th>
+                    <th>Statut</th>
+                </tr>
+              </thead>
+              <tbody>
                 <?php
                   // Informations d'identification
                   $serveur = "vitalab-new-gen.mysql.database.azure.com";
@@ -92,6 +103,7 @@ session_start();
                       $pdo = null;
                   }
                 ?>
+              </tbody>
             </div>
           </div>
 
