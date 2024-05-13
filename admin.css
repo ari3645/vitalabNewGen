@@ -81,7 +81,7 @@ body{
   left: 10px;
   height: 30%;
   max-width: 70%;
-  min-width: 40%;
+  min-width: 62%;
   width: 65%;
   text-align: center;
   
@@ -101,7 +101,7 @@ body{
   backdrop-filter: blur(15px);
   height: 30%;
   max-width: 90%;
-  min-width: 40%;
+  min-width: 90%;
   width: 90%;
   color: #11698E;
   position: absolute;
