@@ -49,62 +49,62 @@ session_start();
         <div class="top-left">
             <h3><center>Liste notes de frais</center></h3>
             <hr>
-            <div id="myTable" class="note-countainer">
-            <table id="dataTable" class="display">
-              <thead>
-                <tr>
-                    <th>Date de facture</th>
-                    <th>Montant</th>
-                    <th>Lieu</th>
-                    <th>Type de frais</th>
-                    <th>Statut</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                  // Informations d'identification
-                  $serveur = "vitalab-new-gen.mysql.database.azure.com";
-                  $dbname = "vitalab-new-gen";
-                  $user = "albinrvi";
-                  $pass = "Ari69.008";
+            <div class="note-countainer">
+              <table id="myTable" class="display">
+                <thead>
+                  <tr>
+                      <th>Date de facture</th>
+                      <th>Montant</th>
+                      <th>Lieu</th>
+                      <th>Type de frais</th>
+                      <th>Statut</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                    // Informations d'identification
+                    $serveur = "vitalab-new-gen.mysql.database.azure.com";
+                    $dbname = "vitalab-new-gen";
+                    $user = "albinrvi";
+                    $pass = "Ari69.008";
 
-                  try {
-                      // Connexion à la base de données
-                      $dsn = "mysql:host=$serveur;dbname=$dbname";
-                      $pdo = new PDO($dsn, $user, $pass);
-                      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    try {
+                        // Connexion à la base de données
+                        $dsn = "mysql:host=$serveur;dbname=$dbname";
+                        $pdo = new PDO($dsn, $user, $pass);
+                        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                      // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
-                      $req = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut
-                      FROM note_de_frais n 
-                      INNER JOIN type_de_frais f ON n.id_frais = f.id_frais";
-                      $sql = $pdo->prepare($req);
-                      $sql->execute();
+                        // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
+                        $req = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut
+                        FROM note_de_frais n 
+                        INNER JOIN type_de_frais f ON n.id_frais = f.id_frais";
+                        $sql = $pdo->prepare($req);
+                        $sql->execute();
 
-                      while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
-                        $liste_notes_html .= "<div class='card'>";
-                        $liste_notes_html .= "<div class='card-body'>";
-                        $liste_notes_html .= "<h5 class='card-title'>Date de facture: " . htmlspecialchars($row['date_facture']) . "</h5>";
-                        $liste_notes_html .= "<p class='card-text'>Montant: " . htmlspecialchars($row['montant_facture']) . "</p>";
-                        $liste_notes_html .= "<p class='card-text'>Lieu: " . htmlspecialchars($row['lieu_facture']) . "</p>";
-                        $liste_notes_html .= "<p class='card-text'>Type de frais: " . htmlspecialchars($row['type_frais']) . "</p>";
-                        $liste_notes_html .= "<p class='card-text'>Statut: " . htmlspecialchars($row['statut']) . "</p>";
-                        $liste_notes_html .= "</div>";
-                        $liste_notes_html .= "</div>";
+                        while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
+                          $liste_notes_html .= "<div class='card'>";
+                          $liste_notes_html .= "<div class='card-body'>";
+                          $liste_notes_html .= "<h5 class='card-title'>Date de facture: " . htmlspecialchars($row['date_facture']) . "</h5>";
+                          $liste_notes_html .= "<p class='card-text'>Montant: " . htmlspecialchars($row['montant_facture']) . "</p>";
+                          $liste_notes_html .= "<p class='card-text'>Lieu: " . htmlspecialchars($row['lieu_facture']) . "</p>";
+                          $liste_notes_html .= "<p class='card-text'>Type de frais: " . htmlspecialchars($row['type_frais']) . "</p>";
+                          $liste_notes_html .= "<p class='card-text'>Statut: " . htmlspecialchars($row['statut']) . "</p>";
+                          $liste_notes_html .= "</div>";
+                          $liste_notes_html .= "</div>";
+                      }
+                      
+                      // Afficher les notes de frais
+                      echo $liste_notes_html;
+
+                    } catch (PDOException $e) {
+                        echo "Erreur : " . $e->getMessage();
+                    }finally{
+                        // Fermer la connexion à la base de données
+                        $pdo = null;
                     }
-                    
-                    // Afficher les notes de frais
-                    echo $liste_notes_html;
-
-                  } catch (PDOException $e) {
-                      echo "Erreur : " . $e->getMessage();
-                  }finally{
-                      // Fermer la connexion à la base de données
-                      $pdo = null;
-                  }
-                ?>
-              </tbody>
-            </table>
+                  ?>
+                </tbody>
+              </table>
             </div>
           </div>
 
