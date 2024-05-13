@@ -53,9 +53,10 @@ body{
   
   margin-top: 10px;
   position: absolute;
-  right:23%;
-  left : 27%;
-  width: 46%;
+  padding-left:10px;
+  padding-right:10px;
+  
+  width: 90%;
   
   min-width: 40%;
   height: 80%;
@@ -69,27 +70,7 @@ body{
   
 }
 
-.left{
-  
-  border-radius: 2px;
-  background-color: #fff;
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
-  color: #11698E;
-  backdrop-filter: blur(15px);
-  
-  margin-top: 10px;
-  position: absolute;
-  left: 20px;
-  width: 46%;
-  
-  min-width: 40%;
-  height: 80%;
-  min-height: 15rem;
 
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  
-  bottom: 20px;
-  
   h4{
       position: relative;
       left: 25px;
