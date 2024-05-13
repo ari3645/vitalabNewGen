@@ -38,6 +38,9 @@ body{
   width: 100%;
 
 }
+
+
+
 .dropdown{
   margin-right: 80px;
 }
@@ -49,7 +52,8 @@ body{
   border-radius: 2px;
   background-color: #fff;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
-	@@ -54,72 +54,79 @@ body{
+  color: #11698E;
+  backdrop-filter: blur(15px);
 
   margin-top: 10px;
   position: absolute;
@@ -122,35 +126,6 @@ body{
 
   .bn1{
       min-height: 45px;
-	@@ -232,4 +239,4 @@ hr{
-.note-countainer{
-
-  padding-top: 2%;
-}
-  
-  
-  
-
-
- 
-.note{
-  border: 1px solid rgba(255, 255, 255, .25);
-  border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.282);
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
-  justify-content: space-around;
-  align-items: center ;
-  display: flex;
-  backdrop-filter: blur(15px);
-  height: 75px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
-  height: 50px;
-
-  .bn1{
-      min-height: 45px;
       position: absolute;
       right: 10px;
       bottom: 10px;
@@ -165,9 +140,7 @@ body{
   }
   
 }
-
 .bn1 {
-
   max-height: 50px;
   max-width: 150px;
   display: inline-block;
@@ -187,18 +160,15 @@ body{
   margin-top: 35px;
   
 }
-
 .bn1:hover {
   color: #11698E;
   background-color: #ffffff;
 }
-
 input{
   min-width: 100px;
   width: auto;
   max-width: 400px;
 }
-
 .btn41-43 {
   padding: 10px 25px;
   font-family: "Roboto", sans-serif;
@@ -210,13 +180,11 @@ input{
   position: relative;
   display: inline-block;
 }
-
 .btn-42 {
   border: 2px solid rgb(255, 255, 255);
   z-index: 1;
   color: white;
 }
-
 .btn-42:after {
   position: absolute;
   content: "";
@@ -228,20 +196,16 @@ input{
   background: rgb(255, 255, 255);
   transition: all 0.3s ease;
 }
-
 .btn-42:hover {
   color: rgb(0, 0, 0);
 }
-
 .btn-42:hover:after {
   top: 0;
   height: 100%;
 }
-
 .btn-42:active {
   top: 2px;
 }
-
 hr{
   width: 90%;
   
@@ -256,7 +220,6 @@ hr{
   align-items: center ;
   display: flex;
 }
-
 .note-countainer{
 
   padding-top: 2%;
