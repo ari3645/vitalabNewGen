@@ -22,7 +22,7 @@ session_start();
           <img src="images/logo.png" alt="Bootstrap" class="img-nav">    
         </div>
 
-        <center><p><h4>Vitalab New Gen</h4></p></center>
+        <center><p><h3 style="letter-spacing: 5px;">Vitalab New Gen</h3></p></center>
 
         <div class="dropdown">
           <button href="" class="btn41-43 btn-42" onclick="logoutcm()">Déconnexion</button>
@@ -152,7 +152,7 @@ session_start();
 
 
         <div class="right" >
-            <form method="POST" action="modif_ndf.php" style="height: 50%; width: 50%;"> 
+            <form method="POST" action="modif_ndf.php" > 
               <h3><center>Modifier une note de frais</center></h3>
               <hr>
               <center><p>Id de la note à modifier : </p><input type="text" name="id_modif"></center>
