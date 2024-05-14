@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
-    <?php echo '<div class="card">
+    <div class="card">
         <center><img src="images/logo.png" class="img-com-so" style="width: 18rem;"></center>
         <form method="post" action=""> 
             <p>&nbsp;</p>
@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <input type="password" name="password"> 
             <center><button type="submit" class="bn1">Connexion</button></center> 
         </form>
-    </div>'; ?>
+    </div>
     
     <div>
         <?php     
