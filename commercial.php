@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION['id_utilisateur'])){
+    $_SESSION['error_message_not_enleve']==" Veuillez vous connecter";
+    header("Location: login.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
