@@ -18,18 +18,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  && !empty($_POST["nom_user"])) {
         $pdo = new PDO($dsn, $user, $pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // Requête SQL pour supprimer un utilisateur
-        $sql = $pdo->prepare("DELETE FROM utilisateur WHERE nom_utilisateur = :nom_utilisateur");
-        $sql->bindParam(':nom_utilisateur', $nom_utilisateur);
-        $sql->execute();
+        // Vérifier si l'utilisateur a des notes de frais
+        $checkSql = $pdo->prepare("SELECT COUNT(*) FROM notes_de_frais WHERE nom_utilisateur = :nom_utilisateur");
+        $checkSql->bindParam(':nom_utilisateur', $nom_utilisateur);
+        $checkSql->execute();
+        $notesCount = $checkSql->fetchColumn();
 
-        session_start();
-        // Définir un message de réussite dans la session
-        $_SESSION['success_message'] = "L'utilisateur a été supprimé avec succès.";
+        if ($notesCount > 0) {
+            session_start();
+            // Définir un message d'erreur dans la session
+            $_SESSION['success_message'] = "L'utilisateur ne peut pas être supprimé.";
 
-        // Rediriger vers une autre page
-        header("Location: admin.php");
-        exit();
+            // Rediriger vers une autre page
+            header("Location: admin.php");
+            exit();
+        } else {
+            // Requête SQL pour supprimer un utilisateur
+            $sql = $pdo->prepare("DELETE FROM utilisateur WHERE nom_utilisateur = :nom_utilisateur");
+            $sql->bindParam(':nom_utilisateur', $nom_utilisateur);
+            $sql->execute();
+
+            session_start();
+            // Définir un message de réussite dans la session
+            $_SESSION['success_message'] = "L'utilisateur a été supprimé avec succès.";
+
+            // Rediriger vers une autre page
+            header("Location: admin.php");
+            exit();
+        }
 
     //Gestion des erreurs
     } catch (PDOException $e) {
