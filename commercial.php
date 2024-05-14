@@ -137,7 +137,7 @@ if (!isset($_SESSION['id_utilisateur'])  || $_SESSION['id_utilisateur'] == null)
           <form method="POST" action="add_ndf.php" enctype="multipart/form-data"> 
               <h3><center>Ajouter note de frais</center></h3>
               <center><hr></center>
-              <p style="margin-top:12px;">Intitulé : </p><input type="text" name="intitule" >
+              <p style="margin-top:13.5px;">Intitulé : </p><input type="text" name="intitule" >
               <p>Date : </p><input type="text" name="date">
               <p>Montant : </p><input type="number" name="montant">
               <p>Lieu : </p><input type="text" name="lieu">
