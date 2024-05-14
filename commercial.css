@@ -97,6 +97,12 @@ body{
 
   color: #11698E;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  .bn1{
+      margin-bottom:20px;
+      
+      
+  }
+  
 
 }
 
@@ -110,7 +116,7 @@ body{
   backdrop-filter: blur(15px);
   margin-top:610px;
   height: 70%;
-  width: 99%;
+  width: 98.7%;
   color: #11698E;
   position: absolute;
   left: 10px;
