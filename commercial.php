@@ -137,12 +137,12 @@ if (!isset($_SESSION['id_utilisateur'])  || $_SESSION['id_utilisateur'] == null)
           <form method="POST" action="add_ndf.php" enctype="multipart/form-data"> 
               <h3><center>Ajouter note de frais</center></h3>
               <center><hr></center>
-              <p>Intitulé : </p><input type="text" name="intitule">
+              <p style="margin-top:13.5px;">Intitulé : </p><input type="text" name="intitule" >
               <p>Date : </p><input type="text" name="date">
               <p>Montant : </p><input type="number" name="montant">
               <p>Lieu : </p><input type="text" name="lieu">
               <p>Id Frais : </p><input type="number" name="id_frais">
-              <p>Ajouter une image : </p><input type="file" name="image">
+              <center><p>Ajouter une image : </p><input type="file" name="image" style="padding-left:25%; background-color: transparent;"></center>
               <center><button class="bn1" type="submit">Ajouter</button></center>
               <?php
                 // Vérifier si un message de succès est défini dans la session
@@ -166,7 +166,7 @@ if (!isset($_SESSION['id_utilisateur'])  || $_SESSION['id_utilisateur'] == null)
               <center><p>Montant : </p><input type="number" name="montant"></center>
               <center><p>Lieu : </p><input type="text" name="lieu"></center>
               <center><p>Id Frais : </p><input type="number" name="id_frais"></center>
-              <center><p>Modifier une image : </p><input type="file" name="image"></center>
+              <center><p>Modifier une image : </p><input type="file" name="image" style="padding-left:25%; background-color: transparent;"></center>
               <center><button class="bn1" type="submit">Modifier</button></center>
               <?php
                 // Vérifier si un message de succès est défini dans la session
