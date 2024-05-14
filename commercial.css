@@ -64,9 +64,9 @@ body{
   width: 48.5%;
 
   min-width: 40%;
-  height: 640px;
-  max-height: 80%;
-  min-height: 600px;
+  height: 690px;
+  max-height: 95%;
+  min-height: 650px;
 
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   input{
@@ -91,9 +91,9 @@ body{
   margin-top: 10px;
   position: absolute;
   left: 10px;
-  height: 640px;
-  max-height: 80%;
-  min-height: 600px;
+  height: 690px;
+  max-height: 95%;
+  min-height: 650px;
   width: 48.5%;
   text-align: center;
 
@@ -116,7 +116,7 @@ body{
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
 
   backdrop-filter: blur(15px);
-  margin-top:620px;
+  margin-top:680px;
   height: 70%;
   width: 98.7%;
   color: #11698E;
