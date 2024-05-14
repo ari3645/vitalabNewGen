@@ -38,7 +38,7 @@ session_start();
     <nav class="container2">
         <div class="bottom" >
           <h3><center>Liste notes de frais</center></h3>
-          <hr>
+          <center><hr></center>
           <div class="note-countainer">
             <table id="myTable" class="display">
               <thead>
@@ -132,7 +132,7 @@ session_start();
         <div class="left">
           <form method="POST" action="add_ndf.php" > 
               <h3><center>Ajouter note de frais</center></h3>
-              <hr>
+              <center><hr></center>
               <p>Intitulé : </p><input type="text" name="intitule">
               <p>Date : </p><input type="text" name="date">
               <p>Montant : </p><input type="number" name="montant">
@@ -154,7 +154,7 @@ session_start();
         <div class="right" >
             <form method="POST" action="modif_ndf.php" > 
               <h3><center>Modifier une note de frais</center></h3>
-              <hr>
+              <center><hr></center>
               <center><p>Id de la note à modifier : </p><input type="text" name="id_modif"></center>
               <center><p>Intitulé : </p><input type="text" name="intitule"></center>
               <center><p>Date : </p><input type="text" name="date"></center>
