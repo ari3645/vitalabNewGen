@@ -53,7 +53,7 @@ body{
 .right{
 
   border-radius: 2px;
-  background-color: #fff;
+  background-color: #ffffffb5;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
   color: #11698E;
   backdrop-filter: blur(15px);
@@ -61,8 +61,8 @@ body{
   margin-top: 10px;
   position: absolute;
   text-align: center;
-  right: 20px;
-  width: 46%;
+  right: 10px;
+  width: 48.5%;
 
   min-width: 40%;
   height: 80%;
@@ -77,16 +77,16 @@ body{
 .left{
 
   border-radius: 2px;
-  background-color: #fff;
+  background-color: #ffffffb5;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
 
   backdrop-filter: blur(15px);
 
   margin-top: 10px;
   position: absolute;
-  left: 20px;
+  left: 10px;
   height: 80%;
-  width: 46%;
+  width: 48.5%;
   text-align: center;
 
   color: #11698E;
@@ -98,16 +98,16 @@ body{
 .bottom{
 
   border-radius: 2px;
-  background-color: #fff;
+  background-color: #ffffffb5;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
 
   backdrop-filter: blur(15px);
   margin-top:600px;
   height: 70%;
-  width: 98%;
+  width: 98.5%;
   color: #11698E;
   position: absolute;
-  left: 20px;
+  left: 10px;
   
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   
@@ -160,10 +160,19 @@ body{
 }
 
 input{
-  min-width: 100px;
-  width: auto;
-  max-width: 400px;
-}
+    max-height: 50px;
+    margin-top: 0px;
+    margin-bottom: 5PX;
+    border: 1px solid rgba(235, 235, 235, 0.497);
+    border-radius: 10px;
+    background-color: rgba(215, 214, 214, 0.363);
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 85%;
+    height: 7%;
+  
+  
+  }
 
 .btn41-43 {
   padding: 10px 25px;
