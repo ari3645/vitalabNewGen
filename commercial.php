@@ -22,7 +22,7 @@ session_start();
           <img src="images/logo.png" alt="Bootstrap" class="img-nav">    
         </div>
 
-        <center><p><h4>Vitalab New Gen</h4></p></center>
+        <center><p><h3 style="letter-spacing: 5px;">Vitalab New Gen</h3></p></center>
 
         <div class="dropdown">
           <button href="" class="btn41-43 btn-42" onclick="logoutcm()">Déconnexion</button>
@@ -36,9 +36,9 @@ session_start();
     </nav>
 
     <nav class="container2">
-        <div class="right">
+        <div class="bottom" >
           <h3><center>Liste notes de frais</center></h3>
-          <hr>
+          <center><hr></center>
           <div class="note-countainer">
             <table id="myTable" class="display">
               <thead>
@@ -129,10 +129,10 @@ session_start();
           </div>
         </div>
 
-        <div class="top-left">
-          <form method="POST" action="add_ndf.php" style="height: 50%; width: 50%;"> 
+        <div class="left">
+          <form method="POST" action="add_ndf.php" > 
               <h3><center>Ajouter note de frais</center></h3>
-              <hr>
+              <center><hr></center>
               <p>Intitulé : </p><input type="text" name="intitule">
               <p>Date : </p><input type="text" name="date">
               <p>Montant : </p><input type="number" name="montant">
@@ -151,10 +151,10 @@ session_start();
         </div>
 
 
-        <div class="bottom-left" style="height: 50%; width: 50%;">
-            <form method="POST" action="modif_ndf.php" style="height: 50%; width: 50%;"> 
+        <div class="right" >
+            <form method="POST" action="modif_ndf.php" > 
               <h3><center>Modifier une note de frais</center></h3>
-              <hr>
+              <center><hr></center>
               <center><p>Id de la note à modifier : </p><input type="text" name="id_modif"></center>
               <center><p>Intitulé : </p><input type="text" name="intitule"></center>
               <center><p>Date : </p><input type="text" name="date"></center>

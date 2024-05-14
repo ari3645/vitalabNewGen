@@ -9,26 +9,30 @@ body{
   background-color: #11698E;
   color: aliceblue;
   height: 100px;
-  
+  max-width:99%
   display:flex ;
   top: 0px;
   backdrop-filter: blur(15px);
   justify-content: space-between;
   align-items: center;
-  padding-left: 1%;
+  padding-left: 0%;
   padding-right: 5%;
   
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   
+ 
 }
 .img-nav{
   width: auto;
   height: 74px;
-  margin-left: 80px;
+  margin-left: 40px;
   min-width: 40px;
   min-height: 37px;
+  
 }
-
+.dropdown{
+  margin-right: 40px;
+}
 .navbar-brand{
     justify-content: space-between;
     align-items: center;
@@ -40,19 +44,22 @@ body{
 .right{
     
   border-radius: 2px;
-  background-color: #fff;
+  background-color: #ffffff6b;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
   color: #11698E;
   backdrop-filter: blur(15px);
   
-  margin-top: 20px;
+  margin-top: 10px;
   position: absolute;
-  right: 20px;
-  width: 40%;
+  right: 10px;
+  max-width: 38%;
+  width: 30%;
+  min-width: 20%;
   
-  min-width: 40%;
-  height: 50%;
-  min-height: 15rem;
+  
+  height: 62.5%;
+  min-height: 62.5%;
+  
 
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   
@@ -62,60 +69,57 @@ body{
     
 }
 
-.top-left{
+.bottom-left{
     
   border-radius: 2px;
-  background-color: #fff;
+  background-color: #ffffff6b;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
 
   backdrop-filter: blur(15px);
   
   margin-top: 10px;
   position: absolute;
-  left: 20px;
-  height: 39%;
-  width: 48%;
+  left: 10px;
+  height: 98%;
+  max-width: 65%;
+  min-width: 60%;
+  width: 62%;
   text-align: center;
+
+ 
   
   color: #11698E;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
    
-   
+   hr{
+     margin-left:30px;
+   }
    
 }
 
-.bottom-left{
+.top-left{
     
   border-radius: 2px;
-  background-color: #fcfbfb;
+  background-color: #ffffff6b;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
 
   backdrop-filter: blur(15px);
-  height: 39%;
-  width: 48%;
+  height: 30%;
+  max-width: 99%;
+  min-width: 97%;
+  width: 98.5%;
   color: #11698E;
   position: absolute;
-  left: 20px;
-  bottom: 10px;
+  top:50%;
+  margin-top: 252px;
+  left: 10px;
+  right: 10px;
+ 
+  
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
  
 }
-.note{
-  border: 1px solid rgba(255, 255, 255, .25);
-  border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.282);
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
-  justify-content: space-around;
-  align-items: center ;
-  display: flex;
-  backdrop-filter: blur(15px);
-  height: 75px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
-  height: 50px;
-}
+
 
 .bn1 {
 
@@ -134,7 +138,8 @@ body{
     text-align: center;
     transition: all 0.2s;
     width: 200px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
+    bottom: 2%;
     margin-top: 35px;
     
   }
@@ -219,7 +224,7 @@ body{
       background-color: rgba(215, 214, 214, 0.363);
       margin-left: 5%;
       margin-right: 5%;
-      width: 90%;
+      width: 85%;
       height: 7%;
   
   
@@ -235,6 +240,7 @@ body{
   
   hr{
     width: 90%;
+    
     
   }
   

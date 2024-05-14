@@ -6,6 +6,7 @@ body{
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
 .navbar{
   background-color: #11698E;
   color: aliceblue;
@@ -23,6 +24,7 @@ body{
   
  
 }
+
 .img-nav{
   width: auto;
   height: 74px;
@@ -38,88 +40,98 @@ body{
   width: 100%;
 
 }
+
+
+
 .dropdown{
   margin-right: 80px;
 }
 
 
 
+
 .right{
-  
+
   border-radius: 2px;
-  background-color: #fff;
+  background-color: #ffffff6b;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
   color: #11698E;
   backdrop-filter: blur(15px);
-  
+
   margin-top: 10px;
   position: absolute;
-  right: 20px;
-  width: 46%;
-  
-  min-width: 40%;
-  height: 80%;
-  min-height: 15rem;
-
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  
-  bottom: 20px;
-  
-  
-  
-}
-
-.top-left{
-  
-  border-radius: 2px;
-  background-color: #fff;
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
-
-  backdrop-filter: blur(15px);
-  
-  margin-top: 20px;
-  position: absolute;
-  left: 20px;
-  height: 39%;
-  width: 48%;
   text-align: center;
-  
-  color: #11698E;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  right: 10px;
+  width: 48.5%;
 
-  
- 
+  min-width: 40%;
+  height: 590px;
+  max-height: 80%;
+  min-height: 550px;
+
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  input{
+    max-height: 40px;
+    min-height: 30px;
+    height: 10%;
+    
+  }
+
+
+
 }
-.bottom-left{
-  
+
+.left{
+
   border-radius: 2px;
-  background-color: #fcfbfb;
+  background-color: #ffffff6b;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
 
   backdrop-filter: blur(15px);
-  height: 39%;
-  width: 48%;
+
+  margin-top: 10px;
+  position: absolute;
+  left: 10px;
+  height: 590px;
+  max-height: 80%;
+  min-height: 550px;
+  width: 48.5%;
+  text-align: center;
+
+  color: #11698E;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  .bn1{
+      margin-bottom:20px;
+      
+      
+  }
+  
+
+}
+
+
+.bottom{
+
+  border-radius: 2px;
+  background-color: #ffffff6b;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
+
+  backdrop-filter: blur(15px);
+  margin-top:610px;
+  height: 70%;
+  width: 98.7%;
   color: #11698E;
   position: absolute;
-  left: 20px;
-  bottom: 20px;
+  left: 10px;
+  margin-bottom:5%;
+  padding-bottom: 10px;
+  
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
 }
+
 .note{
-  border: 1px solid rgba(255, 255, 255, .25);
-  border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.282);
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
-  justify-content: space-around;
-  align-items: center ;
-  display: flex;
-  backdrop-filter: blur(15px);
-  height: 75px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
-  height: 50px;
+ 
 
   .bn1{
       min-height: 45px;
@@ -138,8 +150,8 @@ body{
   
 }
 
-.bn1 {
 
+.bn1 {
   max-height: 50px;
   max-width: 150px;
   display: inline-block;
@@ -159,17 +171,26 @@ body{
   margin-top: 35px;
   
 }
-
 .bn1:hover {
   color: #11698E;
   background-color: #ffffff;
 }
 
 input{
-  min-width: 100px;
-  width: auto;
-  max-width: 400px;
-}
+    max-height: 100px;
+    min-height: 40px;
+    margin-top: 0px;
+    margin-bottom: 5PX;
+    border: 1px solid rgba(235, 235, 235, 0.497);
+    border-radius: 10px;
+    background-color: rgba(215, 214, 214, 0.363);
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 85%;
+    height: 12%;
+  
+  
+  }
 
 .btn41-43 {
   padding: 10px 25px;
@@ -200,20 +221,16 @@ input{
   background: rgb(255, 255, 255);
   transition: all 0.3s ease;
 }
-
 .btn-42:hover {
   color: rgb(0, 0, 0);
 }
-
 .btn-42:hover:after {
   top: 0;
   height: 100%;
 }
-
 .btn-42:active {
   top: 2px;
 }
-
 hr{
   width: 90%;
   
@@ -228,7 +245,6 @@ hr{
   align-items: center ;
   display: flex;
 }
-
 .note-countainer{
 
   padding-top: 2%;
