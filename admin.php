@@ -102,7 +102,7 @@ if (!isset($_SESSION['id_utilisateur']) || $_SESSION['id_utilisateur'] == null) 
               <p>Identifiant : </p> <input type="text" name="id">
               <p> Email : </p> <input type="text" name="email"> 
               <p>Mot de passe : </p><input type="password" name="mdp">
-              <p>Statut : </p> <input type="text" name="role">
+              <p>Statut : </p> <input type="text" name="role" aria-label="1:Administrateur, 2:Commercial, 3:Comptable">
               <center><button class="bn1" type="submit">Ajouter</button></center>
               <?php     
                 // Vérifier si un message de succès est défini dans la session
