@@ -66,7 +66,8 @@ body{
 
   min-width: 40%;
   height: 80%;
-  min-height: 80%;
+  max-height: 80%;
+  min-height: 60%;
 
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   input{
@@ -92,6 +93,8 @@ body{
   position: absolute;
   left: 10px;
   height: 80%;
+  max-height: 80%;
+  min-height: 60%;
   width: 48.5%;
   text-align: center;
 
