@@ -56,8 +56,8 @@ body{
   width: 30%;
   min-width: 20%;
   
-  
-  height: 62.5%;
+  max-height: 242px;
+  height: 242px;
   min-height: 62.5%;
   
 
