@@ -79,7 +79,7 @@ body{
 .left{
 
   border-radius: 2px;
-  background-color: #F99417;
+  background-color: #fff;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10);
 
   backdrop-filter: blur(15px);
@@ -87,8 +87,8 @@ body{
   margin-top: 200px;
   position: absolute;
   left: 20px;
-  height: 200px;
-  width: 200px;
+  height: 80%;
+  width: 46%;
   text-align: center;
 
   color: #11698E;
@@ -97,7 +97,7 @@ body{
 }
 
 
-.right{
+.bottom{
 
   border-radius: 2px;
   background-color: #fcfbfb;
