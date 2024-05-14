@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['id_utilisateur']) || $_SESSION['id_utilisateur'] == null) {
+    header("Location: index.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
