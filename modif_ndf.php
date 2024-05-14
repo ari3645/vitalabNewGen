@@ -69,22 +69,39 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     }
                 }
 
-                $sql = $pdo->prepare("UPDATE note_de_frais
-                SET intitule = :intitule,
-                    date_facture = :date_facture,
-                    montant_facture = :montant_facture,
-                    lieu_facture = :lieu_facture,
-                    id_frais = :id_frais
-                    image_facture = :image_path
-                WHERE id_note_de_frais = :id_note_de_frais");
+                if ($image_path) {
+                    $sql = $pdo->prepare("UPDATE note_de_frais
+                    SET intitule = :intitule,
+                        date_facture = :date_facture,
+                        montant_facture = :montant_facture,
+                        lieu_facture = :lieu_facture,
+                        id_frais = :id_frais,
+                        image_facture = :image_path
+                    WHERE id_note_de_frais = :id_note_de_frais");
 
-                // Liaison des valeurs aux paramètres liés
-                $sql->bindParam(':intitule', $intitule);
-                $sql->bindParam(':date_facture', $date_facture);
-                $sql->bindParam(':montant_facture', $montant_facture);
-                $sql->bindParam(':lieu_facture', $lieu_facture);
-                $sql->bindParam(':id_frais', $id_frais, PDO::PARAM_INT);
-                $sql->bindParam(':image_path', $image_path);
+                    // Liaison des valeurs aux paramètres liés
+                    $sql->bindParam(':intitule', $intitule);
+                    $sql->bindParam(':date_facture', $date_facture);
+                    $sql->bindParam(':montant_facture', $montant_facture);
+                    $sql->bindParam(':lieu_facture', $lieu_facture);
+                    $sql->bindParam(':id_frais', $id_frais, PDO::PARAM_INT);
+                    $sql->bindParam(':image_path', $image_path);
+                } else {
+                    $sql = $pdo->prepare("UPDATE note_de_frais
+                    SET intitule = :intitule,
+                        date_facture = :date_facture,
+                        montant_facture = :montant_facture,
+                        lieu_facture = :lieu_facture,
+                        id_frais = :id_frais
+                    WHERE id_note_de_frais = :id_note_de_frais");
+
+                    // Liaison des valeurs aux paramètres liés
+                    $sql->bindParam(':intitule', $intitule);
+                    $sql->bindParam(':date_facture', $date_facture);
+                    $sql->bindParam(':montant_facture', $montant_facture);
+                    $sql->bindParam(':lieu_facture', $lieu_facture);
+                    $sql->bindParam(':id_frais', $id_frais, PDO::PARAM_INT);
+                }
                 $sql->bindParam(':id_note_de_frais', $id_note_de_frais, PDO::PARAM_INT);
 
                 // Exécution de la requête
