@@ -18,9 +18,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  && !empty($_POST["nom_user"])) {
         $pdo = new PDO($dsn, $user, $pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+        // Récupérer l'ID de l'utilisateur
+        $userSql = $pdo->prepare("SELECT id_utilisateur FROM utilisateur WHERE nom_utilisateur = :nom_utilisateur");
+        $userSql->bindParam(':nom_utilisateur', $nom_utilisateur);
+        $userSql->execute();
+        $id_utilisateur = $userSql->fetchColumn();
+
+        if ($id_utilisateur === false) {
+            session_start();
+            // Définir un message d'erreur dans la session
+            $_SESSION['error_message'] = "Utilisateur non trouvé.";
+            // Rediriger vers une autre page
+            header("Location: admin.php");
+            exit();
+        }
+
         // Vérifier si l'utilisateur a des notes de frais
-        $checkSql = $pdo->prepare("SELECT COUNT(*) FROM note_de_frais WHERE nom_utilisateur = :nom_utilisateur");
-        $checkSql->bindParam(':nom_utilisateur', $nom_utilisateur);
+        $checkSql = $pdo->prepare("SELECT COUNT(*) FROM note_de_frais WHERE id_utilisateur = :id_utilisateur");
+        $checkSql->bindParam(':id_utilisateur', $id_utilisateur);
         $checkSql->execute();
         $notesCount = $checkSql->fetchColumn();
 
