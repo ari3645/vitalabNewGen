@@ -65,9 +65,9 @@ body{
   width: 48.5%;
 
   min-width: 40%;
-  height: 600px;
+  height: 590px;
   max-height: 80%;
-  min-height: 600px;
+  min-height: 550px;
 
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   input{
@@ -92,9 +92,9 @@ body{
   margin-top: 10px;
   position: absolute;
   left: 10px;
-  height: 600px;
+  height: 590px;
   max-height: 80%;
-  min-height: 600px;
+  min-height: 550px;
   width: 48.5%;
   text-align: center;
 
