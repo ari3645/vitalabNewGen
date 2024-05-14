@@ -35,12 +35,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $pdo = new PDO($dsn, $user, $pass);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+            // Gestion de l'upload de l'image
+            $image_path = null;
+            if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+                $uploadDir = 'uploads/';
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir, 0755, true);
+                }
+
+                $image_name = basename($_FILES['image']['name']);
+                $image_path = $uploadDir . $image_name;
+
+                if (!move_uploaded_file($_FILES['image']['tmp_name'], $image_path)) {
+                    $_SESSION['ajout_ndf'] = "Erreur lors du téléchargement de l'image.";
+                    header("Location: commercial.php");
+                    exit();
+                }
+            }
+
             // Requête SQL pour insérer une note de frais
-            $sql = $pdo->prepare("INSERT INTO note_de_frais (intitule, date_facture, montant_facture, lieu_facture, image_facture, id_frais, id_utilisateur, statut) VALUES (:intitule, :date_facture, :montant_facture, :lieu_facture, 'image', :type_frais, :id_utilisateur, :statut)");
+            $sql = $pdo->prepare("INSERT INTO note_de_frais (intitule, date_facture, montant_facture, lieu_facture, image_facture, id_frais, id_utilisateur, statut) VALUES (:intitule, :date_facture, :montant_facture, :lieu_facture, :image_path, :type_frais, :id_utilisateur, :statut)");
             $sql->bindParam(':intitule', $intitule);
             $sql->bindParam(':date_facture', $date_facture);
             $sql->bindParam(':montant_facture', $montant_facture);
             $sql->bindParam(':lieu_facture', $lieu_facture);
+            $sql->bindParam(':image_path', $image_path);
             $sql->bindParam(':type_frais', $type_frais);
             $sql->bindParam(':id_utilisateur', $id_utilisateur);
             $sql->bindParam(':statut', $statut);
