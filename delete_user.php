@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  && !empty($_POST["nom_user"])) {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Vérifier si l'utilisateur a des notes de frais
-        $checkSql = $pdo->prepare("SELECT COUNT(*) FROM notes_de_frais WHERE nom_utilisateur = :nom_utilisateur");
+        $checkSql = $pdo->prepare("SELECT COUNT(*) FROM note_de_frais WHERE nom_utilisateur = :nom_utilisateur");
         $checkSql->bindParam(':nom_utilisateur', $nom_utilisateur);
         $checkSql->execute();
         $notesCount = $checkSql->fetchColumn();
