@@ -91,7 +91,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     <div>
         <?php     
-        // Vérifier si un message d'erreur est défini dans la session
+            echo "hello";
+            echo $_SESSION['error_message_not_enleve']; 
+            // Vérifier si un message d'erreur est défini dans la session
             if (isset($_SESSION['error_message_not_enleve'])) {
                 // Afficher le message d'erreur'
                 echo "<p>" . $_SESSION['error_message_not_enleve'] . "</p>";
