@@ -167,6 +167,7 @@ if (!isset($_SESSION['id_utilisateur'])){
               <center><p>Montant : </p><input type="number" name="montant"></center>
               <center><p>Lieu : </p><input type="text" name="lieu"></center>
               <center><p>Id Frais : </p><input type="number" name="id_frais"></center>
+              <center><p>Modifier une image : </p><input type="file" name="image"></center>
               <center><button class="bn1" type="submit">Modifier</button></center>
               <?php
                 // Vérifier si un message de succès est défini dans la session

@@ -45,12 +45,37 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $statut = $sta->fetch(PDO::FETCH_ASSOC);
 
             if ($statut['statut'] == 'En attente' || $statut['statut'] == 'en attente') {
+
+                $image_path = $note_de_frais['image_facture']; // Utiliser l'ancienne image par défaut
+                if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+                    $uploadDir = 'uploads/';
+                    if (!is_dir($uploadDir)) {
+                        mkdir($uploadDir, 0755, true);
+                    }
+
+                    $image_name = basename($_FILES['image']['name']);
+                    $new_image_path = $uploadDir . $image_name;
+
+                    if (move_uploaded_file($_FILES['image']['tmp_name'], $new_image_path)) {
+                        // Supprimer l'ancienne image si elle existe
+                        if ($image_path && file_exists($image_path)) {
+                            unlink($image_path);
+                        }
+                        $image_path = $new_image_path;
+                    } else {
+                        $_SESSION['modif_ndf'] = "Erreur lors du téléchargement de la nouvelle image.";
+                        header("Location: commercial.php");
+                        exit();
+                    }
+                }
+
                 $sql = $pdo->prepare("UPDATE note_de_frais
                 SET intitule = :intitule,
                     date_facture = :date_facture,
                     montant_facture = :montant_facture,
                     lieu_facture = :lieu_facture,
                     id_frais = :id_frais
+                    image_facture = :image_path
                 WHERE id_note_de_frais = :id_note_de_frais");
 
                 // Liaison des valeurs aux paramètres liés
@@ -59,6 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $sql->bindParam(':montant_facture', $montant_facture);
                 $sql->bindParam(':lieu_facture', $lieu_facture);
                 $sql->bindParam(':id_frais', $id_frais, PDO::PARAM_INT);
+                $sql->bindParam(':image_path', $image_path);
                 $sql->bindParam(':id_note_de_frais', $id_note_de_frais, PDO::PARAM_INT);
 
                 // Exécution de la requête
