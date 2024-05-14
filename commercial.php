@@ -142,7 +142,7 @@ if (!isset($_SESSION['id_utilisateur'])  || $_SESSION['id_utilisateur'] == null)
               <p>Montant : </p><input type="number" name="montant">
               <p>Lieu : </p><input type="text" name="lieu">
               <p>Id Frais : </p><input type="number" name="id_frais">
-              <center><p>Ajouter une image : </p><input type="file" name="image"></center>
+              <center><p>Ajouter une image : </p><input type="file" name="image" style="padding-left:25%;"></center>
               <center><button class="bn1" type="submit">Ajouter</button></center>
               <?php
                 // Vérifier si un message de succès est défini dans la session
@@ -166,7 +166,7 @@ if (!isset($_SESSION['id_utilisateur'])  || $_SESSION['id_utilisateur'] == null)
               <center><p>Montant : </p><input type="number" name="montant"></center>
               <center><p>Lieu : </p><input type="text" name="lieu"></center>
               <center><p>Id Frais : </p><input type="number" name="id_frais"></center>
-              <center><p>Modifier une image : </p><input type="file" name="image"></center>
+              <center><p>Modifier une image : </p><input type="file" name="image" style="padding-left:25%;"></center>
               <center><button class="bn1" type="submit">Modifier</button></center>
               <?php
                 // Vérifier si un message de succès est défini dans la session
