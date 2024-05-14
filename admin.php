@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['id_utilisateur']) || $_SESSION['id_utilisateur'] == null) {
-    $_SESSION['error_message_not_enleve']==" Veuillez vous connecter";
+    $_SESSION['error_message_not_enleve']=="Veuillez vous connecter";
     header("Location: index.php");
     exit();
 }
