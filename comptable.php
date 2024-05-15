@@ -46,6 +46,7 @@ if (!isset($_SESSION['id_utilisateur'])  || $_SESSION['id_utilisateur'] == null)
                 <tr>
                     <th>Intitulé</th>
                     <th>Id de la note de frais</th>
+                    <th>Crée par</th>
                     <th>Date de facture</th>
                     <th>Montant</th>
                     <th>Lieu</th>
@@ -78,9 +79,10 @@ if (!isset($_SESSION['id_utilisateur'])  || $_SESSION['id_utilisateur'] == null)
                         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                         // Requête SQL pour récupérer les notes de frais de l'utilisateur connecté
-                        $sql = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut, n.id_note_de_frais, n.intitule
+                        $sql = "SELECT n.date_facture, n.montant_facture,u.nom_utilisateur, n.lieu_facture, f.type_frais, n.statut, n.id_note_de_frais, n.intitule
                         FROM note_de_frais n 
                         INNER JOIN type_de_frais f ON n.id_frais = f.id_frais
+                        INNER JOIN utilisateur u ON n.id_utilisateur = u.id_utilisateur
                         WHERE n.statut = 'En attente' OR n.statut = 'en attente'";
                         $req = $pdo->prepare($sql);
                         $req->execute();
@@ -91,6 +93,7 @@ if (!isset($_SESSION['id_utilisateur'])  || $_SESSION['id_utilisateur'] == null)
                           echo "<tr>";
                           echo "<td>" . htmlspecialchars($row['intitule']) . "</td>";
                           echo "<td>" . htmlspecialchars($row['id_note_de_frais']) . "</td>";
+                          echo "<td>" . htmlspecialchars($row['nom_utilisateur']) . "</td>";
                           echo "<td>" . htmlspecialchars($row['date_facture']) . "</td>";
                           echo "<td>" . htmlspecialchars($row['montant_facture']) . " € </td>";
                           echo "<td>" . htmlspecialchars($row['lieu_facture']) . "</td>";
