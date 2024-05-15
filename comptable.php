@@ -102,7 +102,7 @@ if (!isset($_SESSION['id_utilisateur'])  || $_SESSION['id_utilisateur'] == null)
                           echo "<td>";
                           echo "<form method='post' action='accepter_ndf.php'>";
                           echo "<input type='hidden' name='id_note_de_frais' value='" . htmlspecialchars($row['id_note_de_frais']) . "' />";
-                          echo "<button type='submit' class='btn btn-danger'>Accepter</button>";
+                          echo "<button type='submit' class='btn btn-danger' style="background-color: green;">Accepter</button>";
                           echo "</form>";
                           echo "<form method='post' action='refuser_ndf.php'>";
                           echo "<input type='hidden' name='id_note_de_frais' value='" . htmlspecialchars($row['id_note_de_frais']) . "' />";
