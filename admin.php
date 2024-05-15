@@ -46,6 +46,7 @@ if (!isset($_SESSION['id_utilisateur']) || $_SESSION['id_utilisateur'] == null |
                 <thead>
                   <tr>
                       <th>Date de facture</th>
+                      <!-- <th>Crée par : </th> -->
                       <th>Montant</th>
                       <th>Lieu</th>
                       <th>Type de frais</th>
@@ -76,6 +77,7 @@ if (!isset($_SESSION['id_utilisateur']) || $_SESSION['id_utilisateur'] == null |
                         while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
                           echo "<tr>";
                           echo "<td>" . htmlspecialchars($row['date_facture']) . "</td>";
+                          #echo "<td>" . htmlspecialchars($row['id_commercial']) . "</td>"
                           echo "<td>" . htmlspecialchars($row['montant_facture']) . "</td>";
                           echo "<td>" . htmlspecialchars($row['lieu_facture']) . "</td>";
                           echo "<td>" . htmlspecialchars($row['type_frais']) . "</td>";
