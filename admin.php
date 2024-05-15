@@ -74,10 +74,21 @@ if (!isset($_SESSION['id_utilisateur']) || $_SESSION['id_utilisateur'] == null |
                         $sql = $pdo->prepare($req);
                         $sql->execute();
 
+                        //$requete =SELECT u.nom_utilisateur
+                        // FROM notes_de_frais n
+                        // JOIN utilisateur u ON n.id_utilisateur = u.id_utilisateur
+                        // WHERE n.id_utilisateur = :id_utilisateur;
+
+                        // $sql->bindParam(':id_utilisateur', $id_utilisateur, PDO::PARAM_INT);
+                        // $sql->execute();
+                    
+                        // // Récupérer le nom d'utilisateur
+                        // $nom_utilisateur = $sql->fetchColumn();
+
                         while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
                           echo "<tr>";
                           echo "<td>" . htmlspecialchars($row['date_facture']) . "</td>";
-                          #echo "<td>" . htmlspecialchars($row['id_commercial']) . "</td>"
+                          // echo "<td>" . htmlspecialchars($row['nom_utilisateur']) . "</td>";
                           echo "<td>" . htmlspecialchars($row['montant_facture']) . "</td>";
                           echo "<td>" . htmlspecialchars($row['lieu_facture']) . "</td>";
                           echo "<td>" . htmlspecialchars($row['type_frais']) . "</td>";
