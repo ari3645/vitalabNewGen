@@ -62,7 +62,7 @@ color: #618264;
 }
 
 input{
-  
+  width: 200px;
   display: flex;
   left: 5%;
   right: 5%;
