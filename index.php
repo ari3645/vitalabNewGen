@@ -38,14 +38,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Si le login et le mot de passe correspondent, on redirige vers la page correspondante
         if ($role == '1') {
             $_SESSION['id_utilisateur'] = $id_utilisateur;
+            $_SESSION['role'] = $role;
             header("Location:admin.php");
             exit;
         } else if ($role == '2') {
             $_SESSION['id_utilisateur'] =  $id_utilisateur;
+            $_SESSION['role'] = $role;
             header("Location:comptable.php");
             exit;
         } else if ($role == '3') {
             $_SESSION['id_utilisateur'] =  $id_utilisateur;
+            $_SESSION['role'] = $role;
             header("Location:commercial.php");
             exit;
 
