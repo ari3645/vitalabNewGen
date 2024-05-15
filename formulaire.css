@@ -62,6 +62,9 @@ color: #618264;
 }
 
 input{
+  min-width: 80%;
+  width: 80%;
+  max-width: 80%;
   display: flex;
   left: 5%;
   right: 5%;
