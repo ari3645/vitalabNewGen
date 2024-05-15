@@ -118,7 +118,6 @@ if (!isset($_SESSION['id_utilisateur']) || $_SESSION['id_utilisateur'] == null |
                 <option value="2">Commercial</option>
                 <option value="3">Comptable</option>
               </select>
-              <input type="submit" value="Envoyer">
               <center><button class="bn1" type="submit">Ajouter</button></center>
               <?php     
                 // Vérifier si un message de succès est défini dans la session
