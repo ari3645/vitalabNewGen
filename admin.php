@@ -46,7 +46,7 @@ if (!isset($_SESSION['id_utilisateur']) || $_SESSION['id_utilisateur'] == null |
                 <thead>
                   <tr>
                       <th>Date de facture</th>
-                      <!-- <th>Crée par : </th> -->
+                      <th>Crée par : </th>
                       <th>Montant</th>
                       <th>Lieu</th>
                       <th>Type de frais</th>
@@ -67,28 +67,25 @@ if (!isset($_SESSION['id_utilisateur']) || $_SESSION['id_utilisateur'] == null |
                         $pdo = new PDO($dsn, $user, $pass);
                         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                        // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
-                        $req = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut
-                        FROM note_de_frais n 
-                        INNER JOIN type_de_frais f ON n.id_frais = f.id_frais";
+                        // // Exécuter la requête SQL pour récupérer le nom de l'utilisateur, l'intitulé de la note de frais et le type de frais
+                        // $req = "SELECT n.date_facture, n.montant_facture, n.lieu_facture, f.type_frais, n.statut
+                        // FROM note_de_frais n 
+                        // INNER JOIN type_de_frais f ON n.id_frais = f.id_frais";
+                        // $sql = $pdo->prepare($req);
+                        // $sql->execute();
+
+                        // Exécuter la requête SQL pour récupérer les informations nécessaires
+                        $req = "SELECT n.date_facture, u.nom_utilisateur, n.montant_facture, n.lieu_facture, f.type_frais, n.statut
+                                FROM note_de_frais n
+                                INNER JOIN utilisateur u ON n.id_utilisateur = u.id_utilisateur
+                                INNER JOIN type_de_frais f ON n.id_frais = f.id_frais";
                         $sql = $pdo->prepare($req);
                         $sql->execute();
-
-                        //$requete =SELECT u.nom_utilisateur
-                        // FROM notes_de_frais n
-                        // JOIN utilisateur u ON n.id_utilisateur = u.id_utilisateur
-                        // WHERE n.id_utilisateur = :id_utilisateur;
-
-                        // $sql->bindParam(':id_utilisateur', $id_utilisateur, PDO::PARAM_INT);
-                        // $sql->execute();
-                    
-                        // // Récupérer le nom d'utilisateur
-                        // $nom_utilisateur = $sql->fetchColumn();
 
                         while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
                           echo "<tr>";
                           echo "<td>" . htmlspecialchars($row['date_facture']) . "</td>";
-                          // echo "<td>" . htmlspecialchars($row['nom_utilisateur']) . "</td>";
+                          echo "<td>" . htmlspecialchars($row['nom_utilisateur']) . "</td>";
                           echo "<td>" . htmlspecialchars($row['montant_facture']) . "</td>";
                           echo "<td>" . htmlspecialchars($row['lieu_facture']) . "</td>";
                           echo "<td>" . htmlspecialchars($row['type_frais']) . "</td>";
