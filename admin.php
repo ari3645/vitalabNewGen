@@ -115,8 +115,8 @@ if (!isset($_SESSION['id_utilisateur']) || $_SESSION['id_utilisateur'] == null |
               <p>Statut :</p>
               <select name="role">
                 <option value="1">Administrateur</option>
-                <option value="2">Commercial</option>
-                <option value="3">Comptable</option>
+                <option value="2">Comptable</option>
+                <option value="3">Commercial</option>
               </select>
               <center><button class="bn1" type="submit">Ajouter</button></center>
               <?php     
