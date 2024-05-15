@@ -46,12 +46,12 @@ justify-content: center;
 .card {
 
 margin-top: 7%;
-height: 500px;
+height: 800px;
 width: 600px;
 align-items: center;
 display:grid;
 max-height:max-content;
-margin-bottom: 7%;
+margin-bottom: 5%;
 border: 1px solid rgba(255, 255, 255, .25);
 border-radius: 2px;
 background-color: rgba(255, 255, 255, 0.45);
@@ -62,7 +62,7 @@ color: #618264;
 }
 
 input{
-  
+  width: 200px;
   display: flex;
   left: 5%;
   right: 5%;
